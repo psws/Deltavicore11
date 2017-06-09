@@ -1,0 +1,175 @@
+﻿// Configure bundling and minification for the project.
+// More info at https://go.microsoft.com/fwlink/?LinkId=808241
+[
+
+  {
+    "outputFileName": "wwwroot/css/site.min.css",
+    // An array of relative input file paths. Globbing patterns supported
+    "inputFiles": [
+      "wwwroot/app/css/site.css"
+    ]
+  },
+  {
+    "outputFileName": "wwwroot/js/site.min.js",
+    "inputFiles": [
+      "wwwroot/app/js/site.js"
+    ],
+    // Optionally specify minification options
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    // Optionally generate .map file
+    "sourceMap": false
+  },
+
+  {
+    "outputFileName": "wwwroot/css/cssBundle.css",
+    // An array of relative input file paths. Globbing patterns supported
+    "inputFiles": [
+      "wwwroot/lib/bootstrap/dist/css/bootstrap.css",
+      "wwwroot/lib/font-awesome/css/font-awesome.css",
+      "wwwroot/lib/angular-block-ui/dist/angular-block-ui.min.css"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    // Optionally generate .map file
+    "sourceMap": false,
+    "includeInProject": false
+  },
+
+
+  {
+    "outputFileName": "wwwroot/js/startupBundle.js",
+    // An array of relative input file paths. Globbing patterns supported
+    "inputFiles": [
+      "wwwroot/app/app.module.js",
+      "wwwroot/app/app.config.js",
+      "wwwroot/app/services/ajaxService.js",
+      "wwwroot/app/services/alertService.js",
+      "wwwroot/app/master.controller.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    // Optionally generate .map file
+    "sourceMap": false,
+    "includeInProject": false
+  },
+
+  {
+    "outputFileName": "wwwroot/js/routingBundle.js",
+    // An array of relative input file paths. Globbing patterns supported
+    "inputFiles": [
+      "wwwroot/app/app.routing.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    // Optionally generate .map file
+    "sourceMap": false,
+    "includeInProject": false
+  },
+
+  {
+    "outputFileName": "wwwroot/js/servicesBundle.js",
+    // An array of relative input file paths. Globbing patterns supported
+    "inputFiles": [
+      "wwwroot/app/services/ajaxService.js",
+      "wwwroot/app/services/alertService.js"
+      //"~/Views/Shared/DataGridService.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    // Optionally generate .map file
+    "sourceMap": false,
+    "includeInProject": false
+  },
+
+  {
+    "outputFileName": "wwwroot/js/bootstrapBundle.js",
+    // An array of relative input file paths. Globbing patterns supported
+    "inputFiles": [
+      "wwwroot/lib/bootstrap/dist/js/bootstrap.js",
+      "wwwroot/lib/respond/dest/respond.min.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    // Optionally generate .map file
+    "sourceMap": false,
+    "includeInProject": false
+  },
+  {
+    "outputFileName": "wwwroot/js/angularBundle.js",
+    // An array of relative input file paths. Globbing patterns supported
+    "inputFiles": [
+      "wwwroot/lib/angular/angular.js",
+      "wwwroot/lib/angular-route/angular-route.js",
+      "wwwroot/lib/angular-sanitize/angular-sanitize.js",
+      "wwwroot/lib/angular-bootstrap/ui-bootstrap.min.js",
+      "wwwroot/lib/angular-bootstrap/ui-bootstrap-tpls.min.js",
+      "wwwroot/lib/angular-block-ui/dist/angular-block-ui.min.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    // Optionally generate .map file
+    "sourceMap": false,
+    "includeInProject": false
+  },
+
+  //{
+  //  "outputFileName": "wwwroot/js/jqueryBundle.js",
+  //  // An array of relative input file paths. Globbing patterns supported
+  //  "inputFiles": [
+  //    "wwwroot/lib/jquery/dist/jquery.js"
+  //  ],
+  //  "minify": {
+  //    "enabled": true,
+  //    "renameLocals": true
+  //  },
+  //  // Optionally generate .map file
+  //  "sourceMap": false,
+  //  "includeInProject": false
+  //},
+
+  {
+    "outputFileName": "wwwroot/js/homeAppBundle.js",
+    // An array of relative input file paths. Globbing patterns supported
+    "inputFiles": [
+      "wwwroot/app/home/index.controller.js",
+      "wwwroot/app/home/about.controller.js",
+      "wwwroot/app/home/contact.controller.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    // Optionally generate .map file
+    "sourceMap": false,
+    "includeInProject": false
+  },
+  {
+    "outputFileName": "wwwroot/app/home/index.min.html",
+    // An array of relative input file paths. Globbing patterns supported
+    "inputFiles": [
+      "wwwroot/app/home/index.html"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    // Optionally generate .map file
+    "sourceMap": false,
+    "includeInProject": false
+  }
+]

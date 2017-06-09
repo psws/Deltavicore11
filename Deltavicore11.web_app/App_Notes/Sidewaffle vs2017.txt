@@ -1,0 +1,4 @@
+﻿got to https://github.com/hamzaahmedzia1/side-waffle-vs2017-quick-fix
+
+this is temp fix
+ignore errors on .vsix execution

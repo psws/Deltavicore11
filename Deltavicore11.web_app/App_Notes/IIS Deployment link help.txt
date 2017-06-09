@@ -1,0 +1,18 @@
+﻿Procedure:
+Publish App as Files.
+App is Framework-dependent deployments (FDD)
+	https://docs.microsoft.com/en-us/dotnet/articles/core/deploying/
+I loaded NET Core Windows Server Hosting  but do not know if it was needed.
+	https://docs.microsoft.com/en-us/aspnet/core/publishing/iis
+created IIS pool for unmanaged code netcore11
+I did not need to change pool identity ApplicationPoolIdentity. LoaclSystem also works
+I added newtonsoft.js
+
+The best:
+	http://stackoverflow.com/questions/38624453/asp-net-core-1-0-on-iis-error-502-5
+
+Other: 
+	https://docs.microsoft.com/en-us/dotnet/articles/core/deploying/deploy-with-vs
+	https://docs.microsoft.com/en-us/dotnet/articles/core/deploying/
+kestral:
+	https://stackify.com/how-to-deploy-asp-net-core-to-iis/

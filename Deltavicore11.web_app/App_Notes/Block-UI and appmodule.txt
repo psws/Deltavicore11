@@ -1,0 +1,16 @@
+﻿For some reason this:
+	    angular
+        .module('personApp')
+        .service('ajaxService', ajaxService);
+
+		ajaxService.$inject = ['$http', 'blockUI'];
+
+does not inject Block-UI into Angular
+https://stackoverflow.com/questions/15244272/angularjs-error-unknown-provider
+
+you need to addotto app.module.js
+ var app = angular.module('personApp', [
+        'ngRoute',
+        'ui.bootstrap', 
+        'blockUI' // see note appmodule.txt
+    ]);

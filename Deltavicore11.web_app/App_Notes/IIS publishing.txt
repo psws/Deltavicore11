@@ -1,0 +1,6 @@
+﻿https://stackify.com/how-to-deploy-asp-net-core-to-iis/
+
+publish to a file location c:\temp\HLS
+goto iis follow steps on lonk
+
+My code is at port80 Localhost AspNetcor4.6

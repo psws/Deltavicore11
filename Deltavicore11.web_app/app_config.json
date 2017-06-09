@@ -1,0 +1,14 @@
+﻿{
+  "Data": {
+    "DefaultConnection": {
+      "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=_CHANGE_ME;Trusted_Connection=True;MultipleActiveResultSets=true"
+    }
+  },
+
+  "AppSettings": {
+    "ApplicationName": "Deltavicore11",
+    //not used
+    "ApplicationUrl": "http://localhost:52371/"
+  }
+
+}

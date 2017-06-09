@@ -1,0 +1,80 @@
+﻿Original project was deltaviCore11.web application
+this netcore11 project ran fine in IIS Expres but NOT in Win IIS.
+
+The problem was narroed down to the space between .web and application
+This Error was displaywd when browsing to the page:
+
+	HTTP Error 502.5 - Process Failure 
+
+
+
+	Common causes of this issue: 
+	• The application process failed to start 
+	• The application process started but then stopped 
+	• The application process started but failed to listen on the configured port 
+
+
+
+	Troubleshooting steps: 
+	• Check the system event log for error messages 
+	• Enable logging the application process’ stdout messages 
+	• Attach a debugger to the application process and inspect 
+
+
+	For more information visit:  https://go.microsoft.com/fwlink/?LinkID=808681 
+
+I created a new peoject with proj name of Deltavicore11.web_app and this works fine.
+
+In  the failed project the web.config fie
+had:
+	<aspNetCore processPath="dotnet" arguments=".\deltaviCore11.web application.dll" stdoutLogEnabled="false" stdoutLogFile=".\logs\stdout" />
+
+When I browsed to localhost:8089 The event viewer showed:
+	Log Name:      Application
+	Source:        IIS AspNetCore Module
+	Date:          5/7/2017 4:50:38 PM
+	Event ID:      1000
+	Task Category: None
+	Level:         Error
+	Keywords:      Classic
+	User:          N/A
+	Computer:      PSS60
+	Description:
+	Application 'MACHINE/WEBROOT/APPHOST/DEFAULT WEB SITE/DELTAVI' with physical root 'C:\temp\net core11\' failed to start process with commandline '"dotnet" .\deltaviCore11.dll', ErrorCode = '0x80004005 : 8000808c.
+	Event Xml:
+	<Event xmlns="http://schemas.microsoft.com/win/2004/08/events/event">
+	  <System>
+		<Provider Name="IIS AspNetCore Module" />
+		<EventID Qualifiers="0">1000</EventID>
+		<Level>2</Level>
+		<Task>0</Task>
+		<Keywords>0x80000000000000</Keywords>
+		<TimeCreated SystemTime="2017-05-07T23:50:38.483932400Z" />
+		<EventRecordID>52532</EventRecordID>
+		<Channel>Application</Channel>
+		<Computer>PSS60</Computer>
+		<Security />
+	  </System>
+	  <EventData>
+		<Data>Application 'MACHINE/WEBROOT/APPHOST/DEFAULT WEB SITE/DELTAVI' with physical root 'C:\temp\net core11\' failed to start process with commandline '"dotnet" .\deltaviCore11.dll', ErrorCode = '0x80004005 : 8000808c.</Data>
+	  </EventData>
+	</Event>
+
+This was not helpful
+There was nothing of value in C:\inetpub\logs\LogFiles\W3SVC5\u_ex170507_x.log
+	#Software: Microsoft Internet Information Services 10.0
+	#Version: 1.0
+	#Date: 2017-05-07 18:08:28
+	#Fields: date time s-ip cs-method cs-uri-stem cs-uri-query s-port cs-username c-ip cs(User-Agent) cs(Referer) sc-status sc-substatus sc-win32-status time-taken
+	2017-05-07 18:08:25 ::1 GET / - 8089 - ::1 Mozilla/5.0+(Windows+NT+10.0;+WOW64;+Trident/7.0;+rv:11.0)+like+Gecko - 502 5 0 1018
+
+	This also was not helpful.
+
+I modified the web.config file:
+		<aspNetCore processPath="dotnet" arguments=".\deltaviCore11.web application.dll" stdoutLogEnabled="true" stdoutLogFile=".\logs\stdout" />
+This turned on app logging.
+It did not work until I creared the 'logs' directory in the Publish target directory.
+Alog file was written with this error:
+	".\deltaviCore11.web was not found.
+
+THUS WAS THE ERRO, The space was no good!

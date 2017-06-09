@@ -1,0 +1,278 @@
+﻿@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet
+
+@using Microsoft.Extensions.Options
+
+@using Microsoft.AspNetCore.Http;
+@using Microsoft.AspNetCore.Hosting;
+
+@*@using AspNetCoreInjectConfigurationRazor.Configuration;*@
+@inject IOptions<OptionsAppSettings>  OptionsAppSettings;
+
+@inject IHttpContextAccessor context;
+@inject IHostingEnvironment env; 
+@using Deltavicore11.web_app.Models;
+@using Deltavicore11.web_app.Helpers;
+
+@{
+    //string baseUrl = OptionsAppSettings.Value.ApplicationUrl;
+    //https://stackoverflow.com/questions/39864550/how-to-get-base-url-without-accessing-a-request
+    string baseUrl = $"{context.HttpContext.Request.Scheme}://{context.HttpContext.Request.Host.ToUriComp‌​onent()}/";
+    var version = OptionsAppSettings.Value.ApplicationVersion;
+    var envName = env.EnvironmentName;
+    string bundleInformationJSON = string.Empty;
+
+    if (envName != "Development")
+    {
+        //https://gist.github.com/mohamedmansour/cd50123f8575daba7a7f12847b12da5d
+        List<CustomBundle> bundles = Deltavicore11.web_app.Helpers.Bundling.GetAppBundles(env.ContentRootPath);
+
+
+        BundleInformation bundleInformation = new BundleInformation();
+        bundleInformation.Bundles = bundles;
+        bundleInformationJSON = Newtonsoft.Json.JsonConvert.SerializeObject(bundleInformation, Newtonsoft.Json.Formatting.None);
+    }
+
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Deltavicore11.web_app</title>
+
+
+
+    <environment names="Development,Staging,Production">
+        <script src="~/lib/requirejs/require.js"></script>
+    </environment>
+
+    <environment names="Development">
+        @*<script src="~/lib/jquery/dist/jquery.js"></script>
+        <script src="~/js/jqueryBundle.js"></script>
+        <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+        <script src="~/js/bootstrapBundle.js"></script>
+        *@
+
+        @*<script src="~/lib/angular/angular.js"></script>
+        <script src="~/lib/angular-bootstrap/ui-bootstrap.js"></script>
+        <script src="~/lib/angular-sanitize/angular-sanitize.js"></script>
+        <script src="~/lib/angular-route/angular-route.js"></script>
+        <script src="~/lib/angular-block-ui/dist/angular-block-ui.js"></script>*@
+
+        <script src="~/js/angularBundle.js"></script>
+
+    </environment>
+
+    <environment names="Staging,Production">
+        @*<script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-2.2.0.min.js"
+                asp-fallback-src="~/lib/jquery/dist/jquery.min.js"
+                asp-fallback-test="window.jQuery"
+                crossorigin="anonymous"
+                integrity="sha384-K+ctZQ+LL8q6tP7I94W+qzQsfRV2a+AfHIi9k8z8l9ggpc8X+Ytst4yBo/hH+8Fk">
+        </script>
+        <script src="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/bootstrap.min.js"
+                asp-fallback-src="~/lib/bootstrap/dist/js/bootstrap.min.js"
+                asp-fallback-test="window.jQuery && window.jQuery.fn && window.jQuery.fn.modal"
+                crossorigin="anonymous"
+                integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa">
+        </script>*@
+        <script src="~/lib/respond/dest/respond.min.js"></script>
+
+
+        <script src="~/js/angularBundle.min.js"></script>
+    </environment>
+
+    <environment names="Development">
+        <link rel="stylesheet" href="~/css/cssBundle.css" />
+    </environment>
+    <environment names="Staging,Production">
+        <link rel="stylesheet" href="~/css/cssBundle.min.css" />
+    </environment>
+
+    
+    <environment names="Development">
+        <link rel="stylesheet" href="~/app/css/site.css" />
+        <link rel="stylesheet" href="~/app/css/deltavi.css" />
+
+    </environment>
+    <environment names="Staging,Production">
+        @*<link rel="stylesheet" href="https://ajax.aspnetcdn.com/ajax/bootstrap/3.3.7/css/bootstrap.min.css"
+              asp-fallback-href="~/lib/bootstrap/dist/css/bootstrap.min.css"
+              asp-fallback-test-class="sr-only" asp-fallback-test-property="position" asp-fallback-test-value="absolute" />*@
+        <link rel="stylesheet" href="~/css/site.min.css" asp-append-version="true" />
+        <link rel="stylesheet" href="~/app/css/deltavi.css" />
+   </environment>
+
+
+
+
+    @Html.Raw(JavaScriptSnippet.FullScript)
+
+    <base href="@baseUrl" name="base" />
+
+
+
+</head>
+
+<body ng-app="deltavi" ng-controller="masterController as vm" ng-init="vm.initializeController()">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <span class="navbar-brand"><a href="Home/Index">AngularJS MVC Code Project</a></span>
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+
+                    <li><a href="Home/Index">Home</a></li>
+                    <li><a href="Home/Contact">Contact Us</a></li>
+                    <li><a href="Home/About">About</a></li>
+                    <li><a href="Customers/CustomerMaintenance">Customer Maintenance</a></li>
+                    <li><a href="Customers/CustomerInquiry">Customer Inquiry</a></li>
+                    <li><a href="Products/ProductMaintenance">Product Maintenance</a></li>
+                    <li><a href="Products/ProductInquiry">Product Inquiry</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="container body-content">
+
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - AngularJS MVC @version</p>
+        </footer>
+    </div>
+
+
+
+    <environment names="Development">
+        <script src="~/app/js/site.js" asp-append-version="true"></script>
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/js/site.min.js" asp-append-version="true"></script>
+    </environment>
+
+    <environment names="Development">
+        @*<script src="~/app/app.module.js" asp-append-version="true"></script>
+        <script src="~/app/app.config.js" asp-append-version="true"></script>
+
+
+        <script src="~/app/services/ajaxService.js" asp-append-version="true"></script>
+
+        <script src="~/app/master.Controller.js" asp-append-version="true"></script>*@
+        <script src="~/js/startupBundle.min.js"></script>
+
+    </environment>
+    <environment names="Staging,Production">
+        <script src="~/js/startupBundle.min.js"></script>
+    </environment>
+
+
+    @*<environment names="Development,Staging,Production">
+        <script src="~/js/servicesBundle.js"></script>
+    </environment>*@
+
+
+
+
+    <script>
+        console.log("applicationConfiguration start");
+
+        (function () {
+            var app = angular.module('deltavi');
+            app.provider('applicationConfiguration', function () {
+                var _version;
+                var _bundles;
+                var _envName;
+                return {
+                    setVersion: function (version) {
+                        _version = version;
+                    },
+                    setBundles: function (bundles) {
+                        _bundles = JSON.parse(bundles);
+                    },
+                    getVersion: function () {
+                        return _version;
+                    },
+                    setEnv: function (envName) {
+                        _envName = envName;
+                    },
+                    getEnv: function (envName) {
+                        return _envName;
+                    },
+                    getBundle: function (bundleName) {
+                        var Path = '';
+                        for (var i = 0; i < _bundles.Bundles.length; i++) {
+                            if (bundleName.toLowerCase() == _bundles.Bundles[i].BundleName) {
+                                Path=  _bundles.Bundles[i].Path;
+                            }
+                        }
+                        return Path;
+                    },
+                    IsLoaded: function (bundleName) {
+                        var bVal = false;
+                        for (var i = 0; i < _bundles.Bundles.length; i++) {
+                            if (bundleName.toLowerCase() == _bundles.Bundles[i].BundleName) {
+                                if (_bundles.Bundles[i].IsLoaded) {
+                                    bVal = true;
+                                }
+                            }
+                        }
+                        return bVal;
+                    },
+                    SetLoaded: function (bundleName) {
+                        for (var i = 0; i < _bundles.Bundles.length; i++) {
+                            if (bundleName.toLowerCase() == _bundles.Bundles[i].BundleName) {
+                                _bundles.Bundles[i].IsLoaded = true;
+                            }
+                        }
+                    },
+
+                    $get: function () {
+                        return {
+                            version: _version,
+                            bundles: _bundles,
+                            envName: _envName
+                        }
+                    }
+                }
+            });
+
+            app.config(function (applicationConfigurationProvider) {
+                applicationConfigurationProvider.setVersion('@version');
+                applicationConfigurationProvider.setEnv('@envName');
+                if ( applicationConfigurationProvider.getEnv() != "Development") {
+                    applicationConfigurationProvider.setBundles('@Html.Raw(bundleInformationJSON)');
+                }
+            });
+
+        })();
+        console.log("applicationConfiguration end");
+
+    </script>
+
+    <environment names="Development">
+        <script src="~/js/routingBundle.js"></script>
+    </environment>
+
+    <environment names="Staging,Production">
+        <script src="~/js/routingBundle.min.js"></script>
+    </environment>
+
+
+
+    @*<script src="~/app/home/index.controller.js" asp-append-version="true"></script>*@
+
+
+
+    @*http://stackoverflow.com/questions/23327578/what-is-rendersection-in-asp-net-mvc*@
+    @RenderSection("Scripts", required: false)
+</body>
+
+</html>

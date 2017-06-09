@@ -1,0 +1,41 @@
+﻿install http://www.sqliteexpert.com/download.html 64 bit
+Launch SQLite Expert personal application
+
+Create new database: File=> New Database
+ D:\vwd projects mvc angular\Deltavicore11\SQLiteDB\Charges Communes.db3
+
+ install ODBC DRIVERS from:
+ http://www.ch-werner.de/sqliteodbc/ or
+ D:\SQLite\odbc driver\sqliteodbc.exe
+	For Win64 operating systems a binary package is available as an NSIS installer in sqliteodbc_w64.exe. 
+	It was made with SQLite 3.15.2 and a MinGW cross compiler, and contains the driver DLLs and programs for installation and uninstallation of the ODBC driver.
+	Note that this is a 64 bit only driver. 
+	If you're using 32 bit software on Win64 you should install the Win32 driver, too
+
+Now create a system DSN
+connection string:
+Dsn=Charges Communes;Driver={SQLite3 ODBC Driver}
+	got control panel=> Administrative Tools=> ODBC data sources(32 bit)
+	click add and select SQLite3 ODBC Driver
+	Configure DSN dialog by entering Data Source Name 'SQLite3 ODBC Driver'
+	For Databasename enter 'Charges Communes'
+	leave all of te rest unchanged
+
+	Next click on Charges Communes under Name
+	click the Configure button
+	Data Source Name: Charges Communes
+	Data Base Name: D:\vwd projects mvc angular\Deltavicore11\SQLiteDB\Charges Communes.db3
+
+EXPORT FROM ACCESS to Charges Communes.db3
+open Access as administrator
+open database: D:\Deltavi cn8kd\Fichiers Access 2014\Charges Communes 2014.mdb
+right click on table:Achat Vaccins/Vétérinaires/Désinfectants 2014
+	select Export =>ODBC Database
+	in the dialog change table name to ODBC Achat Vaccins/Vétérinaires/Désinfectants
+	select OK
+	in the Select Data Source dialog select the 'Machine data Source' tab
+	select 'Charges Commune'
+	select OK
+	in the save Export Steps dialog  check the 'Save Export Steps' check box
+	Select Save Export
+	The table is now exported

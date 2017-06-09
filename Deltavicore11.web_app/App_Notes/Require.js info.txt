@@ -1,0 +1,11 @@
+﻿The require.js file is installed in project under bower
+Look for the 'requirejs' package
+
+The require.js fileis installed under wwwroot/lib/requirejs.
+
+You can not minify or bundle require.js
+http://requirejs.org/docs/faq-advanced.html
+
+require.js does not have 'use strict'
+
+Add require.js in the _layout.cshtml
