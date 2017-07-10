@@ -1,8 +1,11 @@
 ﻿{
   "Data": {
-    "DefaultConnection": {
-      "DefaultConnection": "Server=(localdb)\\MSSQLLocalDB;Database=_CHANGE_ME;Trusted_Connection=True;MultipleActiveResultSets=true"
-    }
+    "Sql": {
+      "ConnectionString": "Server=PSS60\\SQL2014;Database=Expenses;Trusted_Connection=True;MultipleActiveResultSets=true"
+    },
+    "Sqlite": {
+      "ConnectionString": "Server=PSS60\\SQL2014;Database=Expenses;Trusted_Connection=True;MultipleActiveResultSets=true"
+    },
   },
 
   "AppSettings": {

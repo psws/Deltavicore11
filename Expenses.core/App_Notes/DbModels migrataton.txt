@@ -1,0 +1,42 @@
+﻿add library Microsoft.EntityFrameworkCore.Design
+
+Then run this command in the pm
+ PM> Enable-Migrations -Force -ProjectName Expenses.core -StartupProjectName Deltavicore11.web_app -ContextTypeName Expenses.core.DataLayer.DBModels -MigrationsDirectory DataLayer\DbModels\Migrations
+Package Model Console output
+PM> Enable-Migrations -Force -ProjectName Logqso.mvc.DataModel -StartupProjectName Logqso.mvc.ui -ContextTypeName Logqso.mvc.DataModel.LogControl.LogControlDB -MigrationsDirectory DataLayer\DbModels\Migrations\LogControlDB
+Checking if the context targets an existing database...
+Code First Migrations enabled for project Logqso.mvc.DataModel.
+
+Next do the Add-Migration
+Add-Migration [-Name] <String> [-OutputDir <String>] [-Context <String>] [-Environment <String>] [-Project <String>] [-StartupProject <String>] [<CommonParameters>]
+RELATED LINKS
+    Remove-Migration
+    Update-Database
+    about_EntityFrameworkCore 
+
+REMARKS
+    To see the examples, type: "get-help Add-Migration -examples".
+    For more information, type: "get-help Add-Migration -detailed".
+    For technical information, type: "get-help Add-Migration -full".
+    For online help, type: "get-help Add-Migration -online"
+
+PM> Add-Migration -Project Expenses.core -StartupProject Deltavicore11.web_app -Context ExpenseDbContext -OutputDir DataLayer\DbModels\Migrations -Name "InitialDatabaseCreation" 
+
+ Remove-Migration -Project Expenses.core -StartupProject Deltavicore11.web_app
+
+
+
+Update-Database [[-Migration] <String>] [-Context <String>] [-Environment <String>] [-Project <String>] [-StartupProject <String>] [<CommonParameters>]
+-Migration <String>
+        The target migration. If '0', all migrations will be reverted. Defaults to the last migration.
+-Environment <String>
+        The environment to use. Defaults to "Development".
+<CommonParameters>
+        This cmdlet supports the common parameters: Verbose, Debug,
+        ErrorAction, ErrorVariable, WarningAction, WarningVariable,
+        OutBuffer, PipelineVariable, and OutVariable. For more information, see 
+        about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). 
+
+PM> Update-Database -Project Expenses.core -StartupProject Deltavicore11.web_app -Context ExpenseDbContext
+There is no seed method. Seeding happens when app is 1st run
+

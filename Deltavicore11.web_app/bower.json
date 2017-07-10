@@ -16,7 +16,8 @@
     "angular-ui-grid": "v4.0.4",
     "angular-ui-bootstrap": "v1.1.0",
     "requirejs": "2.3.3",
-    "respond": "1.4.2"
+    "respond": "1.4.2",
+    "jasmine-core": "jasmine#v2.6.3"
   },
   "resolutions": {
     "angular": "1.6.5-build.5353+sha.136a42a"

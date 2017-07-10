@@ -1,0 +1,168 @@
+﻿There are 3 basic techniques
+
+1)
+This is the simplest. The UseSqlServer() is local to the dbcontext file.
+SQl is seleceted in Startup.cs: services.AddEntityFrameworkSqlServer().AddDbContext<ExpenseDbContext>();
+The  DbSet<Provider> member of the ExpenseDbContext class triggers the anotated Provider class to be added to the Model.
+	public class ExpenseDbContext : Microsoft.EntityFrameworkCore.DbContext
+    {
+        public String ConnectionString { get; }
+        public IEntityMapper EntityMapper { get; }
+
+        public ExpenseDbContext(IOptions<AppSettings> appSettings, IEntityMapper entityMapper)
+        {
+            ConnectionString = appSettings.Value.ConnectionString;
+            EntityMapper = entityMapper;
+        }
+
+        public DbSet<Provider> Provider { get; set; }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(ConnectionString);
+
+            base.OnConfiguring(optionsBuilder);
+        }
+
+2)
+This method is simalr to 1) but the Provider class is added to the ExpenseDbContext in the 
+OnModelCreating() override with modelBuilder.Entity<Provider>();
+	public class ExpenseDbContext : Microsoft.EntityFrameworkCore.DbContext
+    {
+        public String ConnectionString { get; }
+        public IEntityMapper EntityMapper { get; }
+
+        public ExpenseDbContext(IOptions<AppSettings> appSettings, IEntityMapper entityMapper)
+        {
+            ConnectionString = appSettings.Value.ConnectionString;
+            EntityMapper = entityMapper;
+        }
+
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(ConnectionString);
+
+            base.OnConfiguring(optionsBuilder);
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+
+            //this adds the type if not in the model
+            modelBuilder.Entity<Provider>();
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+    }
+3)
+This method is simalr to 2) but the Provider class is added to the ExpenseDbContext via the 
+EntityMapper.MapEntities(modelBuilder) method.
+The Provider class is derived from IEntity and decorated with [Export(typeof(IEntity))].
+A Map() method from IEntityMap is also added. This function acyually adds the Provider class to 
+the ExpenseDbContext.
+A ExpenseDbContext has an IEntityMapper interface
+        public ExpenseDbContext(IOptions<AppSettings> appSettings, IEntityMapper entityMapper)
+        {
+            ConnectionString = appSettings.Value.ConnectionString;
+            EntityMapper = entityMapper;
+        }
+
+A .netcore service injects an IEntityMapper.
+	            services.AddScoped<IEntityMapper, ExpenseEntityMapper>();
+
+The injection calls ExpenseEntityMapper.cs:ExpenseEntityMapper() which collects all of the objects decorated with the 
+[Export(typeof(IEntity))] decoration into the ExpenseDbContext EntityMapper's  Mappings container
+The OnModelCreating() overide calls the EntityMapper.MapEntities(modelBuilder) method
+NOT USED	This method callsthe Provider's  Map() method which adds the Provider to the model with the
+			modelBuilder.Entity<Provider>().
+This method gets the type from the Mapping container with item.GetType().
+The Provider is added to the model with the  modelBuilder.Entity(type) method.
+This #3 method auto discovers all DB POCO  members and adds them to the Model.
+Since the model has no DBSet members, a table is referenced by:
+	context.Set<Provider>().Any())
+The Set<Provider>() methos creates a DBSet for DB access.
+
+	public class ExpenseDbContext : Microsoft.EntityFrameworkCore.DbContext
+    {
+        public String ConnectionString { get; }
+        public IEntityMapper EntityMapper { get; }
+
+        public ExpenseDbContext(IOptions<AppSettings> appSettings, IEntityMapper entityMapper)
+        {
+            ConnectionString = appSettings.Value.ConnectionString;
+            EntityMapper = entityMapper;
+        }
+
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.UseSqlServer(ConnectionString);
+
+            base.OnConfiguring(optionsBuilder);
+        }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            EntityMapper.MapEntities(modelBuilder);
+
+            base.OnModelCreating(modelBuilder);
+        }
+
+    }
+	[Export(typeof(IEntity))]
+    [Table("Provider", Schema = "Purchases")]
+
+    public class Provider : IEntity
+    {	//The export typeof must be part of the provider class or else ypu will get a Cpmposition exception
+        public Provider()
+        {
+            //CreationDateTime = DateTime.Now;
+
+        }
+
+		NOT USED		//this method adds the DBSet to context
+						public void Map(ModelBuilder modelBuilder)
+						{
+							modelBuilder.Entity<Provider>();
+						}
+
+    public class ExpenseEntityMapper : EntityMapper
+    {
+        public ExpenseEntityMapper()
+        {
+            var assemblies = new[] { typeof(ExpenseDbContext).GetTypeInfo().Assembly };
+
+            var configuration = new ContainerConfiguration().WithAssembly(typeof(ExpenseDbContext).GetTypeInfo().Assembly);
+
+            using (var container = configuration.CreateContainer())
+            {
+                Mappings = container.GetExports<IEntity>();
+            }
+        }
+    }
+______________________
+ public class EntityMapper : IEntityMapper
+    {
+        // collection of     [Export(typeof(IEntityMap))]
+        //that MapEntities() builds models
+
+        public IEnumerable<IEntity> Mappings { get; set; }
+
+        public EntityMapper()
+        {
+        }
+
+
+        public void MapEntities(ModelBuilder modelBuilder)
+        {
+            //foreach (var item in Mappings) { item.Map(modelBuilder); }
+            foreach (var item in Mappings)
+            {
+                Type type = item.GetType();
+                modelBuilder.Entity(type);
+            }
+
+        }
+    }

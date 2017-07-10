@@ -1,0 +1,14 @@
+﻿https://docs.microsoft.com/en-us/ef/core/get-started/aspnetcore/new-db
+
+install Microsoft.EntityFrameworkCore.SqlServer
+//for db migrations
+install Microsoft.EntityFrameworkCore.Tools
+
+•Open Startup.cs
+
+•Add the following using statements:
+
+using Expenses.core.DataLayer.DBModels;
+using Microsoft.EntityFrameworkCore;
+
+
