@@ -39,6 +39,16 @@ namespace Expenses.core.DataLayer.DBModels
         //[MaxLength(100)]
         public string ContactName { get; set; }
 
+        [Column(TypeName = "nvarchar(15)")]
+        public string PhoneCountryCode { get; set; }
+
+        [Column(TypeName = "nvarchar(15)")]
+        public string PhoneLocal { get; set; }
+
+        [Column(TypeName = "nvarchar(15)")]
+        //[MaxLength(100)]
+        public string PhoneExtension { get; set; }
+
         //[Required]
         [Column(TypeName = "nvarchar(200)")]
         //[MaxLength(200)]
@@ -60,6 +70,19 @@ namespace Expenses.core.DataLayer.DBModels
         [Column(TypeName = "nvarchar(50)")]
         //[MaxLength(50)]
         public string CountryAddress { get; set; }
+
+        [Column(TypeName = "nvarchar(25)")]
+        public string PostalCode { get; set; }
+
+        [Column(TypeName = "nvarchar(50)")]
+        public string Email { get; set; }
+
+        [Column(TypeName = "nvarchar(200)")]
+        public string Website { get; set; }
+
+        [Column(TypeName = "nvarchar(200)")]
+        public string Facebook { get; set; }
+
 
         //[Column(TypeName = "nvarchar(100)")]
         ////[MaxLength(100)]
