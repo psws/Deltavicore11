@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 
-namespace Expenses.core.DataLayer.Mapping
+namespace Expenses.data.entityframework.Mapping
 {
     public interface IEntityMap
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Expenses.core
+namespace Expenses.data.entityframework
 {
     public class AppSettings
     {

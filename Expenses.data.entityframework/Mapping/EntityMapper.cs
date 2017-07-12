@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using Microsoft.EntityFrameworkCore;
-using Expenses.core.DataLayer.DbModels;
+using Expenses.common.interfaces.Data;
 
 
-namespace Expenses.core.DataLayer.Mapping
+namespace Expenses.data.entityframework.Mapping
 {
    public class EntityMapper : IEntityMapper
     {

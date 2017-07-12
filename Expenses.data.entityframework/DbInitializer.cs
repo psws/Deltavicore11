@@ -4,12 +4,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using Expenses.core.DataLayer.DBModels;
 using Microsoft.Extensions.Options;
-using Expenses.core.DataLayer.Mapping;
+
 using System.Threading.Tasks;
 using Microsoft.Extensions.Logging;
 
 
-namespace Expenses.core.DataLayer
+namespace Expenses.data.entityframework
 {
     public static class DbInitializer
     {
@@ -33,22 +33,23 @@ namespace Expenses.core.DataLayer
                     new Provider{ProviderNamee="ALF SAHEL",CountryAddress = "Morocco", CityAddress="Casablanca",PostalCode="20100",
                             RouteAddress ="Route D El Jadida",MilePostAddress = "Km 28", Email = "alfsahel@alfsahel.com",
                             PhoneCountryCode = "212" , PhoneLocal =  "(0)5229-64705",
-                            Facebook = "https://www.facebook.com/pages/alf-sahel/172709959593562",
-                            CreationDateTime=DateTime.Parse("2005-09-01")},
-                    new Provider{ProviderNamee="DISTICA",CountryAddress = "Morocco", CityAddress="Kenitra", CreationDateTime=DateTime.Parse("2005-09-01")},
+                            Facebook = @"https://www.facebook.com/pages/alf-sahel/172709959593562",
+                            CreationDateTime=DateTime.Parse("2013-09-01")},
+
+                    new Provider{ProviderNamee="DISTICA",CountryAddress = "Morocco", CityAddress="Kenitra", CreationDateTime=DateTime.Parse("2013-09-01")},
                     new Provider{ProviderNamee="ALF AL  ATLAS",CountryAddress = "Morocco", CityAddress="Casablanca", PostalCode = "20000",
-                            StreetAddress ="105, Bd. d’Anfa", Email = "info@zalar.ma", Website= "http://zalar.ma/en/animal-feed-production/",
+                            StreetAddress = "105, Bd. d’Anfa" , Email = "info@zalar.ma", Website= @"http://zalar.ma/en/animal-feed-production/",
                             PhoneCountryCode = "212" , PhoneLocal =  "(0)5 22 33 15 42",
-                            CreationDateTime =DateTime.Parse("2005-09-01")},
+                            CreationDateTime =DateTime.Parse("2013-09-01")},
                      new Provider{ProviderNamee="EDDIK",CountryAddress = "Morocco", CityAddress="Berrechid", PostalCode = "26100",
                             MilePostAddress = "Km 4,5", RouteAddress= "Main Road 7", StreetAddress ="118", Email = "contact@eddik.ma",
                             PhoneCountryCode = "212" , PhoneLocal =  "(0)522-336797",
-                            CreationDateTime =DateTime.Parse("2005-09-01")},
-                     new Provider{ProviderNamee="INAAM",CountryAddress = "Morocco", CreationDateTime=DateTime.Parse("2005-09-01")},
+                            CreationDateTime =DateTime.Parse("2013-09-01")},
+                     new Provider{ProviderNamee="INAAM",CountryAddress = "Morocco", CreationDateTime=DateTime.Parse("2013-09-01")},
                      new Provider{ProviderNamee="SOPROMAL",CountryAddress = "Morocco", CityAddress="Témara ", PostalCode = "12050",
-                            StreetAddress ="Zone Industrielle Temara1,", 
+                            StreetAddress ="Zone Industrielle Temara1,",
                             PhoneCountryCode = "212" , PhoneLocal =  "(0)527-740696",
-                            CreationDateTime =DateTime.Parse("2005-09-01")},
+                            CreationDateTime =DateTime.Parse("2013-09-01")}
 
                   };
 
@@ -56,7 +57,15 @@ namespace Expenses.core.DataLayer
                 {
                     context.Set<Provider>().Add(s);
                 }
-                await context.SaveChangesAsync();
+                try
+                {
+                    await context.SaveChangesAsync();
+                }
+                catch (Exception ex)
+                {
+
+                    throw;
+                }
 
 
 

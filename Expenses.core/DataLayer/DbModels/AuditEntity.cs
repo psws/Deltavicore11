@@ -2,7 +2,6 @@
 using System.Composition;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
 
 namespace Expenses.core.DataLayer.DbModels
 {

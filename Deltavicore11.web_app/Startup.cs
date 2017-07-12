@@ -15,7 +15,9 @@ using Microsoft.AspNetCore.Http;
 using Newtonsoft.Json.Serialization;
 using Expenses.core;
 using Expenses.core.DataLayer;
-using Expenses.core.DataLayer.Mapping;
+using Expenses.data.entityframework.Mapping;
+using Expenses.data.entityframework;
+
 
 namespace Deltavicore11.web_app
 {

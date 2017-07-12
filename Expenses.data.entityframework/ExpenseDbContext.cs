@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using System.Text;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
-using Expenses.core.DataLayer.Mapping;
+using Expenses.data.entityframework.Mapping;
 using Microsoft.Extensions.Logging;
 using Expenses.core.DataLayer.DBModels;
 
-namespace Expenses.core.DataLayer
+namespace Expenses.data.entityframework
 {
     public class ExpenseDbContext : Microsoft.EntityFrameworkCore.DbContext
     {

@@ -1,7 +1,7 @@
 ﻿{
   "Data": {
     "Sql": {
-      "ConnectionString": "Server=PSS60\\SQL2014;Database=Expenses;Trusted_Connection=True;MultipleActiveResultSets=true"
+      "ConnectionString": "Server=PSS60\\SQL2014;Database=Expenses;Trusted_Connection=True;user id=jims9m8r;password=jims9m8r;MultipleActiveResultSets=true"
     },
     "Sqlite": {
       "ConnectionString": "Server=PSS60\\SQL2014;Database=Expenses;Trusted_Connection=True;MultipleActiveResultSets=true"

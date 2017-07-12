@@ -2,8 +2,7 @@
 using System.Composition;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Microsoft.EntityFrameworkCore;
-using Expenses.core.DataLayer.Mapping;
+using Expenses.common.interfaces.Data;
 using Expenses.core.DataLayer.DbModels;
 
 
@@ -42,7 +41,7 @@ namespace Expenses.core.DataLayer.DBModels
         [Column(TypeName = "nvarchar(15)")]
         public string PhoneCountryCode { get; set; }
 
-        [Column(TypeName = "nvarchar(15)")]
+        [Column(TypeName = "nvarchar(29)")]
         public string PhoneLocal { get; set; }
 
         [Column(TypeName = "nvarchar(15)")]

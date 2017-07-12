@@ -132,9 +132,12 @@ The Set<Provider>() methos creates a DBSet for DB access.
     {
         public ExpenseEntityMapper()
         {
-            var assemblies = new[] { typeof(ExpenseDbContext).GetTypeInfo().Assembly };
+		//get all assemblies that have an IAuditEntity interface
+		//This will target the Expenses.core assembly
+		//This assembly contains the POCO entities that need tp be added to the Model
+            var assemblies = new[] { typeof(IAuditEntity).GetTypeInfo().Assembly };
 
-            var configuration = new ContainerConfiguration().WithAssembly(typeof(ExpenseDbContext).GetTypeInfo().Assembly);
+            var configuration = new ContainerConfiguration().WithAssembly(typeof(IAuditEntity).GetTypeInfo().Assembly);
 
             using (var container = configuration.CreateContainer())
             {
@@ -145,7 +148,7 @@ The Set<Provider>() methos creates a DBSet for DB access.
 ______________________
  public class EntityMapper : IEntityMapper
     {
-        // collection of     [Export(typeof(IEntityMap))]
+        // collection of     [Export(typeof(IEntity))]
         //that MapEntities() builds models
 
         public IEnumerable<IEntity> Mappings { get; set; }

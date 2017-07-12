@@ -3,12 +3,12 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Migrations;
-using Expenses.core.DataLayer;
+using Expenses.data.entityframework;
 
-namespace Expenses.core.DataLayer.DbModels.Migrations
+namespace Expenses.data.entityframework.Migrations
 {
     [DbContext(typeof(ExpenseDbContext))]
-    [Migration("20170710161629_InitialDatabaseCreation")]
+    [Migration("20170712192638_InitialDatabaseCreation")]
     partial class InitialDatabaseCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -34,6 +34,12 @@ namespace Expenses.core.DataLayer.DbModels.Migrations
                     b.Property<DateTime?>("CreationDateTime")
                         .ValueGeneratedOnAdd();
 
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("Facebook")
+                        .HasColumnType("nvarchar(200)");
+
                     b.Property<DateTime?>("LastUpdateDateTime")
                         .ValueGeneratedOnAddOrUpdate();
 
@@ -42,6 +48,18 @@ namespace Expenses.core.DataLayer.DbModels.Migrations
 
                     b.Property<string>("MilePostAddress")
                         .HasColumnType("nvarchar(50)");
+
+                    b.Property<string>("PhoneCountryCode")
+                        .HasColumnType("nvarchar(15)");
+
+                    b.Property<string>("PhoneExtension")
+                        .HasColumnType("nvarchar(15)");
+
+                    b.Property<string>("PhoneLocal")
+                        .HasColumnType("nvarchar(29)");
+
+                    b.Property<string>("PostalCode")
+                        .HasColumnType("nvarchar(25)");
 
                     b.Property<string>("ProviderNamee")
                         .IsRequired()
@@ -55,6 +73,9 @@ namespace Expenses.core.DataLayer.DbModels.Migrations
                         .ValueGeneratedOnAddOrUpdate();
 
                     b.Property<string>("StreetAddress")
+                        .HasColumnType("nvarchar(200)");
+
+                    b.Property<string>("Website")
                         .HasColumnType("nvarchar(200)");
 
                     b.HasKey("ProviderId");

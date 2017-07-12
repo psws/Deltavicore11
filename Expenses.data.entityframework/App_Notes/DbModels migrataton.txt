@@ -1,11 +1,5 @@
 ﻿add library Microsoft.EntityFrameworkCore.Design
 
-Then run this command in the pm
- PM> Enable-Migrations -Force -ProjectName Expenses.core -StartupProjectName Deltavicore11.web_app -ContextTypeName Expenses.core.DataLayer.DBModels -MigrationsDirectory DataLayer\DbModels\Migrations
-Package Model Console output
-PM> Enable-Migrations -Force -ProjectName Logqso.mvc.DataModel -StartupProjectName Logqso.mvc.ui -ContextTypeName Logqso.mvc.DataModel.LogControl.LogControlDB -MigrationsDirectory DataLayer\DbModels\Migrations\LogControlDB
-Checking if the context targets an existing database...
-Code First Migrations enabled for project Logqso.mvc.DataModel.
 
 Next do the Add-Migration
 Add-Migration [-Name] <String> [-OutputDir <String>] [-Context <String>] [-Environment <String>] [-Project <String>] [-StartupProject <String>] [<CommonParameters>]
@@ -20,7 +14,7 @@ REMARKS
     For technical information, type: "get-help Add-Migration -full".
     For online help, type: "get-help Add-Migration -online"
 
-PM> Add-Migration -Project Expenses.core -StartupProject Deltavicore11.web_app -Context ExpenseDbContext -OutputDir DataLayer\DbModels\Migrations -Name "InitialDatabaseCreation" 
+PM> Add-Migration -Project Expenses.data.entityframework -StartupProject Deltavicore11.web_app -Context ExpenseDbContext -OutputDir Migrations -Name "InitialDatabaseCreation" 
 
  Remove-Migration -Project Expenses.core -StartupProject Deltavicore11.web_app
 
@@ -37,6 +31,20 @@ Update-Database [[-Migration] <String>] [-Context <String>] [-Environment <Strin
         OutBuffer, PipelineVariable, and OutVariable. For more information, see 
         about_CommonParameters (http://go.microsoft.com/fwlink/?LinkID=113216). 
 
-PM> Update-Database -Project Expenses.core -StartupProject Deltavicore11.web_app -Context ExpenseDbContext
-There is no seed method. Seeding happens when app is 1st run
+PM> Update-Database -Project Expenses.data.entityframework -StartupProject Deltavicore11.web_app -Context ExpenseDbContext
+There is no seed method with this uodate. Seeding happens when app is 1st run
 
+
+NO MIGRATION IS REQUIRED:
+-------------------------------
+
+The DbInitializer.cs:Initializer method has the folloeing code
+               context.Database.EnsureCreated();//if db is not exist ,it will create database .but ,do nothing .
+
+                logger?.LogInformation("{0} has been invoked", nameof(DbInitializer));
+                // Look for any students.
+                if (context.Set<Provider>().Any())
+                {
+                    return;   // DB has been seeded
+                }
+	This code will generate DB and call the seed method.

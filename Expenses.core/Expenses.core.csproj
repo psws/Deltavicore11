@@ -5,15 +5,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="DataLayer\Mapping\IEntityMap.cs" />
+    <PackageReference Include="DocumentFormat.OpenXml.DotNet.Core" Version="1.0.1" />
+    <PackageReference Include="Microsoft.Composition" Version="1.0.31" />
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="DocumentFormat.OpenXml.DotNet.Core" Version="1.0.1" />
-    <PackageReference Include="Microsoft.Composition" Version="1.0.31" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite.Design" Version="1.1.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.2" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="1.1.1" />
+    <ProjectReference Include="..\Expenses.common\Expenses.common.interfaces.csproj" />
   </ItemGroup>
 
 </Project>

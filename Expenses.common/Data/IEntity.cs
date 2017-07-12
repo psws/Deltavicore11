@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Expenses.core.DataLayer.Mapping
+namespace Expenses.common.interfaces.Data
 {
     public interface IEntity
     {
