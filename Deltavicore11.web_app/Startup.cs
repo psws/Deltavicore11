@@ -7,7 +7,6 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
-using Microsoft.EntityFrameworkCore;
 
 using Microsoft.Extensions.FileProviders;
 using System.IO;
@@ -17,6 +16,10 @@ using Expenses.core;
 using Expenses.core.DataLayer;
 using Expenses.data.entityframework.Mapping;
 using Expenses.data.entityframework;
+using Expenses.business;
+using Expenses.common.interfaces.Repository;
+using Expenses.entityframework.repository;
+using Expenses.common.interfaces.Service;
 
 
 namespace Deltavicore11.web_app
@@ -78,10 +81,15 @@ namespace Deltavicore11.web_app
 
         
             services.AddEntityFrameworkSqlServer().AddDbContext<ExpenseDbContext>();
+            //services.AddEntityFrameworkSqlite().AddDbContext<ExpenseDbContext>();
+            services.AddScoped<ILogger<ExpenseDbContext>, Logger<ExpenseDbContext>>();
 
             services.AddScoped<IEntityMapper, ExpenseEntityMapper>();
 
-            services.AddScoped<ILogger<ExpenseDbContext>, Logger<ExpenseDbContext>>();
+            services.AddScoped<IPoultryFeedService, PoultryFeedService>();
+            services.AddScoped<IPoultryFeedRepository, PoultryFeedRepository>();
+            services.AddScoped<ILogger<PoultryFeedService>, Logger<PoultryFeedService>>();
+
 
             // Add application services.
             //https://docs.microsoft.com/en-us/aspnet/core/fundamentals/dependency-injection

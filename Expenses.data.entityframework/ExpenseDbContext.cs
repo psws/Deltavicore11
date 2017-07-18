@@ -5,7 +5,6 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Options;
 using Expenses.data.entityframework.Mapping;
 using Microsoft.Extensions.Logging;
-using Expenses.core.DataLayer.DBModels;
 
 namespace Expenses.data.entityframework
 {

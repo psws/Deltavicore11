@@ -1,7 +1,6 @@
 ﻿using System.Composition.Hosting;
 using System.Reflection;
 using Expenses.core.DataLayer.DbModels;
-using Expenses.common.interfaces.Data;
 
 
 namespace Expenses.data.entityframework.Mapping

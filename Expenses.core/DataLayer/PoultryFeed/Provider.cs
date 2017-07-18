@@ -2,21 +2,21 @@
 using System.Composition;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using Expenses.common.interfaces.Data;
 using Expenses.core.DataLayer.DbModels;
 
 
 
-namespace Expenses.core.DataLayer.DBModels
+namespace Expenses.core.DataLayer.PoultryFeed
 {
     [Export(typeof(IEntity))]
-    [Table("Provider", Schema = "Purchases")]
+    [Table("Provider", Schema = "PoultryFeed")]
 
     public class Provider : AuditEntity , IEntity
     {
         public Provider()
         {
             //CreationDateTime = DateTime.Now;
+            IsActive = true;
 
         }
 
@@ -81,6 +81,9 @@ namespace Expenses.core.DataLayer.DBModels
 
         [Column(TypeName = "nvarchar(200)")]
         public string Facebook { get; set; }
+
+        [Column(TypeName = "bit")]
+        public bool IsActive { get; set; }
 
 
         //[Column(TypeName = "nvarchar(100)")]

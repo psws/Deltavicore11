@@ -10,7 +10,12 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Expenses.common\Expenses.common.interfaces.csproj" />
+    <Folder Include="DataLayer\Production\" />
+    <Folder Include="DataLayer\Salaries\" />
+    <Folder Include="DataLayer\Payments\" />
+    <Folder Include="DataLayer\Supplies\" />
+    <Folder Include="DataLayer\Utilities\" />
+    <Folder Include="DataLayer\PoultryHealth\" />
   </ItemGroup>
 
 </Project>

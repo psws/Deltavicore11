@@ -1,0 +1,23 @@
+﻿PoultryFeed:
+	Fournisseurs
+
+PoultryHealth:
+	Vaccins\Vétérinaires\Désinfectants
+
+Utilities:
+	Autres Frais de Gestion 
+
+Supplies:
+	Caisse Générale
+
+Payments:
+	Caisse M El Ouarti
+	Caisse Générale
+
+Salaries:
+	Caisse M El Ouarti
+
+Production:
+	Production_L1
+
+Shared
