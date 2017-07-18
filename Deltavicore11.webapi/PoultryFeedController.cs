@@ -8,7 +8,7 @@ using Expenses.business;
 
 namespace Deltavicore11.webapi
 {
-    [Route("api/[controller]")]
+    [Route("api/PoultryFeed")]
 
     public class PoultryFeedController : Controller
     {
@@ -23,7 +23,7 @@ namespace Deltavicore11.webapi
 
 
         [HttpGet]
-        [Route("GetProvider")]
+        [Route("GetProvider/{providerId:int}")]
         public async Task<IActionResult> GetProvider(int providerId)
         {
             Logger?.LogInformation("{0} has been invoked", nameof(GetProvider));

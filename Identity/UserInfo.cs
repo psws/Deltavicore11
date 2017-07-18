@@ -1,10 +1,17 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+using Expenses.common.interfaces.Identity;
 namespace Expenses.identity
 {
-    class UserInfo
+    public class UserInfo : IUserInfo
     {
+        public UserInfo()
+        {
+        }
+
+        public String Domain { get; set; }
+
+        public String Name { get; set; }
+
+        public String[] Roles { get; set; }
     }
 }

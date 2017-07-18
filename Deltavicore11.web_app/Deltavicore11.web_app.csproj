@@ -49,9 +49,11 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="1.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Deltavicore11.webapi\Deltavicore11.webapi.csproj" />
     <ProjectReference Include="..\Expemses.data.repository\Expenses.entityframework.repository.csproj" />
     <ProjectReference Include="..\Expenses.business\Expenses.business.csproj" />
     <ProjectReference Include="..\Expenses.data.entityframework\Expenses.data.entityframework.csproj" />
+    <ProjectReference Include="..\Identity\Expenses.identity.csproj" />
   </ItemGroup>
 
 </Project>

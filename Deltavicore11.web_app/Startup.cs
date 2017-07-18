@@ -20,6 +20,8 @@ using Expenses.business;
 using Expenses.common.interfaces.Repository;
 using Expenses.entityframework.repository;
 using Expenses.common.interfaces.Service;
+using Expenses.common.interfaces.Identity;
+using Expenses.identity;
 
 
 namespace Deltavicore11.web_app
@@ -85,6 +87,7 @@ namespace Deltavicore11.web_app
             services.AddScoped<ILogger<ExpenseDbContext>, Logger<ExpenseDbContext>>();
 
             services.AddScoped<IEntityMapper, ExpenseEntityMapper>();
+            services.AddScoped<IUserInfo, UserInfo>();
 
             services.AddScoped<IPoultryFeedService, PoultryFeedService>();
             services.AddScoped<IPoultryFeedRepository, PoultryFeedRepository>();
