@@ -22,16 +22,16 @@ namespace Expenses.business
             PoultryFeedRepository = poultryFeedRepository;
         }
 
-        public async Task<ISingleModelResponse<Provider>> GetVendorAsync(int vendorId)
+        public async Task<ISingleModelResponse<Provider>> GetProviderAsync(int vendorId)
         {
             {
-                Logger?.LogInformation("{0} has been invoked", nameof(GetVendorAsync));
+                Logger?.LogInformation("{0} has been invoked", nameof(GetProviderAsync));
 
                 var response = new SingleModelResponse<Provider>();
 
                 try
                 {
-                    response.Model = await PoultryFeedRepository.GetVendorAsync(vendorId);
+                    response.Model = await PoultryFeedRepository.GetProviderAsync(vendorId);
                 }
                 catch (Exception ex)
                 {
@@ -42,16 +42,16 @@ namespace Expenses.business
             }
         }
 
-        public async Task<IListModelResponse<Provider>> GetVendorsAsync(int pageSize, int pageNumber)
+        public async Task<IListModelResponse<Provider>> GetProvidersAsync(int pageSize, int pageNumber)
         {
             {
-                Logger?.LogInformation("{0} has been invoked", nameof(GetVendorAsync));
+                Logger?.LogInformation("{0} has been invoked", nameof(GetProvidersAsync));
 
                 var response = new ListModelResponse<Provider>();
 
                 try
                 {
-                    response.Model = await PoultryFeedRepository.GetVendorsAsync(pageSize, pageNumber);
+                    response.Model = await PoultryFeedRepository.GetProvidersAsync(pageSize, pageNumber);
                 }
                 catch (Exception ex)
                 {

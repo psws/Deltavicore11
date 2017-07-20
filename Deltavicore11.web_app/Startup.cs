@@ -22,7 +22,7 @@ using Expenses.entityframework.repository;
 using Expenses.common.interfaces.Service;
 using Expenses.common.interfaces.Identity;
 using Expenses.identity;
-
+using Serilog;
 
 namespace Deltavicore11.web_app
 {
@@ -37,6 +37,12 @@ namespace Deltavicore11.web_app
                  .AddJsonFile("app_config.json", optional: false, reloadOnChange: true)
                .AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            Log.Logger = new LoggerConfiguration()
+                    .MinimumLevel.Debug()
+                    .WriteTo.RollingFile(Path.Combine(env.WebRootPath, "logs/log-{Date}.txt"))
+                    .CreateLogger();
+
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -105,6 +111,11 @@ namespace Deltavicore11.web_app
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
+            if (env.IsDevelopment())
+            {
+                //serilog
+                loggerFactory.AddSerilog();
+            }
 
             if (env.IsDevelopment())
             {
@@ -135,7 +146,7 @@ namespace Deltavicore11.web_app
             });
 
             //var context = app.ApplicationServices.GetService<ExpenseDbContext>();
-            ILogger ILogger = app.ApplicationServices.GetService<ILoggerFactory>().CreateLogger("Init");
+            Microsoft.Extensions.Logging.ILogger ILogger = app.ApplicationServices.GetService<ILoggerFactory>().CreateLogger("Init");
 
             DbInitializer.Initialize(ExpenseDbContext, ILogger);
         }

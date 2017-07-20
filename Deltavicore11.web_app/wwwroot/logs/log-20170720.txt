@@ -1,0 +1,67 @@
+2017-07-20 09:41:21.785 -07:00 [Information] "OnModelCreating" has been invoked
+2017-07-20 09:41:24.432 -07:00 [Information] "DbInitializer" has been invoked
+2017-07-20 09:41:29.856 -07:00 [Debug] Hosting starting
+2017-07-20 09:41:31.169 -07:00 [Debug] Hosting started
+2017-07-20 09:41:31.650 -07:00 [Debug] Connection id ""0HL6FHOMI6BTP"" started.
+2017-07-20 09:41:31.980 -07:00 [Information] Request starting HTTP/1.1 GET http://localhost:52371/  
+2017-07-20 09:41:32.201 -07:00 [Debug] The request path "/" does not match a supported file type
+2017-07-20 09:41:33.207 -07:00 [Debug] Request successfully matched the route with name '"default"' and template '"{controller=Home}/{action=Index}/{id?}"'.
+2017-07-20 09:41:33.895 -07:00 [Debug] Executing action "Deltavicore11.web_app.Controllers.HomeController.Index (Deltavicore11.web_app)"
+2017-07-20 09:41:33.991 -07:00 [Information] Executing action method "Deltavicore11.web_app.Controllers.HomeController.Index (Deltavicore11.web_app)" with arguments (null) - ModelState is Valid
+2017-07-20 09:41:34.012 -07:00 [Debug] Executed action method "Deltavicore11.web_app.Controllers.HomeController.Index (Deltavicore11.web_app)", returned result "Microsoft.AspNetCore.Mvc.ViewResult".
+2017-07-20 09:41:36.080 -07:00 [Debug] View lookup cache miss for view '"Index"' in controller '"Home"'.
+2017-07-20 09:41:36.164 -07:00 [Debug] Code generation for the Razor file at '"/Views/Home/Index.cshtml"' started.
+2017-07-20 09:41:36.766 -07:00 [Debug] Code generation for the Razor file at '"/Views/Home/Index.cshtml"' completed in 600.234ms.
+2017-07-20 09:41:37.096 -07:00 [Debug] Compilation of the generated code for the Razor file at '"/Views/Home/Index.cshtml"' started.
+2017-07-20 09:41:46.747 -07:00 [Debug] Compilation of the generated code for the Razor file at '"/Views/Home/Index.cshtml"' completed in 9651.4734ms.
+2017-07-20 09:41:46.788 -07:00 [Debug] Code generation for the Razor file at '"/Views/_ViewStart.cshtml"' started.
+2017-07-20 09:41:46.850 -07:00 [Debug] Code generation for the Razor file at '"/Views/_ViewStart.cshtml"' completed in 62.3496ms.
+2017-07-20 09:41:46.850 -07:00 [Debug] Compilation of the generated code for the Razor file at '"/Views/_ViewStart.cshtml"' started.
+2017-07-20 09:41:46.891 -07:00 [Debug] Compilation of the generated code for the Razor file at '"/Views/_ViewStart.cshtml"' completed in 40.8004ms.
+2017-07-20 09:41:46.898 -07:00 [Debug] The view '"Index"' was found.
+2017-07-20 09:41:46.901 -07:00 [Information] Executing ViewResult, running view at path "/Views/Home/Index.cshtml".
+2017-07-20 09:41:47.204 -07:00 [Information] User profile is available. Using '"C:\Users\v-jimsu\AppData\Local\ASP.NET\DataProtection-Keys"' as key repository and Windows DPAPI to encrypt keys at rest.
+2017-07-20 09:41:47.274 -07:00 [Debug] View lookup cache miss for view '"_Layout"' in controller '"Home"'.
+2017-07-20 09:41:47.464 -07:00 [Debug] Code generation for the Razor file at '"/Views/Shared/_Layout.cshtml"' started.
+2017-07-20 09:41:47.600 -07:00 [Debug] Code generation for the Razor file at '"/Views/Shared/_Layout.cshtml"' completed in 136.1678ms.
+2017-07-20 09:41:47.601 -07:00 [Debug] Compilation of the generated code for the Razor file at '"/Views/Shared/_Layout.cshtml"' started.
+2017-07-20 09:41:49.869 -07:00 [Debug] Compilation of the generated code for the Razor file at '"/Views/Shared/_Layout.cshtml"' completed in 2267.9204ms.
+2017-07-20 09:41:50.369 -07:00 [Information] Executed action "Deltavicore11.web_app.Controllers.HomeController.Index (Deltavicore11.web_app)" in 16465.7587ms
+2017-07-20 09:41:50.376 -07:00 [Debug] Connection id ""0HL6FHOMI6BTP"" completed keep alive response.
+2017-07-20 09:41:50.383 -07:00 [Information] Request finished in 18481.1255ms 200 text/html; charset=utf-8
+2017-07-20 09:41:51.893 -07:00 [Information] Request starting HTTP/1.1 GET http://localhost:52371/js/angularBundle.js  
+2017-07-20 09:41:51.919 -07:00 [Information] The file "/js/angularBundle.js" was not modified
+2017-07-20 09:41:51.924 -07:00 [Debug] Handled. Status code: 304 File: "/js/angularBundle.js"
+2017-07-20 09:41:51.926 -07:00 [Debug] Connection id ""0HL6FHOMI6BTP"" completed keep alive response.
+2017-07-20 09:41:51.926 -07:00 [Information] Request finished in 32.6151ms 304 application/javascript
+2017-07-20 09:41:52.007 -07:00 [Information] Request starting HTTP/1.1 GET http://localhost:52371/css/cssBundle.css  
+2017-07-20 09:41:52.007 -07:00 [Information] The file "/css/cssBundle.css" was not modified
+2017-07-20 09:41:52.007 -07:00 [Debug] Handled. Status code: 304 File: "/css/cssBundle.css"
+2017-07-20 09:41:52.007 -07:00 [Debug] Connection id ""0HL6FHOMI6BTP"" completed keep alive response.
+2017-07-20 09:41:52.008 -07:00 [Information] Request finished in 0.7081ms 304 text/css
+2017-07-20 09:41:52.082 -07:00 [Information] Request starting HTTP/1.1 GET http://localhost:52371/app/css/deltavi.css  
+2017-07-20 09:41:52.082 -07:00 [Information] The file "/app/css/deltavi.css" was not modified
+2017-07-20 09:41:52.082 -07:00 [Debug] Handled. Status code: 304 File: "/app/css/deltavi.css"
+2017-07-20 09:41:52.082 -07:00 [Debug] Connection id ""0HL6FHOMI6BTP"" completed keep alive response.
+2017-07-20 09:41:52.082 -07:00 [Information] Request finished in 0.5149ms 304 text/css
+2017-07-20 09:41:52.293 -07:00 [Information] Request starting HTTP/1.1 GET http://localhost:52371/js/routingBundle.js  
+2017-07-20 09:41:52.293 -07:00 [Debug] Connection id ""0HL6FHOMI6BTQ"" started.
+2017-07-20 09:41:52.294 -07:00 [Information] The file "/js/routingBundle.js" was not modified
+2017-07-20 09:41:52.294 -07:00 [Debug] Handled. Status code: 304 File: "/js/routingBundle.js"
+2017-07-20 09:41:52.294 -07:00 [Debug] Connection id ""0HL6FHOMI6BTP"" completed keep alive response.
+2017-07-20 09:41:52.294 -07:00 [Information] Request finished in 0.6333ms 304 application/javascript
+2017-07-20 09:41:52.294 -07:00 [Information] Request starting HTTP/1.1 GET http://localhost:52371/js/startupBundle.min.js  
+2017-07-20 09:41:52.294 -07:00 [Information] The file "/js/startupBundle.min.js" was not modified
+2017-07-20 09:41:52.294 -07:00 [Debug] Handled. Status code: 304 File: "/js/startupBundle.min.js"
+2017-07-20 09:41:52.294 -07:00 [Debug] Connection id ""0HL6FHOMI6BTQ"" completed keep alive response.
+2017-07-20 09:41:52.295 -07:00 [Information] Request finished in 0.6568ms 304 application/javascript
+2017-07-20 09:43:21.558 -07:00 [Debug] Connection id ""0HL6FHOMI6BTP"" received FIN.
+2017-07-20 09:43:21.558 -07:00 [Debug] Connection id ""0HL6FHOMI6BTQ"" received FIN.
+2017-07-20 09:43:21.559 -07:00 [Debug] Connection id ""0HL6FHOMI6BTQ"" disconnecting.
+2017-07-20 09:43:21.559 -07:00 [Debug] Connection id ""0HL6FHOMI6BTP"" disconnecting.
+2017-07-20 09:43:21.560 -07:00 [Debug] Connection id ""0HL6FHOMI6BTQ"" sending FIN.
+2017-07-20 09:43:21.560 -07:00 [Debug] Connection id ""0HL6FHOMI6BTP"" sending FIN.
+2017-07-20 09:43:21.563 -07:00 [Debug] Connection id ""0HL6FHOMI6BTQ"" sent FIN with status "0".
+2017-07-20 09:43:21.563 -07:00 [Debug] Connection id ""0HL6FHOMI6BTP"" sent FIN with status "0".
+2017-07-20 09:43:21.565 -07:00 [Debug] Connection id ""0HL6FHOMI6BTQ"" stopped.
+2017-07-20 09:43:21.565 -07:00 [Debug] Connection id ""0HL6FHOMI6BTP"" stopped.

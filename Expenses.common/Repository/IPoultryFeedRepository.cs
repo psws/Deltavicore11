@@ -7,7 +7,7 @@ namespace Expenses.common.interfaces.Repository
 {
     public interface IPoultryFeedRepository : IRepository
     {
-        Task<Provider> GetVendorAsync(int vendorId);
-        Task<IEnumerable<Provider>> GetVendorsAsync(int pageSize, int pageNumber);
+        Task<Provider> GetProviderAsync(int vendorId);
+        Task<IEnumerable<Provider>> GetProvidersAsync(int pageSize, int pageNumber);
     }
 }

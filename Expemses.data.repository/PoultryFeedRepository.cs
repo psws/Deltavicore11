@@ -22,14 +22,14 @@ namespace Expenses.entityframework.repository
 
         }
 
-        public async Task<Provider> GetVendorAsync(int providerId)
+        public async Task<Provider> GetProviderAsync(int providerId)
         {
             return  await DbContext
                 .Set<Provider>().AsNoTracking()
                 .FirstOrDefaultAsync(item => item.ProviderId == providerId);
         }
 
-        public async Task<IEnumerable<Provider>> GetVendorsAsync(int pageSize = 10, int pageNumber = 1)
+        public async Task<IEnumerable<Provider>> GetProvidersAsync(int pageSize = 10, int pageNumber = 1)
         {
             IEnumerable<Provider> IEnumerableList = null;
             if (pageNumber == 0)
