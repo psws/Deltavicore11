@@ -38,14 +38,38 @@ namespace Deltavicore11.web_app
                .AddEnvironmentVariables();
             Configuration = builder.Build();
 
-            Log.Logger = new LoggerConfiguration()
-                    .MinimumLevel.Debug()
-                    .WriteTo.RollingFile(Path.Combine(env.WebRootPath, "logs/log-{Date}.txt"))
-                    .CreateLogger();
+            //https://stackoverflow.com/questions/35038242/asp-net-5-core-rc1-how-to-log-to-file-rolling-file-logging-dnx-core-5-comp
+            string File = "logs/log-{Date}.txt";
+            if (env.IsDevelopment())
+            {
+                Log.Logger = new LoggerConfiguration()
+                        .MinimumLevel.Debug()
+                        .WriteTo.RollingFile(Path.Combine(env.WebRootPath, File))
+                        .CreateLogger();
+            }
+            else
+            {
+                Log.Logger = new LoggerConfiguration()
+                        .MinimumLevel.Information()
+                        .WriteTo.RollingFile(Path.Combine(env.WebRootPath, File))
+                        .CreateLogger();
+            }
+
+#if SQLLITE_DEBUG
+            //https://github.com/aspnet/Microsoft.Data.Sqlite/issues/275
+            var Root_Directory = env.ContentRootPath;
+            if (!Directory.Exists($"{ Root_Directory}\\SQLiteDB")  )
+            {
+                Directory.CreateDirectory($"{ Root_Directory}\\SQLiteDB");
+            }
+
+            Environment.SetEnvironmentVariable("ADONET_DATA_DIR", $"{ Root_Directory}\\SQLiteDB");
+#endif
 
         }
 
         public IConfigurationRoot Configuration { get; }
+
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -58,7 +82,12 @@ namespace Deltavicore11.web_app
 
             // Register the ConfigurationBuilder instance which MyOptions binds against.
             var x = Configuration.GetSection("AppSettings:ApplicationName");
+#if SQLLITE_DEBUG
+            var connection = Configuration["Data:Sqlite:ConnectionString"];
+#else
             var connection = Configuration["Data:Sql:ConnectionString"];
+#endif
+
 
             //inject OptionsAppSettings objects for _Layout.cshtml vession and baseUrl
             //the options => requires an OptionsAppSettings() constructor to set the value.
@@ -70,7 +99,11 @@ namespace Deltavicore11.web_app
             //When testing the core, you can provide your own appsettings values
             //AppSettings object does not have a constructor. The values must come from json config file
             //options => is not used cuz there is no AppSettings constructor.
+#if SQLLITE_DEBUG
+            services.Configure<AppSettings>(Configuration.GetSection("Data:Sqlite"));
+#else
             services.Configure<AppSettings>(Configuration.GetSection("Data:Sql"));
+#endif
 
             //services.Configure<OptionsDB>(options => Configuration.GetSection("ConnectionStrings"));
             // *If* you need access to generic IConfiguration this is **required**
@@ -87,9 +120,14 @@ namespace Deltavicore11.web_app
                 .AddMvc()
                 .AddJsonOptions(a => a.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver());
 
-        
+
+#if SQLLITE_DEBUG
+            services.AddEntityFrameworkSqlite().AddDbContext<ExpenseDbContext>();
+#else
             services.AddEntityFrameworkSqlServer().AddDbContext<ExpenseDbContext>();
-            //services.AddEntityFrameworkSqlite().AddDbContext<ExpenseDbContext>();
+#endif
+
+
             services.AddScoped<ILogger<ExpenseDbContext>, Logger<ExpenseDbContext>>();
 
             services.AddScoped<IEntityMapper, ExpenseEntityMapper>();
@@ -98,6 +136,17 @@ namespace Deltavicore11.web_app
             services.AddScoped<IPoultryFeedService, PoultryFeedService>();
             services.AddScoped<IPoultryFeedRepository, PoultryFeedRepository>();
             services.AddScoped<ILogger<PoultryFeedService>, Logger<PoultryFeedService>>();
+
+            //https://stackoverflow.com/questions/40156377/disable-application-insights-sampling-with-the-asp-net-core-libraries
+            //enable sampling
+            //see program.cs to enable 
+            //   //.UseApplicationInsights()
+            // _layout.cshtml uncomment to enable
+            //          @*@inject Microsoft.ApplicationInsights.AspNetCore.JavaScriptSnippet JavaScriptSnippet*@
+            //  @*@Html.Raw(JavaScriptSnippet.FullScript)*@
+            var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
+            aiOptions.EnableAdaptiveSampling = false;
+            services.AddApplicationInsightsTelemetry( aiOptions);
 
 
             // Add application services.
@@ -111,11 +160,9 @@ namespace Deltavicore11.web_app
         {
             loggerFactory.AddConsole(Configuration.GetSection("Logging"));
             loggerFactory.AddDebug();
-            if (env.IsDevelopment())
-            {
-                //serilog
-                loggerFactory.AddSerilog();
-            }
+            //serilog
+            loggerFactory.AddSerilog();
+
 
             if (env.IsDevelopment())
             {

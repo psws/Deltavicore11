@@ -269,3 +269,7 @@ project.lock.json
 **/wwwroot/lib/
 **/wwwroot/js/
 **/wwwroot/css/
+/Deltavicore11.web_app/wwwroot/logs/log-20170720.txt
+/Deltavicore11.web_app/wwwroot/logs
+/Deltavicore11.web_app/SQLiteDB/Expenses.db
+*.db

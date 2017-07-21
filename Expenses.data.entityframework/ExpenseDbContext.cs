@@ -25,7 +25,11 @@ namespace Expenses.data.entityframework
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
+#if SQLLITE_DEBUG
+            optionsBuilder.UseSqlite(ConnectionString);
+#else
             optionsBuilder.UseSqlServer(ConnectionString);
+#endif
 
             base.OnConfiguring(optionsBuilder);
         }

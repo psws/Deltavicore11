@@ -9,7 +9,11 @@ using Expenses.core.DataLayer.DbModels;
 namespace Expenses.core.DataLayer.Shared
 {
     [Export(typeof(IEntity))]
+#if SQLLITE_DEBUG
+    [Table("Shared.ChangeLog")]
+#else
     [Table("ChangeLog", Schema = "Shared")]
+#endif
 
     public class ChangeLog : AuditEntity, IEntity
     {

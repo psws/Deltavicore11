@@ -18,7 +18,16 @@ namespace Expenses.data.entityframework
         {
             using (context)
             {
-                context.Database.EnsureCreated();//if db is not exist ,it will create database .but ,do nothing .
+                logger?.LogInformation("{0} has been invoked", nameof(DbInitializer));
+                try
+                {
+                    context.Database.EnsureCreated();//if db is not exist ,it will create database .but ,do nothing .
+                }
+                catch (Exception ex)
+                {
+                    logger?.LogCritical("{0}:error {1} ", nameof(DbInitializer),ex.Message);
+                    throw;
+                }    
 
                 logger?.LogInformation("{0} has been invoked", nameof(DbInitializer));
                 // Look for any students.

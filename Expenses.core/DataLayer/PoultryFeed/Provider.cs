@@ -5,11 +5,16 @@ using System.ComponentModel.DataAnnotations.Schema;
 using Expenses.core.DataLayer.DbModels;
 
 
-
 namespace Expenses.core.DataLayer.PoultryFeed
 {
     [Export(typeof(IEntity))]
+    //https://docs.microsoft.com/en-us/ef/core/providers/sqlite/limitations
+    //sqllite does not support schema creation
+#if SQLLITE_DEBUG
+    [Table("PoultryFeed.Provider")]
+#else
     [Table("Provider", Schema = "PoultryFeed")]
+#endif
 
     public class Provider : AuditEntity , IEntity
     {
@@ -84,7 +89,6 @@ namespace Expenses.core.DataLayer.PoultryFeed
 
         [Column(TypeName = "bit")]
         public bool IsActive { get; set; }
-
 
         //[Column(TypeName = "nvarchar(100)")]
         ////[MaxLength(100)]

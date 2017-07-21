@@ -8,6 +8,8 @@
     <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
   </PropertyGroup>
 
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='SqlLite_Debug|AnyCPU'" />
+
   <ItemGroup>
     <Content Include="wwwroot\app\app.module.js" />
     <Content Include="wwwroot\app\app.config.js" />

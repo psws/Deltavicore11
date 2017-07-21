@@ -6,7 +6,11 @@ using Expenses.core.DataLayer.DbModels;
 namespace Expenses.core.DataLayer.Shared
 {
     [Export(typeof(IEntity))]
+#if SQLLITE_DEBUG
+    [Table("Shared.Farm")]
+#else
     [Table("Farm", Schema = "Shared")]
+#endif
 
     public class Farm : AuditEntity, IEntity
     {
