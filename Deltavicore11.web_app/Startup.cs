@@ -21,7 +21,9 @@ using Expenses.common.interfaces.Repository;
 using Expenses.entityframework.repository;
 using Expenses.common.interfaces.Service;
 using Expenses.common.interfaces.Identity;
+using Deltavicore11.webapi.ExceptionFilters;
 using Expenses.identity;
+
 using Serilog;
 
 namespace Deltavicore11.web_app
@@ -136,6 +138,7 @@ namespace Deltavicore11.web_app
             services.AddScoped<IPoultryFeedService, PoultryFeedService>();
             services.AddScoped<IPoultryFeedRepository, PoultryFeedRepository>();
             services.AddScoped<ILogger<PoultryFeedService>, Logger<PoultryFeedService>>();
+            services.AddScoped<NotImplementedExceptionFilter>();
 
             //https://stackoverflow.com/questions/40156377/disable-application-insights-sampling-with-the-asp-net-core-libraries
             //enable sampling
@@ -166,13 +169,19 @@ namespace Deltavicore11.web_app
 
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage();
+                //app.UseDeveloperExceptionPage();
                 //app.UseBrowserLink();
+                app.UseExceptionHandler("/Home/Error");
+                app.UseStatusCodePagesWithRedirects("/Home/Error/{0}");
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
+                app.UseStatusCodePagesWithRedirects("/Home/Error/{0}");
             }
+            // Add this line above app.Mvc in Startup.cs to Handle 404s etc
+            //https://forums.asp.net/t/2114176.aspx?app+UseDeveloperExceptionPage+not+working
+            app.UseStatusCodePagesWithReExecute("/Home/Error/{0}");
 
             //https://docs.microsoft.com/en-us/aspnet/core/fundamentals/static-files
             app.UseStaticFiles();

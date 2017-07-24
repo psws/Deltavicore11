@@ -16,7 +16,7 @@
         var vm = this;
 
         this.initializeController = function () {
-            vm.title = "About The Sample Application";
+            vm.title = "About";
         };
 
         activate();

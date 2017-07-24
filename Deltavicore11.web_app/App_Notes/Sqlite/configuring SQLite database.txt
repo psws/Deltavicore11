@@ -1,5 +1,8 @@
 ﻿install http://www.sqliteexpert.com/download.html 64 bit
 Launch SQLite Expert personal application
+THE NEXT PROCEDURE DESCRIBES HOW TO INSTALL ODBC DRIVER TO ALLOW ACCESS EXPORTIBG TO SQLITEEXPERT APP
+This methog did not work well because of column names (with /) do not ayto migrate well.
+		see Sqlite DB path.txt
 
 Create new database: File=> New Database
  D:\vwd projects mvc angular\Deltavicore11\SQLiteDB\Charges Communes.db3

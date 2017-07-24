@@ -4,21 +4,21 @@
     angular
         .module('deltavi')
         .register
-        .controller('contactController', contactController);
+        .controller('errorController', errorController);
 
-    contactController.$inject = ['$location']; 
+    errorController.$inject = ['$location']; 
 
-    function contactController($location) {
+    function errorController($location) {
         /* jshint validthis:true */
         var vm = this;
 
         activate();
 
         function activate() { }
+
         this.initializeController = function () {
-            vm.title = "Contact";
+            vm.title = "Error";
         };
 
     }
 })();
-

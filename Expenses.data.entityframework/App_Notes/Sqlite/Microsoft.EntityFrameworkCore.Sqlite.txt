@@ -1,0 +1,50 @@
+﻿from package manager console
+
+Install-Package Microsoft.EntityFrameworkCore.SqlServer
+Restoring packages for D:\vwd projects mvc angular\deltaviCore11\deltaviCore11.web application\deltaviCore11.web application\deltaviCore11.web application.csproj...
+Installing runtime.win7-x86.runtime.native.System.Data.SqlClient.sni 4.3.0.
+Installing runtime.win7-x64.runtime.native.System.Data.SqlClient.sni 4.3.0.
+Installing Microsoft.EntityFrameworkCore 1.1.1.
+Installing System.Text.Encoding.CodePages 4.3.0.
+Installing System.IO.Pipes 4.3.0.
+Installing Microsoft.EntityFrameworkCore.SqlServer 1.1.1.
+Installing System.Data.Common 4.3.0.
+Installing runtime.native.System.Data.SqlClient.sni 4.3.0.
+Installing Microsoft.EntityFrameworkCore.Relational 1.1.1.
+Installing System.Data.SqlClient 4.3.0.
+Installing NuGet package Microsoft.EntityFrameworkCore.SqlServer 1.1.1.
+Committing restore...
+Writing lock file to disk. Path: D:\vwd projects mvc angular\deltaviCore11\deltaviCore11.web application\deltaviCore11.web application\obj\project.assets.json
+Restore completed in 20.83 sec for D:\vwd projects mvc angular\deltaviCore11\deltaviCore11.web application\deltaviCore11.web application\deltaviCore11.web application.csproj.
+Successfully uninstalled 'System.Text.Encoding.CodePages 4.0.1' from deltaviCore11.web application
+Successfully installed 'Microsoft.EntityFrameworkCore 1.1.1' to deltaviCore11.web application
+Successfully installed 'Microsoft.EntityFrameworkCore.Relational 1.1.1' to deltaviCore11.web application
+Successfully installed 'Microsoft.EntityFrameworkCore.SqlServer 1.1.1' to deltaviCore11.web application
+Successfully installed 'Remotion.Linq 2.1.1' to deltaviCore11.web application
+Successfully installed 'runtime.native.System.Data.SqlClient.sni 4.3.0' to deltaviCore11.web application
+Successfully installed 'runtime.win7-x64.runtime.native.System.Data.SqlClient.sni 4.3.0' to deltaviCore11.web application
+Successfully installed 'runtime.win7-x86.runtime.native.System.Data.SqlClient.sni 4.3.0' to deltaviCore11.web application
+Successfully installed 'System.Data.Common 4.3.0' to deltaviCore11.web application
+Successfully installed 'System.Data.SqlClient 4.3.0' to deltaviCore11.web application
+Successfully installed 'System.Interactive.Async 3.0.0' to deltaviCore11.web application
+Successfully installed 'System.IO.Pipes 4.3.0' to deltaviCore11.web application
+Successfully installed 'System.Text.Encoding.CodePages 4.3.0' to deltaviCore11.web application
+Executing nuget actions took 27.74 sec
+Time Elapsed: 00:00:49.1457430
+
+
+Install-Package Microsoft.EntityFrameworkCore.Sqlite
+Restoring packages for D:\vwd projects mvc angular\deltaviCore11\deltaviCore11.web application\deltaviCore11.web application\deltaviCore11.web application.csproj...
+Installing SQLite 3.13.0.
+Installing Microsoft.Data.Sqlite 1.1.0.
+Installing Microsoft.EntityFrameworkCore.Sqlite 1.1.1.
+Installing NuGet package Microsoft.EntityFrameworkCore.Sqlite 1.1.1.
+Committing restore...
+Writing lock file to disk. Path: D:\vwd projects mvc angular\deltaviCore11\deltaviCore11.web application\deltaviCore11.web application\obj\project.assets.json
+Restore completed in 9.45 sec for D:\vwd projects mvc angular\deltaviCore11\deltaviCore11.web application\deltaviCore11.web application\deltaviCore11.web application.csproj.
+Successfully installed 'Microsoft.Data.Sqlite 1.1.0' to deltaviCore11.web application
+Successfully installed 'Microsoft.EntityFrameworkCore.Sqlite 1.1.1' to deltaviCore11.web application
+Successfully installed 'SQLite 3.13.0' to deltaviCore11.web application
+Executing nuget actions took 3.56 sec
+Time Elapsed: 00:00:28.2321755
+PM> 

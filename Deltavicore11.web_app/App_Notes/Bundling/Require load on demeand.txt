@@ -1,0 +1,157 @@
+﻿This app will load controller section bundles on demand for non-debug ASPNETCORE_ENVIRONMENT environment.
+When the URL contains the section all controllers in the sxection bundle are loaded by require from the client.
+
+When _Layout.cshtml starts its razor code will create a list of all "*AppBundle.js" files.
+The GetAppBundles() searches the bundleconfig.json file to find the "*AppBundle.js".
+It creates a CustomBundle object for each bundle found. The CustomBundle.isLoaded is marked false.
+
+        List<CustomBundle> bundles = Deltavicore11.web_app.Helpers.Bundling.GetAppBundles(env.ContentRootPath);
+
+
+        BundleInformation bundleInformation = new BundleInformation();
+        bundleInformation.Bundles = bundles;
+        bundleInformationJSON = Newtonsoft.Json.JsonConvert.SerializeObject(bundleInformation, Newtonsoft.Json.Formatting.None);
+
+	  public static List<CustomBundle> GetAppBundles(string baseFolder)
+        {
+
+            var configFile = Path.Combine(baseFolder, "bundleconfig.json");
+            List<CustomBundle> AppBundles = new List<CustomBundle>();
+            string Bundlefilter = "AppBundle.js";
+
+            var file = new FileInfo(configFile);
+            if ( file.Exists) 
+	        {
+
+                var AllBundles = JsonConvert.DeserializeObject<IEnumerable<Bundle>>(File.ReadAllText(configFile));
+                var bundles =  (from b in AllBundles
+                                where b.OutputFileName.EndsWith(Bundlefilter, StringComparison.CurrentCultureIgnoreCase)
+                        select b).ToList();
+
+                foreach (var item in bundles)
+                {
+                    AppBundles.Add(new CustomBundle
+                    {
+                        BundleName = item.OutputFileName.Replace(Bundlefilter, string.Empty).Replace(@"wwwroot/js/", string.Empty),
+                        IsLoaded = false,
+                        Path = item.OutputFileName.Replace("wwwroot", string.Empty)
+
+                    });
+                }
+
+            }
+
+            return AppBundles;
+-------
+This code creates a bundleInformationJSON JSON in memory object.
+An applicationConfiguration provider  is created in Angular to manage the bundling actions
+	(function () {
+            var app = angular.module('deltavi');
+            app.provider('applicationConfiguration', function () {
+                var _version;
+                var _bundles;
+                var _envName;
+                return {
+                    setVersion: function (version) {
+                        _version = version;
+                    },
+                    setBundles: function (bundles) {
+                        _bundles = JSON.parse(bundles);
+                    },
+                    getVersion: function () {
+                        return _version;
+                    },
+                    setEnv: function (envName) {
+                        _envName = envName;
+                    },
+                    getEnv: function (envName) {
+                        return _envName;
+                    },
+                    getBundle: function (bundleName) {
+                        var Path = '';
+                        for (var i = 0; i < _bundles.Bundles.length; i++) {
+                            if (bundleName.toLowerCase() == _bundles.Bundles[i].BundleName) {
+                                Path=  _bundles.Bundles[i].Path;
+                            }
+                        }
+                        return Path;
+                    },
+                    IsLoaded: function (bundleName) {
+                        var bVal = false;
+                        for (var i = 0; i < _bundles.Bundles.length; i++) {
+                            if (bundleName.toLowerCase() == _bundles.Bundles[i].BundleName) {
+                                if (_bundles.Bundles[i].IsLoaded) {
+                                    bVal = true;
+                                }
+                            }
+                        }
+                        return bVal;
+                    },
+                    SetLoaded: function (bundleName) {
+                        for (var i = 0; i < _bundles.Bundles.length; i++) {
+                            if (bundleName.toLowerCase() == _bundles.Bundles[i].BundleName) {
+                                _bundles.Bundles[i].IsLoaded = true;
+                            }
+                        }
+                    },
+
+                    $get: function () {
+                        return {
+                            version: _version,
+                            bundles: _bundles,
+                            envName: _envName
+                        }
+                    }
+                }
+            });
+
+            app.config(function (applicationConfigurationProvider) {
+                applicationConfigurationProvider.setVersion('@version');
+                applicationConfigurationProvider.setEnv('@envName');
+                if ( applicationConfigurationProvider.getEnv() != "Development") {
+                    applicationConfigurationProvider.setBundles('@Html.Raw(bundleInformationJSON)');
+                }
+            });
+
+        })();
+Encironment and versioning info is set in the applicationConfigurationProvider by
+	 applicationConfigurationProvider.setVersion('@version');
+     applicationConfigurationProvider.setEnv('@envName');
+The bundleInformationJSON object is passed to Javascript DOM by:
+     applicationConfigurationProvider.setBundles('@Html.Raw(bundleInformationJSON)');
+
+----------
+In the projects app.routing.js file the routing checks the environment type.
+If development the controller to load is always loaded.
+If not development
+	The applicationConfigurationProvider is used to retriee bLoad=>isLoaded state (directory-> section)
+	applicationConfigurationProvider will then check if this bundle has been loaded before.
+	if isLoaded is true bLoad is set to false, otherwise bLoad is trye. 
+The controllerToLoad is loaded if bLoad is set to true.
+require will load the controller js file and mark the bundle isLoaded true (for envDevelopment).
+The js file is loaded with a deferecd promise.
+
+                        if (!envDevelopment) {
+                            if (applicationConfigurationProvider.IsLoaded(directory)) {
+                                bLoad = false;
+                            } else {
+                                controllerToLoad = applicationConfigurationProvider.getBundle(directory);
+                            }
+                       } else {
+                            controllerToLoad = "/app/" + directory + "/" + controllerName + ".controller.js?v=" + getApplicationVersion();
+                        }
+
+
+                        if (bLoad) {
+                            controllerToLoad = controllerToLoad.toLowerCase();
+                           var deferred = $q.defer();
+                            require([controllerToLoad], function () {
+                                $rootScope.$apply(function () {
+                                    deferred.resolve();
+                                });
+                            });
+                            if (!envDevelopment) {
+                                applicationConfigurationProvider.SetLoaded(directory);
+                            }
+                            return deferred.promise;
+                       }

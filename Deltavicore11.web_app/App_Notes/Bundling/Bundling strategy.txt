@@ -1,0 +1,34 @@
+﻿This App uses a bundling strategy that supports various Dev environments.
+	Development env does not perform bundling or minification. The .js controllers are sent when the URL path is hit.
+	Staging and Production bundles and minifies .js and .css files for inclusion by sections.
+		When any URL path uses a controller from a section, all contollers of the section are downloaded in the bundle 
+
+The wwwroot/js directory contains all .js bundling generated files
+	The local sources are located at wwwroot/app/js
+	The bundleconfig.json file configures the bundling.
+	by right clicking on the file and selecting Bundle & Minify -> "Enable bundle on build" and "Produce output files" enables bundling.
+	
+	The startupBundle.js contains all js files needed on initial page
+
+	The routingBundle.js is seperate because it is included at the end of _Layout.cshtml
+
+	The servicesBundle.js is not used. These services are in the startupBundle
+	
+	The angularBundle.js are angular support files
+	
+	The homeAppBundle.js contains all controller files for the Home section folder.
+		This file is named after the pattern section + AppBundle.js
+		The PoultryFeed section would have its controllers in the  PoultryFeedAppBundle.
+		This convention is used to allow the startup razor code in  _Layout.cshtml to find bundles with the 'AppBundle.js' postfix
+		See the Require load on demeand.txt file.
+
+
+
+The wwwroot/css directory contains all .css bundling generated files
+	The local sources are located at wwwroot/app/css
+	Get Web Essentials to enable the .less to .css webcompiler.
+	Add the less files to compilerconfig.json
+	by right clicking on the file and selecting Web Compiler -> "Enable compile on build"  enables Webcompile.
+	WebCompiler runs before bundling and minification tool to allow bundling of the generated css file.
+
+	The cssBundle.css contains bootstrap.css even though we do not use bootsrap,js

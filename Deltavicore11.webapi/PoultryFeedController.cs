@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Expenses.common.interfaces.Service;
-using Expenses.business;
+using Deltavicore11.webapi.ExceptionFilters;
 
 namespace Deltavicore11.webapi
 {
@@ -31,6 +31,7 @@ namespace Deltavicore11.webapi
 
             var response = await PoultryFeedService.GetProviderAsync(providerId);
 
+
             return response.ToHttpResponse();
         }
 
@@ -38,12 +39,28 @@ namespace Deltavicore11.webapi
         [Route("GetProviders/{pageSize}/{pageNumber}")]
         public async Task<IActionResult> GetProviders(int? pageSize = 10, int? pageNumber = 1)
         {
-            //http://localhost:52371/api/PoultryFeed/GetProviders/3/1
+            //  http://localhost:52371/api/PoultryFeed/GetProviders/3/1
             Logger?.LogInformation("{0} has been invoked", nameof(GetProviders));
 
             var response = await PoultryFeedService.GetProvidersAsync((int)pageSize, (int)pageNumber);
 
             return response.ToHttpResponse();
+        }
+
+        [HttpGet]
+        [Route("GetFeedPurchases/{providerId:int}")]
+        [ServiceFilter(typeof(NotImplementedExceptionFilter))]
+        public async Task<IActionResult> GetFeedPurchases(int? providerId)
+        {
+            //  http://localhost:52371/api/PoultryFeed/GetFeedPurchases/1
+            Logger?.LogInformation("{0} This method is not implemented", nameof(GetFeedPurchases));
+
+            throw new Exception("This method is not implemented");
+
+            //var response = new ;
+
+
+            //return response.ToHttpResponse();
         }
 
 

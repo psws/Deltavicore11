@@ -1,0 +1,33 @@
+﻿In older .net apps on vs2013 you could instruct your own bundles.
+  bundleconfig.cs
+	bundles.Add(new ScriptBundle("~/bundles/angular").Include(
+               "~/Scripts/angular.min.js",
+               "~/Scripts/angular-route.min.js",
+               "~/Scripts/angular-sanitize.min.js",
+               "~/Scripts/angular-ui.min.js",
+               "~/Scripts/angular-ui/ui-bootstrap.min.js",
+               "~/Scripts/angular-ui/ui-bootstrap-tpls.min.js",
+               "~/Scripts/angular-ui.min.js",       
+               "~/Scripts/angular-block-ui.js"
+            ));
+All js and css files are stored in the project.
+		
+This bundle was injected into Application in _Layout.cshrml
+	 @Scripts.Render("~/bundles/angular")
+CDNs can be used also
+  bundleconfig.cs
+            bundles.UseCdn = true;
+            var jqueryBundle = new ScriptBundle("~/bundles/jquery", "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js").Include("~/Scripts/jquery-{version}.min.js");
+            jqueryBundle.CdnFallbackExpression = "window.jQuery";
+            bundles.Add(jqueryBundle);
+
+This Scripts.render was part of System.Web library which no longer exists in netcore.
+Run your application in debug="false" mode or use BundleTable.EnableOptimizations = true to enable bundling
+setting BundleTable.EnableOptimizations = true; in bundleconfig.cs forces bundling always
+These bundles would be minified and combined if webconfig had  compilation debug set to false,(ie Release build) . 
+  web.config
+	  <system.web>
+		<compilation debug="false" targetFramework="4.5"/>
+		<httpRuntime targetFramework="4.5"/>
+	  </system.web>
+All files in the bundle would be combined into one dowload.

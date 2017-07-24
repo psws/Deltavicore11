@@ -56,6 +56,7 @@
       "wwwroot/app/app.config.js",
       "wwwroot/app/services/ajaxService.js",
       "wwwroot/app/services/alertService.js",
+      "wwwroot/app/services/error.controller.js",
       "wwwroot/app/master.controller.js"
     ],
     "minify": {

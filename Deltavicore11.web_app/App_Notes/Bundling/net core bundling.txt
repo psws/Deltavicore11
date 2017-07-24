@@ -1,36 +1,4 @@
-﻿In older .net apps on vs2013 you could instruct your own bundles.
-  bundleconfig.cs
-	bundles.Add(new ScriptBundle("~/bundles/angular").Include(
-               "~/Scripts/angular.min.js",
-               "~/Scripts/angular-route.min.js",
-               "~/Scripts/angular-sanitize.min.js",
-               "~/Scripts/angular-ui.min.js",
-               "~/Scripts/angular-ui/ui-bootstrap.min.js",
-               "~/Scripts/angular-ui/ui-bootstrap-tpls.min.js",
-               "~/Scripts/angular-ui.min.js",       
-               "~/Scripts/angular-block-ui.js"
-            ));
-All js and css files are stored in the project.
-		
-This bundle was injected into Application in _Layout.cshrml
-	 @Scripts.Render("~/bundles/angular")
-CDNs can be used also
-  bundleconfig.cs
-            bundles.UseCdn = true;
-            var jqueryBundle = new ScriptBundle("~/bundles/jquery", "http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.1.min.js").Include("~/Scripts/jquery-{version}.min.js");
-            jqueryBundle.CdnFallbackExpression = "window.jQuery";
-            bundles.Add(jqueryBundle);
-
-This Scripts.render was part of System.Web library which no longer exists in netcore.
-Run your application in debug="false" mode or use BundleTable.EnableOptimizations = true to enable bundling
-setting BundleTable.EnableOptimizations = true; in bundleconfig.cs forces bundling always
-These bundles would be minified and combined if webconfig had  compilation debug set to falsem(ie Release build) . 
-  web.config
-	  <system.web>
-		<compilation debug="false" targetFramework="4.5"/>
-		<httpRuntime targetFramework="4.5"/>
-	  </system.web>
-All files in the bundle would be combined into one dowload.
+﻿
 __________________________________________________
 In ASP .Net core bundling is completely redesigned
 Bundling.json controls the bundles.
@@ -64,7 +32,7 @@ VS2017 gives this template
     "sourceMap": false
   }
 Bundling is primarily used for minifying and bundling your project's js and css files.
-The 'jqueryBundle.js; outputfilename section above, shows an exa,ple of bunfling 2 jquery   .js files
+The 'jqueryBundle.js; outputfilename section above, shows an exa,ple of bunfling 2 jquery.js files
 The control of bundling is done by the projects Properties=> Devug ->profile dropdown
 	The profile defines a ASPNETCORE_ENVIRONMENT under environment variables.
 	This can be Development, Staging, or Production.
@@ -72,6 +40,8 @@ The control of bundling is done by the projects Properties=> Devug ->profile dro
 	The current profile is selected on the top menu. IIS Express is the default
 
 The only way to control which Libs, bundles and CDN's javascript fies that are injected is mainly on the _Layout.cshtml page
+NOTE: THE JQUERY AND BOOTSTRAP JAVASCRIPT FILES SHOULD NOT AND ARE NOT INCLUDED IN THIS ANGULAR APP.
+		THEY ARE REPLACED BY ABGULAR BUILT-IN JQLITE AND ANGULAR UI BOOTSTRAP.
   _Layout.cshtml  (Javascript)
 	   <environment names="Development">
 			@*<script src="~/lib/jquery/dist/jquery.js"></script>*@
