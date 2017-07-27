@@ -21,7 +21,7 @@ using Expenses.common.interfaces.Repository;
 using Expenses.entityframework.repository;
 using Expenses.common.interfaces.Service;
 using Expenses.common.interfaces.Identity;
-using Deltavicore11.webapi.ExceptionFilters;
+using Deltavicore11.webapi.ExceptionSupport;
 using Expenses.identity;
 
 using Serilog;
@@ -131,6 +131,7 @@ namespace Deltavicore11.web_app
 
 
             services.AddScoped<ILogger<ExpenseDbContext>, Logger<ExpenseDbContext>>();
+            services.AddScoped<NotImplementedExceptionFilter>();
 
             services.AddScoped<IEntityMapper, ExpenseEntityMapper>();
             services.AddScoped<IUserInfo, UserInfo>();
@@ -138,7 +139,6 @@ namespace Deltavicore11.web_app
             services.AddScoped<IPoultryFeedService, PoultryFeedService>();
             services.AddScoped<IPoultryFeedRepository, PoultryFeedRepository>();
             services.AddScoped<ILogger<PoultryFeedService>, Logger<PoultryFeedService>>();
-            services.AddScoped<NotImplementedExceptionFilter>();
 
             //https://stackoverflow.com/questions/40156377/disable-application-insights-sampling-with-the-asp-net-core-libraries
             //enable sampling
@@ -169,16 +169,20 @@ namespace Deltavicore11.web_app
 
             if (env.IsDevelopment())
             {
-                //app.UseDeveloperExceptionPage();
+                app.UseDeveloperExceptionPage(); //nO default exception page if app.UseMiddleware(typeof(ErrorHandlingMiddleware)) is enabled. 
                 //app.UseBrowserLink();
-                app.UseExceptionHandler("/Home/Error");
-                app.UseStatusCodePagesWithRedirects("/Home/Error/{0}");
+                //app.UseExceptionHandler("/Home/Error");
+                //app.UseStatusCodePagesWithRedirects("/Home/Error/{0}");
             }
             else
             {
                 app.UseExceptionHandler("/Home/Error");
                 app.UseStatusCodePagesWithRedirects("/Home/Error/{0}");
             }
+
+            //https://stackoverflow.com/questions/38630076/asp-net-core-web-api-exception-handling
+            app.UseMiddleware(typeof(ErrorHandlingMiddleware)); // see app.UseDeveloperExceptionPage()
+
             // Add this line above app.Mvc in Startup.cs to Handle 404s etc
             //https://forums.asp.net/t/2114176.aspx?app+UseDeveloperExceptionPage+not+working
             app.UseStatusCodePagesWithReExecute("/Home/Error/{0}");

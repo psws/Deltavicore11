@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 
 
-namespace Deltavicore11.webapi.ExceptionFilters
+namespace Deltavicore11.webapi.ExceptionSupport
 {
     public class NotImplementedExceptionFilter : ExceptionFilterAttribute
     {

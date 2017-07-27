@@ -9,6 +9,7 @@ namespace Deltavicore11.webapi
     {
         public static IActionResult ToHttpResponse<TModel>(this IListModelResponse<TModel> response)
         {
+            //https://stackoverflow.com/questions/38630076/asp-net-core-web-api-exception-handling
             var status = HttpStatusCode.OK;
 
             if (response.DidError)

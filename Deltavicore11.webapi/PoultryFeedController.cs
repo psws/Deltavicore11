@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Expenses.common.interfaces.Service;
-using Deltavicore11.webapi.ExceptionFilters;
+using Deltavicore11.webapi.ExceptionSupport;
 
 namespace Deltavicore11.webapi
 {
@@ -48,14 +48,14 @@ namespace Deltavicore11.webapi
         }
 
         [HttpGet]
-        [Route("GetFeedPurchases/{providerId:int}")]
+        [Route("GetFeedPurchases/{providerId:int?}")]
         [ServiceFilter(typeof(NotImplementedExceptionFilter))]
         public async Task<IActionResult> GetFeedPurchases(int? providerId)
         {
             //  http://localhost:52371/api/PoultryFeed/GetFeedPurchases/1
             Logger?.LogInformation("{0} This method is not implemented", nameof(GetFeedPurchases));
 
-            throw new Exception("This method is not implemented");
+            throw new Expenses.common.code.Exceptions.NotImplementedException("This method is not implemented");
 
             //var response = new ;
 

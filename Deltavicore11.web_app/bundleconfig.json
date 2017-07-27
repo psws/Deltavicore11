@@ -35,16 +35,19 @@
     // An array of relative input file paths. Globbing patterns supported
     "inputFiles": [
       "wwwroot/lib/bootstrap/dist/css/bootstrap.css",
+      //"wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
       "wwwroot/lib/font-awesome/css/font-awesome.css",
+      //.min is used by choice, no expected debugging
       "wwwroot/lib/angular-block-ui/dist/angular-block-ui.min.css"
     ],
     "minify": {
       "enabled": true,
       "renameLocals": true
     },
-    // Optionally generate .map file
-    "sourceMap": false,
-    "includeInProject": false
+    // Optionally generate .map file not supported for css file
+    //https://marketplace.visualstudio.com/items?itemName=MadsKristensen.BundlerMinifier
+    "sourceMap": true,
+    "includeInProject": true
   },
 
 

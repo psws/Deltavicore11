@@ -1,0 +1,17 @@
+﻿The Deltavicore11.webapi project contains an ErrorHandlingMiddleware.cs file
+
+This middleware api catches exceptions globally and returns a reponse to the client.
+The angular routing file on the client is never reached.
+
+The HandleExceptionAsync() method determines which status code to return in the JSON response.
+
+To install this middleware add the following to startup.cs file
+	            app.UseMiddleware(typeof(ErrorHandlingMiddleware));
+This line must be before
+	app.UseStaticFiles();
+ and 
+	app.UseMvc()
+
+NOTE: If you enable app.UseMiddleware(typeof(ErrorHandlingMiddleware)) in startup.cs, 
+	the app.UseDeveloperExceptionPage() WILL NOT BE DISPLAYED..
+	This is due to the middleware intercepting the response.

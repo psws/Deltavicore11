@@ -97,6 +97,7 @@ angular.module("deltavi").config(['$routeProvider', '$locationProvider', 'applic
                             if (!envDevelopment) {
                                 applicationConfigurationProvider.SetLoaded(directory);
                             }
+
                             return deferred.promise;
                         }
 

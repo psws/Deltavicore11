@@ -15,9 +15,17 @@
         //console.log("indexController init");
 
         var vm = this;
+        vm.form = {
+            username: 'admin',
+            password: null
+        };
 
         this.initializeController = function () {
             vm.title = "Index Page";
+        }
+
+        vm.ProviderMaintenance = function () {
+            $location.path("PoultryFeed/ProviderMaintenance");
         }
 
     }

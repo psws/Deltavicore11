@@ -1,0 +1,26 @@
+﻿The Deltavicore11.webapi project contains an NotImplementedExceptionFilter.
+https://damienbod.com/2015/09/30/asp-net-5-exception-filters-and-resource-filters/
+This object constructs a logger for NotImplementedExceptionFilter object
+Classes or methods marked with an ServiceFilter attribute: [ServiceFilter(typeof(NotImplementedExceptionFilter))]
+	HttpGet]
+        [Route("GetFeedPurchases/{providerId:int?}")]
+        [ServiceFilter(typeof(NotImplementedExceptionFilter))]
+        public async Task<IActionResult> GetFeedPurchases(int? providerId)
+
+will create a NotImplementedExceptionFilter object.
+the startup.cs file contains:
+	            services.AddScoped<NotImplementedExceptionFilter>();
+to register the ServiceFilter.
+
+When an the WebApi target is hit, the Service Filter logger object is created.
+If this target throws an exception.the NotImplementedExceptionFilter: overridden OnException() will log the error
+
+This allows Service filters to be written that allow an intercept in the exception flow.
+
+The Service Filter is always created for the [ServiceFilter(typeof(NotImplementedExceptionFilter))] marked targets.
+
+THIS SERVICE FILTER CURRENTLY ONLY DOES LOGGING.
+
+Please see the Exception Handling Middleware.txt file for another method of handling WebApi exceptions
+
+

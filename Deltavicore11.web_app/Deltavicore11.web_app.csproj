@@ -26,6 +26,9 @@
     <Content Include="wwwroot\app\home\index.html" />
     <Content Include="wwwroot\app\js\site.js" />
     <Content Include="wwwroot\app\master.Controller.js" />
+    <Content Include="wwwroot\app\poultryfeed\providermaintenance.controller.js" />
+    <Content Include="wwwroot\app\poultryfeed\providermaintenance.html" />
+    <Content Include="wwwroot\app\poultryfeed\providermaintenance.js" />
     <Content Include="wwwroot\app\services\AjaxService.js" />
     <Content Include="wwwroot\app\services\alertService.js" />
     <Content Include="wwwroot\css\deltavi.min.css" />

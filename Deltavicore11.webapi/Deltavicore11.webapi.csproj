@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Expenses.business.common\Expenses.common.code.csproj" />
     <ProjectReference Include="..\Expenses.business\Expenses.business.csproj" />
     <ProjectReference Include="..\Expenses.common\Expenses.common.interfaces.csproj" />
   </ItemGroup>
