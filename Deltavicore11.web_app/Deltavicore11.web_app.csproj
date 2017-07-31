@@ -24,8 +24,11 @@
     <Content Include="wwwroot\app\home\error.html" />
     <Content Include="wwwroot\app\home\index.controller.js" />
     <Content Include="wwwroot\app\home\index.html" />
+    <Content Include="wwwroot\app\home\tabs.controller.js" />
     <Content Include="wwwroot\app\js\site.js" />
     <Content Include="wwwroot\app\master.Controller.js" />
+    <Content Include="wwwroot\app\poultryfeed\provider.maintenance.controller.js" />
+    <Content Include="wwwroot\app\poultryfeed\provider.maintenance.html" />
     <Content Include="wwwroot\app\poultryfeed\providermaintenance.controller.js" />
     <Content Include="wwwroot\app\poultryfeed\providermaintenance.html" />
     <Content Include="wwwroot\app\poultryfeed\providermaintenance.js" />

@@ -37,7 +37,8 @@
       "wwwroot/lib/bootstrap/dist/css/bootstrap.css",
       //"wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
       "wwwroot/lib/font-awesome/css/font-awesome.css",
-      //.min is used by choice, no expected debugging
+      "wwwroot/lib/angular-ui-tab-scroll/angular-ui-tab-scroll.css",
+      //min is used by choice, no expected debugging
       "wwwroot/lib/angular-block-ui/dist/angular-block-ui.min.css"
     ],
     "minify": {
@@ -59,7 +60,7 @@
       "wwwroot/app/app.config.js",
       "wwwroot/app/services/ajaxService.js",
       "wwwroot/app/services/alertService.js",
-      "wwwroot/app/services/error.controller.js",
+      //"wwwroot/app/services/error.controller.js",
       "wwwroot/app/master.controller.js"
     ],
     "minify": {
@@ -127,6 +128,7 @@
       "wwwroot/lib/angular-sanitize/angular-sanitize.js",
       "wwwroot/lib/angular-bootstrap/ui-bootstrap.min.js",
       "wwwroot/lib/angular-bootstrap/ui-bootstrap-tpls.min.js",
+      //"wwwroot/lib/angular-ui-tab-scroll/angular-ui-tab-scroll.js",
       "wwwroot/lib/angular-block-ui/dist/angular-block-ui.min.js"
     ],
     "minify": {

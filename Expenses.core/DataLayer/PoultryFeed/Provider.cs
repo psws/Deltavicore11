@@ -111,4 +111,5 @@ namespace Expenses.core.DataLayer.PoultryFeed
         //[ConcurrencyCheck]
         //public Byte[] RowVersion { get; set; }
     }
+
 }

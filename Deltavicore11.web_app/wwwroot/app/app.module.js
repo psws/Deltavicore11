@@ -8,6 +8,7 @@
     var app = angular.module('deltavi', [
         'ngRoute',
         'ui.bootstrap',
+        'ui.tab.scroll',
         'ngSanitize',
         'blockUI' // see note appmodule.txt
     ]);
@@ -19,6 +20,17 @@
     //          service: $provide.service
     //      };
     //}]);
+    //app.config(['scrollableTabsetConfigProvider', function (scrollableTabsetConfigProvider) {
+    //    scrollableTabsetConfigProvider.setShowTooltips(true);
+
+    //    scrollableTabsetConfigProvider.setTooltipLeft('bottom');
+
+    //    scrollableTabsetConfigProvider.setTooltipRight('left');
+
+    //}]);
+   
+
+
 
 })();
 

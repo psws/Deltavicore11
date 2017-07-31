@@ -30,7 +30,7 @@ namespace Expenses.data.entityframework
 #else
             optionsBuilder.UseSqlServer(ConnectionString);
 #endif
-
+            optionsBuilder.UseQueryTrackingBehavior(QueryTrackingBehavior.TrackAll );
             base.OnConfiguring(optionsBuilder);
         }
 

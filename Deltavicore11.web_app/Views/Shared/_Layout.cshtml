@@ -53,13 +53,19 @@
         <script src="~/js/bootstrapBundle.js"></script>
         *@
 
-        @*<script src="~/lib/angular/angular.js"></script>
-        <script src="~/lib/angular-bootstrap/ui-bootstrap.js"></script>
-        <script src="~/lib/angular-sanitize/angular-sanitize.js"></script>
+        <script src="~/lib/angular/angular.js"></script>
         <script src="~/lib/angular-route/angular-route.js"></script>
-        <script src="~/lib/angular-block-ui/dist/angular-block-ui.js"></script>*@
+        <script src="~/lib/angular-sanitize/angular-sanitize.js"></script>
+        <script src="~/lib/angular-bootstrap/ui-bootstrap.js"></script>
+        <script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+        <script src="~/lib/angular-ui-tab-scroll/angular-ui-tab-scroll.js"></script>
+        @*<script src="https://rawgit.com/VersifitTechnologies/angular-ui-tab-scroll/master/angular-ui-tab-scroll.js"></script>
+        <link rel="stylesheet" href="https://rawgit.com/VersifitTechnologies/angular-ui-tab-scroll/master/angular-ui-tab-scroll.css" />*@
 
-        <script src="~/js/angularBundle.js"></script>
+        <script src="~/lib/angular-block-ui/dist/angular-block-ui.js"></script>
+
+
+        @*<script src="~/js/angularBundle.js"></script>*@
 
     </environment>
 
@@ -84,6 +90,12 @@
 
     <environment names="Development">
         <link rel="stylesheet" href="~/css/cssBundle.css" />
+
+        @*<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="~/lib/font-awesome/css/font-awesome.css" />
+        <link rel="stylesheet" href="~/lib/angular-ui-tab-scroll/angular-ui-tab-scroll.css" />
+        <link rel="stylesheet" href="~//lib/angular-block-ui/dist/angular-block-ui.min.css" />*@
+
     </environment>
     <environment names="Staging,Production">
         <link rel="stylesheet" href="~/css/cssBundle.min.css" />

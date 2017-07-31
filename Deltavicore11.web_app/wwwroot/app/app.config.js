@@ -13,8 +13,12 @@
                         controller: $controllerProvider.register,
                         service: $provide.service
                     };
-            }]);
+            }
+    ]);
+
+   
 })();
+
 
 
 console.log("Deltavi Config Bootstrap done");

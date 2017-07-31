@@ -1,5 +1,5 @@
-﻿When the app comes up with 'Loading...'  it means some dile did not finish loading.
+﻿When the app comes up with 'Loading...'  it means some file did not finish loading.
 
 An example is the angular-block-ui functionality.
 Load the angular-block-ui.js file
-If you forget to load the angular-block-ui.cc file it will generate this message.
+If you forget to load the angular-block-ui.css file it will generate this message.

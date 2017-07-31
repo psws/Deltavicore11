@@ -1,3 +1,16 @@
 ﻿#header {
   color: #4D926F;
 }
+.tabContent {
+  background-color: #FBFBFB;
+  height: 100%;
+  text-align: center;
+  padding-top: 50px;
+}
+.menuHeader {
+  padding: 5px 0 10px 15px;
+}
+.menuHeader a {
+  padding-right: 5px;
+  font-size: 10px;
+}
