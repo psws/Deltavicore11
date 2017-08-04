@@ -125,6 +125,7 @@
     "inputFiles": [
       "wwwroot/lib/angular/angular.js",
       "wwwroot/lib/angular-route/angular-route.js",
+      "wwwroot/lib/angular-ui-router/release/angular-ui-router.js",
       "wwwroot/lib/angular-sanitize/angular-sanitize.js",
       "wwwroot/lib/angular-bootstrap/ui-bootstrap.min.js",
       "wwwroot/lib/angular-bootstrap/ui-bootstrap-tpls.min.js",

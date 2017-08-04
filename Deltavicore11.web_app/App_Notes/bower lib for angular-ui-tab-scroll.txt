@@ -1,0 +1,6 @@
+﻿Nower defaults to v1.0 for angular-ui-tab-scroll lib.
+Be sure to get version 2.3.4 or later.
+
+The files are at https://github.com/VersifitTechnologies/angular-ui-tab-scroll
+
+The demo is at http://plnkr.co/edit/YJNDaQ?p=preview

@@ -1,0 +1,22 @@
+﻿The vertical expanding navbar height, in bootstrap is caused by to many and/or too long menu items.
+possible fixes here:
+https://stackoverflow.com/questions/20012665/disable-bootstrap-3-navbar-going-2-rows-in-medium-viewport-size
+
+an example is: 
+	                <li><a href="Home/Index">Home</a></li>
+                    <li><a href="Home/Contact">Contact Us</a></li>
+                    <li><a href="Home/About">About</a></li>
+                    @*<li><a href="Customers/CustomerMaintenance">Customer Maintenance</a></li>*@
+                    @*<li><a href="Customers/CustomerInquiry">Customer Inquiry</a></li>*@
+                    @*<li><a href="Products/ProductMaintenance">Product Maintenance</a></li>*@
+                    @*<li><a href="Products/ProductInquiry">Product Inquiry</a></li>*@
+
+                    <li><a href="Customers/CustomerMaintenance"><div class="hidden-xs">Customer Maintenance<b class="caret"></b></div><span class="glyphicon glyphicon-plus visible-xs"></span></a></li>
+                    <li><a href="Customers/CustomerInquiry"><div class="hidden-sm">Customer Inquiry<b class="caret"></b></div><span class="glyphicon glyphicon-plus visible-sm"></span></a></li>
+                    <li><a href="Products/ProductMaintenance"><div class="hidden-md hidden-sm">Product Maintenance<b class="caret"></b></div><span class="glyphicon glyphicon-plus visible-md visible-sm"></span></a></li>
+                    <li><a href="Products/ProductInquiry"><div class="hidden-md hidden-sm">Product Inquiry<b class="caret"></b></div><span class="glyphicon glyphicon-plus visible-md visible-sm"></span></a></li>
+
+The menu itemx are rplaced by '+' for different screen sizes
+This works but must be customized for each app.
+Media queries in css could be used to shrink fon ... for various screen siez breakpoints
+Its easiest to just limit navbar items, which is a good idea anyway.

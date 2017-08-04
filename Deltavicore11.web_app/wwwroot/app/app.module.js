@@ -20,14 +20,14 @@
     //          service: $provide.service
     //      };
     //}]);
-    //app.config(['scrollableTabsetConfigProvider', function (scrollableTabsetConfigProvider) {
-    //    scrollableTabsetConfigProvider.setShowTooltips(true);
+    app.config(['scrollableTabsetConfigProvider', function (scrollableTabsetConfigProvider) {
+        scrollableTabsetConfigProvider.setShowTooltips(true);
 
-    //    scrollableTabsetConfigProvider.setTooltipLeft('bottom');
+        scrollableTabsetConfigProvider.setTooltipRightPlacement('left');
 
-    //    scrollableTabsetConfigProvider.setTooltipRight('left');
+        scrollableTabsetConfigProvider.setTooltipLeftPlacement('right');
 
-    //}]);
+    }]);
    
 
 

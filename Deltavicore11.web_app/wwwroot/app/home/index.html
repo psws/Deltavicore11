@@ -6,18 +6,34 @@
         <span><i class="fa fa-clock-o"></i></span>
         <b>Poultry Feed Provider Maintenance</b>
     </button>
+    <br />hello {{vm.people[0].name}}
+    <!--<person-component></person-component>-->
+
+    <div>
+        <counter count="6"></counter>
+    </div>
+
+    <!--<ul>
+        <li ng-repeat="person in vm.people">
+            <name-component name="person.name" age="person.age"></name-component>
+        </li>
+    </ul>-->
     <div style="padding:30px" >
         <br />
         <scrollable-tabset api="vm.scrlTabsApi" 
                            drop-down-header-template-url="menuHeaderTemplate"
                            drop-down-header-class="menuHeader"
                            >
-            <uib-tabset  style="height: 300px">
+            <uib-tabset  style="height: 300px" >
                 <uib-tab>
-                    <uib-tab-heading>First tab</uib-tab-heading>
-                    <div class="tabContent">First tab content</div>
+                    <uib-tab-heading>{{vm.tab1.heading}}</uib-tab-heading>
+                    <div class="tabContent" ng-include="vm.tab1.templateUrl"></div>
                 </uib-tab>
-                <uib-tab ng-repeat="tab in vm.tabs">
+                <uib-tab>
+                    <uib-tab-heading>{{vm.tab2.heading}}</uib-tab-heading>
+                    <div class="tabContent" ng-include="vm.tab2.templateUrl"></div>
+                </uib-tab>
+               <uib-tab ng-repeat="tab in vm.tabs" >
                     <uib-tab-heading>{{tab.heading}}</uib-tab-heading>
                     <div class="tabContent">{{tab.content}}</div>
                 </uib-tab>
@@ -28,10 +44,30 @@
             </uib-tabset>
         </scrollable-tabset>
 
+        <div style="padding:30px">
+
+            <uib-tabset style="height: 300px">
+                <uib-tab tab-controller="MyCustomController as ctrl">
+                    <uib-tab-heading>
+                        {{ctrl.title}}
+                    </uib-tab-heading>
+                    <div class="tabContent">First tab content</div>
+                </uib-tab>
+                <uib-tab tab-controller="MyCustomController2 as ctrl2">
+                    <uib-tab-heading>
+                        {{ctrl2.title}}
+                    </uib-tab-heading>
+                    <div class="tabContent">second tab content</div>
+                </uib-tab>
+
+            </uib-tabset>
+        </div>
+
+
         <script type="text/ng-template" id="menuHeaderTemplate">
             <div>
-                <a href="#">something</a>
-                <a href="#">nothing</a>
+                <a href="#">Go to Tab</a>
+                <a href="#"></a>
             </div>
         </script>
         <br /><br /><br /><br /><br /><br />
