@@ -7,10 +7,10 @@
         .module('deltavi')
         .controller('masterController', masterController);
 
-    masterController.$inject = ['$routeParams', '$location', 'ajaxService', 'applicationConfiguration'
+    masterController.$inject = [ '$location', 'ajaxService', 'applicationConfiguration'
     ];
 
-    function masterController($routeParams, $location, ajaxService, applicationConfiguration) {
+    function masterController( $location, ajaxService, applicationConfiguration) {
         /* jshint validthis:true */
         var vm = this;
         vm.title = 'masterController';

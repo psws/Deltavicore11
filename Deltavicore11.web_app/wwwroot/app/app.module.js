@@ -1,15 +1,16 @@
 ﻿console.log("Deltavi Module Bootstrap");
 
-//(function () {
-//    'use strict';
 (function () {
     'use strict';
 
+            //'ngRoute',
+    // 'ui.router'
+
     var app = angular.module('deltavi', [
-        'ngRoute',
+        'ui.router',
         'ui.bootstrap',
         'ui.tab.scroll',
-        'ngSanitize',
+        //'ngSanitize',
         'blockUI' // see note appmodule.txt
     ]);
 

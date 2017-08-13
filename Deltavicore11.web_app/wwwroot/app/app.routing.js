@@ -12,8 +12,10 @@ angular.module("deltavi").config(['$routeProvider', '$locationProvider', 'applic
 
         //needs jquery
         //var baseSiteUrlPath = $("base").first().attr("href");
+        var tmp = $routeProvider.section;
 
         //jqlite from angular
+
         var baseSiteUrlPath = (angular.element(document.getElementsByName('base')))[0].href;
         var envDevelopment = true;
         var bLoad = true;

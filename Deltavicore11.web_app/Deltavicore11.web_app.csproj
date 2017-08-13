@@ -14,13 +14,11 @@
     <Content Include="wwwroot\app\app.module.js" />
     <Content Include="wwwroot\app\app.config.js" />
     <Content Include="wwwroot\app\app.routing.js" />
+    <Content Include="wwwroot\app\app.uirouting.js" />
     <Content Include="wwwroot\app\css\deltavi.less" />
     <Content Include="wwwroot\app\css\site.css" />
     <Content Include="wwwroot\app\home\about.controller.js" />
     <Content Include="wwwroot\app\home\about.html" />
-    <Content Include="wwwroot\app\home\contact - Copy.controller.js">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
     <Content Include="wwwroot\app\home\contact.controller.js" />
     <Content Include="wwwroot\app\home\contact.html" />
     <Content Include="wwwroot\app\home\error.controller.js" />
@@ -38,12 +36,43 @@
     <Content Include="wwwroot\app\poultryfeed\provider.maintenance.html" />
     <Content Include="wwwroot\app\services\AjaxService.js" />
     <Content Include="wwwroot\app\services\alertService.js" />
+    <Content Include="wwwroot\app\services\app.routing.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
     <Content Include="wwwroot\css\deltavi.min.css" />
+    <Content Include="wwwroot\js\routingBundle.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\.bower.json" />
+    <Content Include="wwwroot\lib\angular-ui-router\bower.json" />
+    <Content Include="wwwroot\lib\angular-ui-router\CHANGELOG.md" />
+    <Content Include="wwwroot\lib\angular-ui-router\CONTRIBUTING.md" />
+    <Content Include="wwwroot\lib\angular-ui-router\DOCS.md" />
+    <Content Include="wwwroot\lib\angular-ui-router\ISSUE_TEMPLATE.md" />
+    <Content Include="wwwroot\lib\angular-ui-router\karma.conf.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\LICENSE" />
+    <Content Include="wwwroot\lib\angular-ui-router\migrate\migrate.json" />
+    <Content Include="wwwroot\lib\angular-ui-router\migrate\migratewarn.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\README.md" />
+    <Content Include="wwwroot\lib\angular-ui-router\release\angular-ui-router.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\release\angular-ui-router.js.map" />
+    <Content Include="wwwroot\lib\angular-ui-router\release\angular-ui-router.min.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\release\angular-ui-router.min.js.map" />
+    <Content Include="wwwroot\lib\angular-ui-router\release\resolveService.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\release\resolveService.js.map" />
+    <Content Include="wwwroot\lib\angular-ui-router\release\resolveService.min.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\release\resolveService.min.js.map" />
+    <Content Include="wwwroot\lib\angular-ui-router\release\stateEvents.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\release\stateEvents.js.map" />
+    <Content Include="wwwroot\lib\angular-ui-router\release\stateEvents.min.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\release\stateEvents.min.js.map" />
+    <Content Include="wwwroot\lib\angular-ui-router\release\ui-router-angularjs.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\release\ui-router-angularjs.js.map" />
+    <Content Include="wwwroot\lib\angular-ui-router\release\ui-router-angularjs.min.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\release\ui-router-angularjs.min.js.map" />
+    <Content Include="wwwroot\lib\angular-ui-router\rollup.config.js" />
+    <Content Include="wwwroot\lib\angular-ui-router\tslint.json" />
+    <Content Include="wwwroot\lib\angular-ui-router\yarn.lock" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="Angular.UI.Bootstrap" Version="2.5.0" />
-    <PackageReference Include="AngularJS.Core" Version="1.6.4" />
-    <PackageReference Include="AngularJS.Route" Version="1.6.4" />
     <PackageReference Include="BuildBundlerMinifier" Version="2.4.337" />
     <PackageReference Include="BuildWebCompiler" Version="1.11.347" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />

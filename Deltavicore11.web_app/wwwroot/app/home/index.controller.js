@@ -1,18 +1,18 @@
 (function () {
     'use strict';
 
-    var NameComponent = {
-        bindings: {
-            name: '=',
-            age: '='
-        },
-        template: [
-            '<div>',
-            '<p>Name: {{$ctrl.name}}</p>',
-            '<p>Age: {{$ctrl.age}}</p>',
-            '</div>'
-        ].join('')
-    };
+    //var NameComponent = {
+    //    bindings: {
+    //        name: '=',
+    //        age: '='
+    //    },
+    //    template: [
+    //        '<div>',
+    //        '<p>Name: {{$ctrl.name}}</p>',
+    //        '<p>Age: {{$ctrl.age}}</p>',
+    //        '</div>'
+    //    ].join('')
+    //};
     // controller
     //var PersonController = function () {
 
@@ -47,7 +47,6 @@
        ;
 
     indexController.$inject = [
-        '$routeParams',
         '$location'
     ];
 
@@ -56,7 +55,7 @@
     //    .controller('NoopController', angular.noop)
     //    .component('nameComponent', NameComponent);
 
-    function indexController($routeParams, $location) {
+    function indexController( $location) {
         //console.log("indexController init");
 
         var vm = this;
@@ -76,17 +75,25 @@
             heading: 'Provider Maintenance2',
             templateUrl: '/app/poultryfeed/personcomponent.html'
         };
+        vm.title = "Index Page";
 
-        vm.people = [{
-            name: 'Todd',
-            age: 25
-        }, {
-            name: 'Ryan',
-            age: 20
-        }, {
-            name: 'Jilles',
-            age: 21
-        }];
+        for (var i = 0; i < 15; i++) {
+            vm.tabs.push({
+                heading: 'Tab ' + i,
+                content: 'This is the content for tab ' + i
+            });
+        }
+
+        //vm.people = [{
+        //    name: 'Todd',
+        //    age: 25
+        //}, {
+        //    name: 'Ryan',
+        //    age: 20
+        //}, {
+        //    name: 'Jilles',
+        //    age: 21
+        //}];
 
 
         vm.initializeController = function () {
@@ -99,12 +106,11 @@
                 });
             }
 
-            //vm.todo()
         };
 
-        vm.ProviderMaintenance = function () {
-            $location.path("PoultryFeed/Provider.Maintenance");
-        };
+        //vm.ProviderMaintenance = function () {
+        //    $location.path("PoultryFeed/Provider.Maintenance");
+        //};
 
         //  http://plnkr.co/edit/YJNDaQ?p=preview
         //  https://github.com/VersifitTechnologies/angular-ui-tab-scroll
@@ -132,49 +138,49 @@
         };
 
 
-        angular.module('deltavi')
-            //.controller('CountCtrl', CountCtrl)
-            .component('counter', {
-                bindings: {
-                    count: '='
-                },
-                controller: function () {
-                    var vm = this;
-                    function increment() {
-                        vm.count++;
-                    }
-                    function decrement() {
-                        vm.count--;
-                    }
-                    vm.increment = increment;
-                    vm.decrement = decrement;
-                },
-                template: [
-                    '<div class="todo">',
-                    '<input type="text" ng-model="$ctrl.count">',
-                    '<button type="button" ng-click="$ctrl.decrement();">-</button>',
-                    '<button type="button" ng-click="$ctrl.increment();">+</button>',
-                    '</div>'
-                ].join('')
-            });
+        //angular.module('deltavi')
+        //    //.controller('CountCtrl', CountCtrl)
+        //    .component('counter', {
+        //        bindings: {
+        //            count: '='
+        //        },
+        //        controller: function () {
+        //            var vm = this;
+        //            function increment() {
+        //                vm.count++;
+        //            }
+        //            function decrement() {
+        //                vm.count--;
+        //            }
+        //            vm.increment = increment;
+        //            vm.decrement = decrement;
+        //        },
+        //        template: [
+        //            '<div class="todo">',
+        //            '<input type="text" ng-model="$ctrl.count">',
+        //            '<button type="button" ng-click="$ctrl.decrement();">-</button>',
+        //            '<button type="button" ng-click="$ctrl.increment();">+</button>',
+        //            '</div>'
+        //        ].join('')
+        //    });
 
-        angular.module('deltavi').directive('tabController', function () {
-            return {
-                restrict: 'A',
-                controller: '@',
-                name: 'tabController',
-                scope: {},
+        //angular.module('deltavi').directive('tabController', function () {
+        //    return {
+        //        restrict: 'A',
+        //        controller: '@',
+        //        name: 'tabController',
+        //        scope: {},
 
-            }
-        })
-            .controller('MyCustomController', function () {
-                var vm = this;
-                vm.title = "Hey, I am The first controller";
-            })
-            .controller('MyCustomController2', function () {
-                var vm = this;
-                vm.title = "Hey, I am the second controller";
-            });     
+        //    }
+        //})
+        //    .controller('MyCustomController', function () {
+        //        var vm = this;
+        //        vm.title = "Hey, I am The first controller";
+        //    })
+        //    .controller('MyCustomController2', function () {
+        //        var vm = this;
+        //        vm.title = "Hey, I am the second controller";
+        //    });     
 
         activate();
 

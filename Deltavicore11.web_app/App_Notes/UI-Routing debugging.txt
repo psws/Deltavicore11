@@ -1,0 +1,133 @@
+﻿angular.js debugging breakpoints ~line 9815  in angular.js
+
+          function nodeLinkFn(childLinkFn, scope, linkNode, $rootElement, boundTranscludeFn) {
+        var i, ii, linkFn, isolateScope, controllerScope, elementControllers, transcludeFn, $element,
+            attrs, scopeBindingInfo;
+
+        if (compileNode === linkNode) {
+          attrs = templateAttrs;
+          $element = templateAttrs.$$element;
+        } else {
+          $element = jqLite(linkNode);
+          attrs = new Attributes($element, templateAttrs);
+        }
+
+        controllerScope = scope;
+        if (newIsolateScopeDirective) {
+          isolateScope = scope.$new(true);
+        } else if (newScopeDirective) {
+          controllerScope = scope.$parent;
+        }
+
+        if (boundTranscludeFn) {
+          // track `boundTranscludeFn` so it can be unwrapped if `transcludeFn`
+          // is later passed as `parentBoundTranscludeFn` to `publicLinkFn`
+          transcludeFn = controllersBoundTransclude;
+          transcludeFn.$$boundTransclude = boundTranscludeFn;
+          // expose the slots on the `$transclude` function
+          transcludeFn.isSlotFilled = function(slotName) {
+            return !!boundTranscludeFn.$$slots[slotName];
+          };
+        }
+
+        if (controllerDirectives) {
+          elementControllers = setupControllers($element, attrs, transcludeFn, controllerDirectives, isolateScope, scope, newIsolateScopeDirective);
+        }
+
+        if (newIsolateScopeDirective) {
+          // Initialize isolate scope bindings for new isolate scope directive.
+          compile.$$addScopeInfo($element, isolateScope, true, !(templateDirective && (templateDirective === newIsolateScopeDirective ||
+              templateDirective === newIsolateScopeDirective.$$originalDirective)));
+          compile.$$addScopeClass($element, true);
+          isolateScope.$$isolateBindings =
+              newIsolateScopeDirective.$$isolateBindings;
+          scopeBindingInfo = initializeDirectiveBindings(scope, attrs, isolateScope,
+                                        isolateScope.$$isolateBindings,
+                                        newIsolateScopeDirective);
+          if (scopeBindingInfo.removeWatches) {
+            isolateScope.$on('$destroy', scopeBindingInfo.removeWatches);
+          }
+        }
+
+        // Initialize bindToController bindings
+        for (var name in elementControllers) {
+          var controllerDirective = controllerDirectives[name];
+          var controller = elementControllers[name];
+          var bindings = controllerDirective.$$bindings.bindToController;
+
+          controller.instance = controller(); //BREAK HERE
+___________________________
+angular.js debugging breakpoints ~line 10880  in angular.js
+    return function $controller(expression, locals, later, ident) {
+      // PRIVATE API:
+      //   param `later` --- indicates that the controller's constructor is invoked at a later time.
+      //                     If true, $controller will allocate the object with the correct
+      //                     prototype chain, but will not invoke the controller until a returned
+      //                     callback is invoked.
+      //   param `ident` --- An optional label which overrides the label parsed from the controller
+      //                     expression, if any.
+      var instance, match, constructor, identifier;
+      later = later === true;
+      if (ident && isString(ident)) {
+        identifier = ident;
+      }
+
+      if (isString(expression)) {
+        match = expression.match(CNTRL_REG);
+        if (!match) {
+          throw $controllerMinErr('ctrlfmt',
+            'Badly formed controller string \'{0}\'. ' +
+            'Must match `__name__ as __id__` or `__name__`.', expression);
+        }
+        constructor = match[1];
+        identifier = identifier || match[3];
+        expression = controllers.hasOwnProperty(constructor)
+            ? controllers[constructor]
+            : getter(locals.$scope, constructor, true);
+
+        if (!expression) {
+          throw $controllerMinErr('ctrlreg',
+            'The controller with the name \'{0}\' is not registered.', constructor);
+        }
+
+        assertArgFn(expression, constructor, true);
+      }
+
+      if (later) {
+        // Instantiate controller later:
+        // This machinery is used to create an instance of the object before calling the
+        // controller's constructor itself.
+        //
+        // This allows properties to be added to the controller before the constructor is
+        // invoked. Primarily, this is used for isolate scope bindings in $compile.
+        //
+        // This feature is not intended for use by applications, and is thus not documented
+        // publicly.
+        // Object creation: http://jsperf.com/create-constructor/2
+        var controllerPrototype = (isArray(expression) ?
+          expression[expression.length - 1] : expression).prototype;
+        instance = Object.create(controllerPrototype || null);
+
+        if (identifier) {
+          addIdentifier(locals, identifier, instance, constructor || expression.name);
+        }
+
+        return extend(function $controllerInit() {
+          var result = $injector.invoke(expression, instance, locals, constructor);  //BREAK HERE
+___________________________________________
+
+also around line 5345 in angular-ui-router.js
+        UrlRouter.prototype.sync = function (evt) {
+        if (evt && evt.defaultPrevented)
+            return;
+        var router = this._router, $url = router.urlService, $state = router.stateService;
+        var url = {
+            path: $url.path(), search: $url.search(), hash: $url.hash(),
+        };
+        var best = this.match(url);
+        var applyResult = pattern([
+            [isString, function (newurl) { return $url.url(newurl, true); }],
+            [TargetState.isDef, function (def) { return $state.go(def.state, def.params, def.options); }],
+            [is(TargetState), function (target) { return $state.go(target.state(), target.params(), target.options()); }],
+        ]);
+        applyResult(best && best.rule.handler(best.match, url, router));  //BREAK HERE

@@ -7,13 +7,14 @@
         .controller('aboutController', aboutController);
 
     aboutController.$inject = [
-        '$routeParams',
         '$location'
     ];
 
-    function aboutController($routeParams, $location) {
+    function aboutController($location) {
         /* jshint validthis:true */
         var vm = this;
+        //vm.title = "About";
+
 
         this.initializeController = function () {
             vm.title = "About";

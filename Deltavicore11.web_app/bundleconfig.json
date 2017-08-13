@@ -76,7 +76,8 @@
     "outputFileName": "wwwroot/js/routingBundle.js",
     // An array of relative input file paths. Globbing patterns supported
     "inputFiles": [
-      "wwwroot/app/app.routing.js"
+      //"wwwroot/app/app.routing.js",  
+      "wwwroot/app/app.uirouting.js"
     ],
     "minify": {
       "enabled": true,
@@ -124,12 +125,15 @@
     // An array of relative input file paths. Globbing patterns supported
     "inputFiles": [
       "wwwroot/lib/angular/angular.js",
-      "wwwroot/lib/angular-route/angular-route.js",
+
+      //"wwwroot/lib/angular-route/angular-route.js", //ngRoute
+      //"wwwroot/lib/angular-ui-router/release/ui-router-angularjs.js",
       "wwwroot/lib/angular-ui-router/release/angular-ui-router.js",
+
       "wwwroot/lib/angular-sanitize/angular-sanitize.js",
       "wwwroot/lib/angular-bootstrap/ui-bootstrap.min.js",
       "wwwroot/lib/angular-bootstrap/ui-bootstrap-tpls.min.js",
-      //"wwwroot/lib/angular-ui-tab-scroll/angular-ui-tab-scroll.js",
+      "wwwroot/lib/angular-ui-tab-scroll/angular-ui-tab-scroll.js",
       "wwwroot/lib/angular-block-ui/dist/angular-block-ui.min.js"
     ],
     "minify": {
