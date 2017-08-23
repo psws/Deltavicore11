@@ -11,10 +11,69 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='SqlLite_Debug|AnyCPU'" />
 
   <ItemGroup>
+    <Content Include="wwwroot\app\accounting\admin\admin.controller.js" />
+    <Content Include="wwwroot\app\accounting\admin\admin.html" />
+    <Content Include="wwwroot\app\accounting\admin\admin.tabs.json" />
+    <Content Include="wwwroot\app\accounting\admin\farm\admin.farm.controller.js" />
+    <Content Include="wwwroot\app\accounting\admin\farm\admin.farm.html">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\accounting\admin\feed\admin.farm.controller.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\accounting\admin\feed\admin.farm.html">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\accounting\admin\feed\admin.feed.controller.js" />
+    <Content Include="wwwroot\app\accounting\admin\feed\admin.feed.html" />
+    <Content Include="wwwroot\app\accounting\admin\provider\admin.provider.controller.js" />
+    <Content Include="wwwroot\app\accounting\admin\provider\admin.provider.html" />
+    <Content Include="wwwroot\app\accounting\admin\vehicle\admin.vehicle.html">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\accounting\admin\vehicle\admin.vehicle.controller.js" />
+    <Content Include="wwwroot\app\accounting\expense\cashadvance\expense.cashadvance.controller.js" />
+    <Content Include="wwwroot\app\accounting\expense\cashadvance\expense.cashadvance.html" />
+    <Content Include="wwwroot\app\accounting\expense\expense.controller.js" />
+    <Content Include="wwwroot\app\accounting\expense\expense.html" />
+    <Content Include="wwwroot\app\accounting\expense\expense.min.html" />
+    <Content Include="wwwroot\app\accounting\expense\expense.tabs.json" />
+    <Content Include="wwwroot\app\accounting\expense\farmfuel\expense.cashadvance.controller.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\accounting\expense\farmfuel\expense.cashadvance.html" />
+    <Content Include="wwwroot\app\accounting\expense\farmfuel\expense.farmfuel.controller.js" />
+    <Content Include="wwwroot\app\accounting\expense\farmfuel\expense.farmfuel.html" />
+    <Content Include="wwwroot\app\accounting\expense\feed\expense.feed.controller.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\accounting\expense\feed\expense.feed.html">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\accounting\expense\supplies\expense.supplies.controller.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\accounting\expense\supplies\expense.supplies.html">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\accounting\expense\utilities\expense.feed.html">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\accounting\expense\utilities\expense.supplies.controller.js">
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+    </Content>
+    <Content Include="wwwroot\app\accounting\expense\utilities\expense.utilities.controller.js" />
+    <Content Include="wwwroot\app\accounting\expense\utilities\expense.utilities.html" />
+    <Content Include="wwwroot\app\accounting\salary\salary.controller.js" />
+    <Content Include="wwwroot\app\accounting\salary\salary.html" />
+    <Content Include="wwwroot\app\accounting\sales\sales.controller.js" />
+    <Content Include="wwwroot\app\accounting\sales\sales.html" />
     <Content Include="wwwroot\app\app.module.js" />
     <Content Include="wwwroot\app\app.config.js" />
     <Content Include="wwwroot\app\app.routing.js" />
     <Content Include="wwwroot\app\app.uirouting.js" />
+    <Content Include="wwwroot\app\components\about.js" />
+    <Content Include="wwwroot\app\components\contact.js" />
     <Content Include="wwwroot\app\css\deltavi.less" />
     <Content Include="wwwroot\app\css\site.css" />
     <Content Include="wwwroot\app\home\about.controller.js" />
@@ -29,16 +88,10 @@
     <Content Include="wwwroot\app\home\PersonController.js" />
     <Content Include="wwwroot\app\js\site.js" />
     <Content Include="wwwroot\app\master.Controller.js" />
-    <Content Include="wwwroot\app\poultryfeed\personcomponent.html">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="wwwroot\app\poultryfeed\provider.maintenance.controller.js" />
-    <Content Include="wwwroot\app\poultryfeed\provider.maintenance.html" />
     <Content Include="wwwroot\app\services\AjaxService.js" />
     <Content Include="wwwroot\app\services\alertService.js" />
-    <Content Include="wwwroot\app\services\app.routing.js">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
+    <Content Include="wwwroot\app\services\resolver.service.js" />
+    <Content Include="wwwroot\app\services\tab.service.js" />
     <Content Include="wwwroot\css\deltavi.min.css" />
     <Content Include="wwwroot\js\routingBundle.js" />
     <Content Include="wwwroot\lib\angular-ui-router\.bower.json" />

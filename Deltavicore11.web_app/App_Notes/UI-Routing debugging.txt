@@ -1,4 +1,7 @@
-﻿angular.js debugging breakpoints ~line 9815  in angular.js
+﻿Debugging State routing can be difficult
+If you get error message about missing Providers it usually means that the .js file is not loaded or loaded toolate.
+Error: $injector:unpr
+angular.js debugging breakpoints ~line 9815  in angular.js
 
           function nodeLinkFn(childLinkFn, scope, linkNode, $rootElement, boundTranscludeFn) {
         var i, ii, linkFn, isolateScope, controllerScope, elementControllers, transcludeFn, $element,

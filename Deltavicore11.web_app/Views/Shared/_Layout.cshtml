@@ -24,7 +24,7 @@
     if (envName != "Development")
     {
         //https://gist.github.com/mohamedmansour/cd50123f8575daba7a7f12847b12da5d
-        List<CustomBundle> bundles = Deltavicore11.web_app.Helpers.Bundling.GetAppBundles(env.ContentRootPath);
+        List<CustomBundle> bundles = Deltavicore11.web_app.Helpers.Bundling.GetAppBundles(envName, env.ContentRootPath);
 
 
         BundleInformation bundleInformation = new BundleInformation();
@@ -54,7 +54,7 @@
 
         @*<script src="~/lib/angular-route/angular-route.js"></script>*@
         @*<script src="~/lib/angular-ui-router/release/ui-router-angularjs.js"></script>*@
- 
+
         <script src="~/lib/angular-ui-router/release/angular-ui-router.js"></script>
 
 
@@ -65,6 +65,8 @@
         <script src="~/lib/angular-bootstrap/ui-bootstrap.js"></script>
         <script src="~/lib/angular-bootstrap/ui-bootstrap-tpls.js"></script>
         <script src="~/lib/angular-ui-tab-scroll/angular-ui-tab-scroll.js"></script>
+        @*<script src="~/lib/angular-animate/angular-animate.js"></script>*@
+
         @*<script src="https://rawgit.com/VersifitTechnologies/angular-ui-tab-scroll/master/angular-ui-tab-scroll.js"></script>
             <link rel="stylesheet" href="https://rawgit.com/VersifitTechnologies/angular-ui-tab-scroll/master/angular-ui-tab-scroll.css" />*@
 
@@ -138,30 +140,34 @@
 </head>
 
 <body ng-app="deltavi" ng-controller="masterController as vm" ng-init="vm.initializeController()">
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <span class="navbar-brand"><a href="Home/Index">Deltavi</a></span>
-            </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
+    <div ng-controller="NavigationCtrl as vm" ng-init="vm.initializeController()">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" ng-click="vm.toggleCollapse()">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <span class="navbar-brand"><a href="/">Deltavi</a></span>
+                </div>
+                <div class="navbar-collapse" style="overflow:hidden!important;" uib-collapse="vm.isCollapsed">
+                    <ul class="nav navbar-nav" ng-click="vm.Collapse()">
 
-                    <li><a href="Home/Index">Home</a></li>
-                    @*<li><a href="Home/Contact">Contact Us</a></li>*@
-                    @*<li><a href="Home/About">About</a></li>*@
-                    <li ui-sref-active="active"><a ui-sref="contact">Contact</a></li>*
-                    <li ui-sref-active="active"><a ui-sref="about">About</a></li>*
-                    
-                    <li><a href="Customers/CustomerMaintenance">Customer Maintenance</a></li>
-                    @*<li><a href="Customers/CustomerInquiry">Customer Inquiry</a></li>
-                        <li><a href="Products/ProductMaintenance">Product Maintenance</a></li>
-                        <li><a href="Products/ProductInquiry">Product Inquiry</a></li>*@
-                </ul>
+                        @*<li><a href="Home/Index">Home</a></li>*@
+                        @*<li><a href="Home/Contact">Contact Us</a></li>*@
+                        @*<li><a href="Home/About">About</a></li>*@
+                        <li ui-sref-active="active"><a ui-sref="expense">Expenses</a></li>*
+                        <li ui-sref-active="active"><a ui-sref="sales">Sales</a></li>*
+                        <li ui-sref-active="active"><a ui-sref="salary">Salary</a></li>*
+                        <li ui-sref-active="active" ><a ui-sref="admin">Admin</a></li>*
+                    </ul>
+                    <ul class="nav navbar-nav navbar-right" ng-click="vm.toggleCollapse()">
+                        <li ui-sref-active="active"><a ui-sref="/home/contact">Contact</a></li>*
+                        <li ui-sref-active="active"><a ui-sref="/home/about">About</a></li>*
+
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
@@ -171,7 +177,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; @DateTime.Now.Year - AngularJS MVC @version</p>
+            <p>&copy; @DateTime.Now.Year PSWS Deltavi application @version</p>
         </footer>
     </div>
 
@@ -186,13 +192,16 @@
 
     <environment names="Development">
         <script src="~/app/app.module.js" asp-append-version="true"></script>
-            <script src="~/app/app.config.js" asp-append-version="true"></script>
+        <script src="~/app/services/tab.service.js" asp-append-version="true"></script>
+       <script src="~/app/Navigation.controller.js" asp-append-version="true">></script>
+        <script src="~/app/services/resolver.service.js" ></script>
+        <script src="~/app/app.config.js" asp-append-version="true"></script>
 
 
-            <script src="~/app/services/ajaxService.js" asp-append-version="true"></script>
+        <script src="~/app/services/ajaxService.js" asp-append-version="true"></script>
         <script src="~/app/services/alertService.js" asp-append-version="true"></script>
 
-            <script src="~/app/master.Controller.js" asp-append-version="true"></script>
+        <script src="~/app/master.Controller.js" asp-append-version="true"></script>
         @*<script src="~/js/startupBundle.min.js"></script>*@
 
     </environment>
@@ -290,15 +299,22 @@
     <environment names="Development">
         <script src="~/app/app.uirouting.js"></script>
         @*<script src="~/app/app.routing.js" ></script>*@
-   </environment>
 
-    <environment names ="Staging,Production">
+    </environment>
+
+    <environment names="Staging,Production">
         <script src="~/js/routingBundle.min.js"></script>
     </environment>
 
 
 
     @*<script src="~/app/home/index.controller.js" asp-append-version="true"></script>*@
+    @*<script src="~/app/components/contact.js"></script>
+    <script src="~/app/components/about.js"></script>
+    <script src="~/app/components/index.js"></script>*@
+
+
+
 
 
 

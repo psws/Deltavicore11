@@ -23,7 +23,7 @@ namespace Deltavicore11.web_app.Helpers
     /// </summary>
     public class Bundling
     {
-        public static List<CustomBundle> GetAppBundles(string baseFolder)
+        public static List<CustomBundle> GetAppBundles(string envName, string baseFolder)
         {
 
             var configFile = Path.Combine(baseFolder, "bundleconfig.json");
@@ -41,11 +41,17 @@ namespace Deltavicore11.web_app.Helpers
 
                 foreach (var item in bundles)
                 {
+                    var path = item.OutputFileName.Replace("wwwroot", string.Empty);
+                    if (envName != "Development")
+                    {
+                        path = path.Replace(".js", ".min.js");
+                    }
+
                     AppBundles.Add(new CustomBundle
                     {
                         BundleName = item.OutputFileName.Replace(Bundlefilter, string.Empty).Replace(@"wwwroot/js/", string.Empty),
                         IsLoaded = false,
-                        Path = item.OutputFileName.Replace("wwwroot", string.Empty)
+                        Path = path
 
                     });
                 }

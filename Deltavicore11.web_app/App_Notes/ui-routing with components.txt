@@ -1,0 +1,82 @@
+﻿It is possible to use Compomemt routing in this AngularJs application.
+The idea with component routing is to place the controller and HTML inside of the component definition
+The controller is an inline function and the HTML is inline template:string(ugly) or a templateUtl;
+To use component routing:
+	In app.uirouting.js:
+		comment out the controller and template URL
+			        .state('home', {
+                    url: '/home',
+                    //templateUrl: '/app/home/index.html',
+                    //controller: 'indexController as vm',  //these lines cause the controller to be constructed/initialized twice
+                    component: 'index',
+		set the debug controller to bLoad= false; the index.controller.js file is not needed, since the controller is in the component.
+			                    controllerToLoad = "/app/home/index.controller.js?v=" + getApplicationVersion();
+                                bLoad = fakse;
+		-------
+	in app/components directory create index.js file.
+			(function () {
+			'use strict';
+		//https://embed.plnkr.co/XkxLgT/
+
+			angular
+				.module('deltavi')
+				.component('index', {
+					//template: '<div>' +
+					//' <h4> {{$ctrl.title }} </h4>' +
+					//'    <p>' +
+					//'       If you have any technical questions regarding this sample application, you can contact psws.com at' +
+					//'     <a href="markcap@hotmail.com">markcap@hotmail.com</a>' +
+					//'    </p>' +
+					//'</div >' +
+					//'<div ui-view></div>',
+					templateUrl: '/app/home/index.html',
+					controller: function () {
+						var vm = this;
+						this.title = 'Indexs';
+						vm.form = {
+							username: 'admin',
+							password: null
+						};
+						vm.tabs = [];
+						vm.scrlTabsApi = {};
+
+						vm.tab1 = {
+							heading: 'Provider Maintenance',
+							templateUrl: '/app/home/personcomponent.html'
+						};
+
+						vm.tab2 = {
+							heading: 'Provider Maintenance2',
+							templateUrl: '/app/poultryfeed/personcomponent.html'
+						};
+
+						for (var i = 0; i < 15; i++) {
+							vm.tabs.push({
+								heading: 'Tab ' + i,
+								content: 'This is the content for tab ' + i
+							});
+						}
+
+				   },
+					controllerAs: 'vm'
+				});
+			})();
+		---------
+		in the _layout.cshtml file add the loading of the index.js component definition file.
+			    <script src="~/app/components/index.js"></script>
+		---------
+
+
+The Problem is the component files can not be lazy loaded with my resolve technique.
+I found I had to preload the component in the _layout.cshtml file or the config phase would complain about indexProvider missing.
+There is no $provide.component provide, so you cannot add it to app.config.js  app.regiter section
+There is no compile $provider to load the component file after config
+You must convert all states to component routing. If you do not, when going from contact.htmlpage with a ctrlF5 refresh to
+the index.html page will not run the index.controller constructor. The index.html page title is not assigned.
+The Ctrl F5 refresh seems to unload the index.controller DOM.
+Making all ui-route states components seems to avoid this issue.
+
+
+CONCLUSION:
+I will revert to States with controller files. 
+This allows lazy loadings.

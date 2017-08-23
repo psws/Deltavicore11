@@ -1,0 +1,52 @@
+﻿[
+
+  {
+    "title": "Feed",
+    "route": "expense.feed",
+    "content": "Tab 1 Content",
+    "disable": false,
+    "show": true,
+    "index": "0"
+  },
+
+
+  {
+    "title": "Supplies",
+    "route": "expense.supplies",
+    "content": "Tab 2 Content",
+    "disable": false,
+    "show": true,
+    "index": "1"
+  },
+
+
+  {
+    "title": "Farm Fuel",
+    "route": "expense.farmfuel",
+    "content": "Tab 3 Content",
+    "disable": false,
+    "show": true,
+    "index": "2"
+
+  },
+
+  {
+    "title": "Cash Advance",
+    "route": "expense.cashadvance",
+    "content": "Tab 3 Content",
+    "disable": false,
+    "show": true,
+    "index": "3"
+
+  },
+
+  {
+    "title": "Utilities",
+    "route": "expense.utilities",
+    "content": "Tab 4 Content",
+    "disable": false,
+    "show": true,
+    "index": "4"
+
+  }
+]

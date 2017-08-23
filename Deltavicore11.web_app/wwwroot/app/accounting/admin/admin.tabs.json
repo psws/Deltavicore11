@@ -1,0 +1,64 @@
+﻿[
+
+  {
+    "title": "Providers",
+    "route": "admin.provider",
+    "content": "Tab 1 Content",
+    "disable": false,
+    "show": true,
+    "index": "0"
+  },
+
+
+  {
+    "title": "Farms",
+    "route": "admin.farm",
+    "content": "Tab 2 Content",
+    "disable": false,
+    "show": true,
+    "index": "1"
+  },
+
+
+  {
+    "title": "Feed",
+    "route": "admin.feed",
+    "content": "Tab 3 Content",
+    "disable": false,
+    "show": true,
+    "index": "2"
+
+  },
+
+
+  {
+    "title": "Vehicles",
+    "route": "admin.vehicle",
+    "content": "Tab 4 Content",
+    "disable": false,
+    "show": true,
+    "index": "3"
+
+  },
+
+
+  {
+    "title": "Tab 5",
+    "route": "admin.tab5",
+    "content": "Tab 5 Content",
+    "disable": true,
+    "show": true,
+    "index": "4"
+
+  },
+  {
+    "title": "Tab 6",
+    "route": "admin.tab6",
+    "content": "Tab 6 Content",
+    "disable": false,
+    "show": false,
+    "index": "4"
+
+  }
+
+]

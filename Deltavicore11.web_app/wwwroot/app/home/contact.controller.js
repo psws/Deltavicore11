@@ -11,6 +11,7 @@
     function contactController($location) {
         /* jshint validthis:true */
         var vm = this;
+        vm.title = "Contact";
 
         activate();
 

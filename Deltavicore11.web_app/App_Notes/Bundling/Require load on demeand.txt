@@ -12,7 +12,7 @@ It creates a CustomBundle object for each bundle found. The CustomBundle.isLoade
         bundleInformation.Bundles = bundles;
         bundleInformationJSON = Newtonsoft.Json.JsonConvert.SerializeObject(bundleInformation, Newtonsoft.Json.Formatting.None);
 
-	  public static List<CustomBundle> GetAppBundles(string baseFolder)
+	  public static List<CustomBundle> GetAppBundles(string envName, string baseFolder)
         {
 
             var configFile = Path.Combine(baseFolder, "bundleconfig.json");
