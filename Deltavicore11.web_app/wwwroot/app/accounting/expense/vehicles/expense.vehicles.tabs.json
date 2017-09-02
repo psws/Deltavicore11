@@ -1,0 +1,34 @@
+﻿[
+
+  {
+    "title": "Fuel",
+    "route": "expense.vehicles.fuel",
+    "content": "Tab 1 Content",
+    "disable": false,
+    "show": true,
+    "index": "0"
+  },
+
+
+  {
+    "title": "Repair",
+    "route": "expense.vehicles.repair",
+    "content": "Tab 2 Content",
+    "disable": false,
+    "show": true,
+    "index": "1"
+  },
+
+
+  {
+    "title": "License",
+    "route": "expense.vehicles.license",
+    "content": "Tab 3 Content",
+    "disable": false,
+    "show": true,
+    "index": "2"
+
+  }
+
+
+]

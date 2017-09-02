@@ -10,6 +10,7 @@
         'ui.router',
         'ui.bootstrap',
         'ui.tab.scroll',
+        'ngAnimate',
         //'ngSanitize',
         'blockUI' // see note appmodule.txt
     ]);

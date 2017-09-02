@@ -137,6 +137,7 @@
       "wwwroot/lib/angular-bootstrap/ui-bootstrap.min.js",
       "wwwroot/lib/angular-bootstrap/ui-bootstrap-tpls.min.js",
       "wwwroot/lib/angular-ui-tab-scroll/angular-ui-tab-scroll.js",
+      "wwwroot/lib/angular-animate/angular-animate.js",
       "wwwroot/lib/angular-block-ui/dist/angular-block-ui.min.js"
     ],
     "minify": {
@@ -180,6 +181,24 @@
     "includeInProject": false
   },
   {
+    "outputFileName": "wwwroot/js/productionAppBundle.js",
+    "inputFiles": [
+      "wwwroot/app/production/production.controller.js",
+      "wwwroot/app/production/l1/production.l1.controller.js",
+      "wwwroot/app/production/l2/production.l2.controller.js",
+      "wwwroot/app/production/l3/production.l3.controller.js",
+      "wwwroot/app/production/health/production.health.controller.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    // Optionally generate .map file
+    "sourceMap": false,
+    "includeInProject": false
+  },
+
+  {
     "outputFileName": "wwwroot/js/expenseAppBundle.js",
     "inputFiles": [
       "wwwroot/app/accounting/expense/expense.controller.js",
@@ -210,6 +229,37 @@
     "sourceMap": false,
     "includeInProject": false
   },
+
+  {
+    "outputFileName": "wwwroot/js/expense.vehiclesAppBundle.js",
+    "inputFiles": [
+      "wwwroot/app/accounting/expense/vehicles/expense.vehicles.controller.js",
+      "wwwroot/app/accounting/expense/vehicles/fuel/expense.vehicles.fuel.controller.js",
+      "wwwroot/app/accounting/expense/vehicles/repair/expense.vehicles.repair.controller.js",
+      "wwwroot/app/accounting/expense/vehicles/license/expense.vehicles.license.controller.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    // Optionally generate .map file
+    "sourceMap": false,
+    "includeInProject": false
+  },
+  {
+    "outputFileName": "wwwroot/js/salesAppBundle.js",
+    "inputFiles": [
+      "wwwroot/app/accounting/sales/sales.controller.js"
+    ],
+    "minify": {
+      "enabled": true,
+      "renameLocals": true
+    },
+    // Optionally generate .map file
+    "sourceMap": false,
+    "includeInProject": false
+  },
+
   {
     "outputFileName": "wwwroot/js/salaryAppBundle.js",
     "inputFiles": [
@@ -227,10 +277,10 @@
     "outputFileName": "wwwroot/js/adminAppBundle.js",
     "inputFiles": [
       "wwwroot/app/accounting/admin/admin.controller.js",
-      "wwwroot/app/accounting/admin/provider/admin.provider.controller.js",
-      "wwwroot/app/accounting/admin/farm/admin.farm.controller.js",
+      "wwwroot/app/accounting/admin/providers/admin.providers.controller.js",
+      "wwwroot/app/accounting/admin/farms/admin.farms.controller.js",
       "wwwroot/app/accounting/admin/feed/admin.feed.controller.js",
-      "wwwroot/app/accounting/admin/vehicle/admin.vehicle.controller.js"
+      "wwwroot/app/accounting/admin/vehicles/admin.vehicles.controller.js"
     ],
     "minify": {
       "enabled": true,

@@ -2,7 +2,7 @@
 
   {
     "title": "Providers",
-    "route": "admin.provider",
+    "route": "admin.providers",
     "content": "Tab 1 Content",
     "disable": false,
     "show": true,
@@ -12,7 +12,7 @@
 
   {
     "title": "Farms",
-    "route": "admin.farm",
+    "route": "admin.farms",
     "content": "Tab 2 Content",
     "disable": false,
     "show": true,
@@ -33,7 +33,7 @@
 
   {
     "title": "Vehicles",
-    "route": "admin.vehicle",
+    "route": "admin.vehicles",
     "content": "Tab 4 Content",
     "disable": false,
     "show": true,
@@ -57,7 +57,7 @@
     "content": "Tab 6 Content",
     "disable": false,
     "show": false,
-    "index": "4"
+    "index": "5"
 
   }
 

@@ -6,11 +6,11 @@
             <scrollable-tabset api="vm.scrlTabsApi"
                                drop-down-header-template-url="menuHeaderTemplate"
                                drop-down-header-class="menuHeader">
-                <uib-tabset style="height: 300px" active="initialActive">
+                <uib-tabset style="height: 300px" active="vm.Selectedtab">
                     <uib-tab ng-repeat="tab in vm.tabs" ng-show="{{tab.show}}"
-                             disable="{{tab.disable}}" index="tab.index" select="vm.tabSelected(tab.route)">
-                        <uib-tab-heading>{{tab.title}}</uib-tab-heading>
-                        <div ui-view />
+                             disable="{{tab.disable}}" index="tab.index" select="vm.tabSelected(tab.route, tab.index)">
+                        <uib-tab-heading >{{tab.title}}</uib-tab-heading>
+                        <div ui-view="{{tab.title | lowercase}}" />
                     </uib-tab>
                 </uib-tabset>
             </scrollable-tabset>

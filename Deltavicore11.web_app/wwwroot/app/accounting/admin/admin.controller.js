@@ -22,6 +22,7 @@
         var vm = this;
         vm.title = "Deltavi Admin";
         vm.tabs = [];
+        vm.Selectedtab = "1"; //sets initial tab
 
         vm.tabs = tabService.GetAllTabs('/app/accounting/admin/admin.tabs.json').then(function (data) {
              vm.tabs = data;

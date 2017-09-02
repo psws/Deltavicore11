@@ -4,10 +4,10 @@
     angular
         .module("deltavi")
         .register
-        .controller('expenseController', expenseController)
+        .controller('productionController', productionController)
         ;
 
-    expenseController.$inject = [
+    productionController.$inject = [
         '$location',
         '$state',
         'tabService'
@@ -15,26 +15,23 @@
 
 
 
-    function expenseController($location, $state, tabService) {
+    function productionController($location, $state, tabService) {
         //console.log("indexController init");
 
         var vm = this;
-        vm.title = "Deltavi Expenses";
+        vm.title = "Deltavi Production";
+        vm.Selectedtab = "1"; //sets initial tab
 
-        //http://plnkr.co/edit/wpBJSu6Z9wlVWqzUxGiE?p=preview
-        //https://stackoverflow.com/questions/36011804/uib-tabs-set-second-tabs-is-active
-        vm.Selectedtab = "1";  //sets initial tab
 
         vm.tabs = [];
-        vm.tabs = tabService.GetAllTabs('/app/accounting/expense/expense.tabs.json').then(function (data) {
+        vm.tabs = tabService.GetAllTabs('/app/production/production.tabs.json').then(function (data) {
             vm.tabs = data;
         });
 
 
         vm.scrlTabsApi = {};
 
-        vm.tabSelected = function (route, index) {
-            vm.Selectedtab = index;
+        vm.tabSelected = function (route) {
             $state.go(route);
         };
 
@@ -70,7 +67,7 @@
 
 })();
 
-console.log("ExpenseController");
+console.log("productionController");
 
 
 

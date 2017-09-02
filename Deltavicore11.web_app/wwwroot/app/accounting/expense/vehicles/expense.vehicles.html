@@ -1,0 +1,27 @@
+﻿<div>
+    <h4 style="padding:0px; margin-bottom:-15px">{{vm.title}}</h4>
+    <div style="padding-left:20px">
+        <br />
+        <scrollable-tabset api="vm.scrlTabsApi"
+                           drop-down-header-template-url="menuHeaderTemplate"
+                           drop-down-header-class="menuHeader">
+            <uib-tabset style="height: 200px" active="vm.Selectedtab" type="pills">
+                <uib-tab ng-repeat="tab in vm.tabs" ng-show="{{tab.show}}" 
+                         disable="{{tab.disable}}" index="tab.index" select="vm.tabSelected(tab.route)">
+                    <uib-tab-heading>{{tab.title}}</uib-tab-heading>
+                    <div ui-view="{{tab.title | lowercase}}" />
+                    <!--<div ui-view />-->
+                </uib-tab>
+            </uib-tabset>
+        </scrollable-tabset>
+
+
+
+        <script type="text/ng-template" id="menuHeaderTemplate">
+            <div>
+                <a href="#">Go to Tab</a>
+                <a href="#"></a>
+            </div>
+        </script>
+    </div>
+</div>

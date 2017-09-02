@@ -48,5 +48,14 @@
     "show": true,
     "index": "4"
 
+  },
+  {
+    "title": "Vehicles",
+    "route": "expense.vehicles",
+    "content": "Tab 4 Content",
+    "disable": false,
+    "show": true,
+    "index": "5"
+
   }
 ]

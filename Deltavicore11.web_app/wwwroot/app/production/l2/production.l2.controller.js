@@ -4,14 +4,14 @@
     angular
         .module('deltavi')
         .register
-        .controller('adminVehicleController', adminVehicleController);
+        .controller('productionL2Controller', productionL2Controller);
 
-    adminVehicleController.$inject = ['$location'];
+    productionL2Controller.$inject = ['$location'];
 
-    function adminVehicleController($location) {
+    function productionL2Controller($location) {
         /* jshint validthis:true */
         var vm = this;
-        vm.title = 'Vehicle Administration';
+        vm.title = 'Production L2 Entry';
 
         activate();
 

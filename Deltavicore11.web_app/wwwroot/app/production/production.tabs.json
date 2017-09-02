@@ -1,0 +1,42 @@
+﻿[
+
+  {
+    "title": "L1",
+    "route": "production.l1",
+    "content": "Tab 1 Content",
+    "disable": false,
+    "show": true,
+    "index": "0"
+  },
+
+
+  {
+    "title": "L2",
+    "route": "production.l2",
+    "content": "Tab 2 Content",
+    "disable": false,
+    "show": true,
+    "index": "1"
+  },
+
+
+  {
+    "title": "L3",
+    "route": "production.l3",
+    "content": "Tab 3 Content",
+    "disable": false,
+    "show": true,
+    "index": "2"
+
+  },
+
+  {
+    "title": "Health",
+    "route": "production.health",
+    "content": "Tab 3 Content",
+    "disable": false,
+    "show": true,
+    "index": "3"
+
+  }
+]

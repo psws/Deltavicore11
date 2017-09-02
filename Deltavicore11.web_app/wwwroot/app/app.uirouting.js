@@ -44,16 +44,103 @@
             $urlRouterProvider.otherwise('/home');
 
             $urlRouterProvider.when("/", ['$state', '$match', function ($state, $match) {
-                $state.go('expense'); 
+                $state.go('production'); //default tab
 
             }]);
 
             // States
+            //https://www.funnyant.com/angularjs-ui-router/
             $stateProvider
+                .state('production', {
+                    url: '/production',
+                    views: {
+                        'content@': {
+                            templateUrl: '/app/production/production.html',
+                            controller: 'productionController as vm',  //these lines cause the controller to be constructed/initialized twice
+                        }
+                    },
+                    //component: 'index',
+                    resolve: {
+                        resolver: ['CtrlResolver', function (CtrlResolver) {
+                            var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'production', '/app/production/production.controller.js?v=' + getApplicationVersion());
+                            return CtrlResolver.loadController(controllerToLoad);
+                        }]
+                    }
+                })
+                .state('production.l1', {
+                    url: '/l1',
+                    views: {
+                        'l1': {
+                            templateUrl: '/app/production/l1/production.l1.html',
+                            controller: 'productionL1Controller as vm',
+                        }
+                    },
+                    //component: 'index',
+                    resolve: {
+                        resolver: ['CtrlResolver', function (CtrlResolver) {
+                            var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'production.l1', '/app/production/l1/production.l1.controller.js?v=' + getApplicationVersion());
+                            return CtrlResolver.loadController(controllerToLoad);
+                        }]
+                    }
+                })
+                .state('production.l2', {
+                    url: '/l2',
+                    views: {
+                        'l2': {
+                            templateUrl: '/app/production/l2/production.l2.html',
+                            controller: 'productionL2Controller as vm',
+                        }
+                    },
+                    //component: 'index',
+                    resolve: {
+                        resolver: ['CtrlResolver', function (CtrlResolver) {
+                            var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'production.l2', '/app/production/l2/production.l2.controller.js?v=' + getApplicationVersion());
+                            return CtrlResolver.loadController(controllerToLoad);
+                        }]
+                    }
+                })
+                .state('production.l3', {
+                    url: '/l3',
+                    views: {
+                        'l3': {
+                            templateUrl: '/app/production/l3/production.l3.html',
+                            controller: 'productionL3Controller as vm',  //these lines cause the controller to be constructed/initialized twice
+                        }
+                    },
+                    //component: 'index',
+                    resolve: {
+                        resolver: ['CtrlResolver', function (CtrlResolver) {
+                            var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'production.l3', '/app/production/l3/production.l3.controller.js?v=' + getApplicationVersion());
+                            return CtrlResolver.loadController(controllerToLoad);
+                        }]
+                    }
+                })
+                .state('production.health', {
+                    url: '/health',
+                    views: {
+                        'health': {
+                            templateUrl: '/app/production/health/production.health.html',
+                            controller: 'productionHealthController as vm',  //these lines cause the controller to be constructed/initialized twice
+                        }
+                    },
+                    //component: 'index',
+                    resolve: {
+                        resolver: ['CtrlResolver', function (CtrlResolver) {
+                            var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'production.health', '/app/production/health/production.health.controller.js?v=' + getApplicationVersion());
+                            return CtrlResolver.loadController(controllerToLoad);
+                        }]
+                    }
+                })
+
+
                 .state('expense', {
                     url: '/expense',
-                    templateUrl: '/app/accounting/expense/expense.html',
-                    controller: 'expenseController as vm',  //these lines cause the controller to be constructed/initialized twice
+                    views: {
+                        'content@': {
+                            templateUrl: '/app/accounting/expense/expense.html',
+                            controller: 'expenseController as vm',  //these lines cause the controller to be constructed/initialized twice
+                        }
+                    },
                     //component: 'index',
                     resolve: {
                         resolver: ['CtrlResolver', function (CtrlResolver) {
@@ -64,8 +151,12 @@
                 })
                 .state('expense.cashadvance', {
                     url: '/cashadvance',
-                    templateUrl: '/app/accounting/expense/cashadvance/expense.cashadvance.html',
-                    controller: 'expenseCashAdnavceController as vm',
+                    views: {
+                        'cash advance': {
+                            templateUrl: '/app/accounting/expense/cashadvance/expense.cashadvance.html',
+                            controller: 'expenseCashAdnavceController as vm',
+                        }
+                    },
                     resolve: {
                         resolver: ['CtrlResolver', function (CtrlResolver) {
                             var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'expense.cashadvance', '/app/accounting/expense/cashadvance/expense.cashadvance.controller.js?v=' + getApplicationVersion());
@@ -75,8 +166,12 @@
                 })
                 .state('expense.farmfuel', {
                     url: '/farmfuel',
-                    templateUrl: '/app/accounting/expense/farmfuel/expense.farmfuel.html',
-                    controller: 'expenseFarmFuelController as vm',
+                    views: {
+                        'farm fuel': {
+                            templateUrl: '/app/accounting/expense/farmfuel/expense.farmfuel.html',
+                            controller: 'expenseFarmFuelController as vm',
+                        }
+                    },
                     resolve: {
                         resolver: ['CtrlResolver', function (CtrlResolver) {
                             var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'expense.farmfuel', '/app/accounting/expense/farmfuel/expense.farmfuel.controller.js?v=' + getApplicationVersion());
@@ -86,8 +181,12 @@
                 })
                 .state('expense.feed', {
                     url: '/feed',
-                    templateUrl: '/app/accounting/expense/feed/expense.feed.html',
-                    controller: 'expenseFeedController as vm',
+                    views: {
+                        'feed': {
+                            templateUrl: '/app/accounting/expense/feed/expense.feed.html',
+                            controller: 'expenseFeedController as vm',
+                        }
+                    },
                     resolve: {
                         resolver: ['CtrlResolver', function (CtrlResolver) {
                             var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'expense.feed', '/app/accounting/expense/feed/expense.feed.controller.js?v=' + getApplicationVersion());
@@ -97,8 +196,12 @@
                 })
                 .state('expense.supplies', {
                     url: '/supplies',
-                    templateUrl: '/app/accounting/expense/supplies/expense.supplies.html',
-                    controller: 'expenseSuppliesController as vm',
+                    views: {
+                        'supplies': {
+                            templateUrl: '/app/accounting/expense/supplies/expense.supplies.html',
+                            controller: 'expenseSuppliesController as vm',
+                        }
+                    },
                     resolve: {
                         resolver: ['CtrlResolver', function (CtrlResolver) {
                             var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'expense.supplies', '/app/accounting/expense/supplies/expense.supplies.controller.js?v=' + getApplicationVersion());
@@ -108,8 +211,12 @@
                 })
                 .state('expense.utilities', {
                     url: '/utilities',
-                    templateUrl: '/app/accounting/expense/utilities/expense.utilities.html',
-                    controller: 'expenseUtilitiesController as vm',
+                    views: {
+                        'utilities': {
+                            templateUrl: '/app/accounting/expense/utilities/expense.utilities.html',
+                            controller: 'expenseUtilitiesController as vm',
+                        }
+                    },
                     resolve: {
                         resolver: ['CtrlResolver', function (CtrlResolver) {
                             var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'expense.utilities', '/app/accounting/expense/utilities/expense.utilities.controller.js?v=' + getApplicationVersion());
@@ -117,11 +224,76 @@
                         }]
                     }
                 })
+                .state('expense.vehicles', {
+                    url: '/vehicles',
+                    views: {
+                        'vehicles': {
+                            templateUrl: '/app/accounting/expense/vehicles/expense.vehicles.html',
+                            controller: 'expenseVehiclesController as vm',
+                        }
+                    },
+                    resolve: {
+                        resolver: ['CtrlResolver', function (CtrlResolver) {
+                            var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'expense.vehicles', '/app/accounting/expense/vehicles/expense.vehicles.controller.js?v=' + getApplicationVersion());
+                            return CtrlResolver.loadController(controllerToLoad);
+                        }]
+                    }
+                })
+                .state('expense.vehicles.fuel', {
+                    url: '/fuel',
+                    views: {
+                        'fuel': {
+                            templateUrl: '/app/accounting/expense/vehicles/fuel/expense.vehicles.fuel.html',
+                            controller: 'expenseVehiclesFuelController as vm',
+                        }
+                    },
+                    resolve: {
+                        resolver: ['CtrlResolver', function (CtrlResolver) {
+                            var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'expense.vehicles.fuel', '/app/accounting/expense/vehicles/fuel/expense.vehicles.fuel.controller.js?v=' + getApplicationVersion());
+                            return CtrlResolver.loadController(controllerToLoad);
+                        }]
+                    }
+                })
+                .state('expense.vehicles.repair', {
+                    url: '/repair',
+                    views: {
+                        'repair': {
+                            templateUrl: '/app/accounting/expense/vehicles/repair/expense.vehicles.repair.html',
+                            controller: 'expenseVehiclesRepairController as vm',
+                        }
+                    },
+                    resolve: {
+                        resolver: ['CtrlResolver', function (CtrlResolver) {
+                            var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'expense.vehicles.repair', '/app/accounting/expense/vehicles/repair/expense.vehicles.repair.controller.js?v=' + getApplicationVersion());
+                            return CtrlResolver.loadController(controllerToLoad);
+                        }]
+                    }
+                })
+                .state('expense.vehicles.license', {
+                    url: '/license',
+                    views: {
+                        'license': {
+                            templateUrl: '/app/accounting/expense/vehicles/license/expense.vehicles.license.html',
+                            controller: 'expenseVehiclesLicenseController as vm',
+                        }
+                    },
+                    resolve: {
+                        resolver: ['CtrlResolver', function (CtrlResolver) {
+                            var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'expense.vehicles.license', '/app/accounting/expense/vehicles/license/expense.vehicles.license.controller.js?v=' + getApplicationVersion());
+                            return CtrlResolver.loadController(controllerToLoad);
+                        }]
+                    }
+                })
+
 
                 .state('sales', {
                     url: '/sales',
-                    templateUrl: '/app/accounting/sales/sales.html',
-                    controller: 'salesController as vm',  //these lines cause the controller to be constructed/initialized twice
+                    views: {
+                        'content@': {
+                            templateUrl: '/app/accounting/sales/sales.html',
+                            controller: 'salesController as vm',  //these lines cause the controller to be constructed/initialized twice
+                        }
+                    },
                     //component: 'sales',
                     resolve: {
                         resolver: ['CtrlResolver', function (CtrlResolver) {
@@ -132,8 +304,12 @@
                 })
                 .state('salary', {
                     url: '/salary',
-                    templateUrl: '/app/accounting/salary/salary.html',
-                    controller: 'salaryController as vm',  //these lines cause the controller to be constructed/initialized twice
+                    views: {
+                        'content@': {
+                            templateUrl: '/app/accounting/salary/salary.html',
+                            controller: 'salaryController as vm',  //these lines cause the controller to be constructed/initialized twice
+                        }
+                    },
                     //component: 'salary',
                     resolve: {
                         resolver: ['CtrlResolver', function (CtrlResolver) {
@@ -144,8 +320,12 @@
                 })
                 .state('admin', {
                     url: '/admin',
-                    templateUrl: '/app/accounting/admin/admin.html',
-                    controller: 'adminController as vm',  
+                    views: {
+                        'content@': {
+                            templateUrl: '/app/accounting/admin/admin.html',
+                            controller: 'adminController as vm',
+                        }
+                    },
                     //component: 'admin',
                     resolve: {
                         resolver: ['CtrlResolver', function (CtrlResolver) {
@@ -154,32 +334,44 @@
                         }]
                     }
                 })
-                .state('admin.provider', {
-                    url: '/provider',
-                    templateUrl: '/app/accounting/admin/provider/admin.provider.html',
-                    controller: 'adminProviderController as vm',  
+                .state('admin.providers', {
+                    url: '/providers',
+                    views: {
+                        'providers': {
+                            templateUrl: '/app/accounting/admin/providers/admin.providers.html',
+                            controller: 'adminProvidersController as vm',
+                        }
+                    },
                     resolve: {
                         resolver: ['CtrlResolver', function (CtrlResolver) {
-                            var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'admin.provider', '/app/accounting/admin/provider/admin.provider.controller.js?v=' + getApplicationVersion());
+                            var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'admin.providers', '/app/accounting/admin/providers/admin.providers.controller.js?v=' + getApplicationVersion());
                             return CtrlResolver.loadController(controllerToLoad);
                         }]
                     }
                 })
-                .state('admin.farm', {
-                    url: '/farm',
-                    templateUrl: '/app/accounting/admin/farm/admin.farm.html',
-                    controller: 'adminFarmController as vm',
+                .state('admin.farms', {
+                    url: '/farms',
+                    views: {
+                        'farms': {
+                            templateUrl: '/app/accounting/admin/farms/admin.farms.html',
+                            controller: 'adminFarmsController as vm',
+                        }
+                    },
                     resolve: {
                         resolver: ['CtrlResolver', function (CtrlResolver) {
-                            var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'admin.farm', '/app/accounting/admin/farm/admin.farm.controller.js?v=' + getApplicationVersion());
+                            var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'admin.farms', '/app/accounting/admin/farms/admin.farms.controller.js?v=' + getApplicationVersion());
                             return CtrlResolver.loadController(controllerToLoad);
                         }]
                     }
                 })
-               .state('admin.feed', {
+                .state('admin.feed', {
                     url: '/feed',
-                    templateUrl: '/app/accounting/admin/feed/admin.feed.html',
-                    controller: 'adminFeedController as vm',
+                    views: {
+                        'feed': {
+                            templateUrl: '/app/accounting/admin/feed/admin.feed.html',
+                            controller: 'adminFeedController as vm',
+                        }
+                    },
                     resolve: {
                         resolver: ['CtrlResolver', function (CtrlResolver) {
                             var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'admin.feed', '/app/accounting/admin/feed/admin.feed.controller.js?v=' + getApplicationVersion());
@@ -187,81 +379,55 @@
                         }]
                     }
                 })
-                .state('admin.vehicle', {
-                    url: '/vehicle',
-                    templateUrl: '/app/accounting/admin/vehicle/admin.vehicle.html',
-                    controller: 'adminVehicleController as vm',
+                .state('admin.vehicles', {
+                    url: '/vehicles',
+                    views: {
+                        'vehicles': {
+                            templateUrl: '/app/accounting/admin/vehicles/admin.vehicles.html',
+                            controller: 'adminVehiclesController as vm',
+                        }
+                    },
                     resolve: {
                         resolver: ['CtrlResolver', function (CtrlResolver) {
-                            var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'admin.vehicle', '/app/accounting/admin/vehicle/admin.vehicle.controller.js?v=' + getApplicationVersion());
+                            var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'admin.vehicles', '/app/accounting/admin/vehicles/admin.vehicles.controller.js?v=' + getApplicationVersion());
                             return CtrlResolver.loadController(controllerToLoad);
                         }]
                     }
                 })
-              .state('/home/contact', {
+                .state('/home/contact', {
                     url: '/home/contact',
-                    templateUrl: '/app/home/contact.html',
-                    controller: 'contactController as vm',  
+                    views: {
+                        'content@': {
+                            templateUrl: '/app/home/contact.html',
+                            controller: 'contactController as vm',
+                        }
+                    },
                     //component: 'contact',
                     resolve: {
-                        resolver: ['$q', '$rootScope', '$location', 'CtrlResolver', function ($q, $rootScope, $location, CtrlResolver) {
-                            var controllerToLoad;
-                            var directory = 'home';
-                            var bLoad = true;
-
-                            if (!envDevelopment) {
-                                if (!applicationConfigurationProvider.IsLoaded(directory)) {
-                                    controllerToLoad = applicationConfigurationProvider.getBundle(directory);
-                                    applicationConfigurationProvider.SetLoaded(directory);
-                                } else {
-                                    bLoad = false;
-                                }
-                            } else {
-                                controllerToLoad = "/app/home/contact.controller.js?v=" + getApplicationVersion();
-                                //controllerToLoad = "/app/components/contact.js?v=" + getApplicationVersion();
-                                //bLoad = false;
-
-                            }
-                            if (bLoad) {
-                                return CtrlResolver.loadController( controllerToLoad);
-                            }
-
-
+                        resolver: ['CtrlResolver', function (CtrlResolver) {
+                            var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'home', '/app/home/contact.controller.js?v=' + getApplicationVersion());
+                            return CtrlResolver.loadController(controllerToLoad);
                         }]
                     }
                 })
                 .state('/home/about', {
                     url: '/home/about',
-                    templateUrl: '/app/home/about.html',
-                    controller: 'aboutController as vm',
+                    views: {
+                        'content@': {
+                            templateUrl: '/app/home/about.html',
+                            controller: 'aboutController as vm',
+                        }
+                    },
+
                     //component: 'about',
                     resolve: {
-                        resolver: ['$q', '$rootScope', '$location', 'CtrlResolver', function ($q, $rootScope, $location, CtrlResolver) {
-                            var controllerToLoad;
-                            var directory = 'home';
-                            var bLoad = true;
-
-                            if (!envDevelopment) {
-                                if (!applicationConfigurationProvider.IsLoaded(directory)) {
-                                    controllerToLoad = applicationConfigurationProvider.getBundle(directory);
-                                    applicationConfigurationProvider.SetLoaded(directory);
-                                } else {
-                                    bLoad = false;
-                                }
-                            } else {
-                                controllerToLoad = "/app/home/about.controller.js?v=" + getApplicationVersion();
-                                //bLoad = false;
-
-                            }
-                            if (bLoad) {
-                                return CtrlResolver.loadController( controllerToLoad);
-                            }
-
-
+                        resolver: ['CtrlResolver', function (CtrlResolver) {
+                            var controllerToLoad = bundleControllerLoadCheck(envDevelopment, 'home', '/app/home/about.controller.js?v=' + getApplicationVersion());
+                            return CtrlResolver.loadController(controllerToLoad);
                         }]
+
                     }
                 })
-
 
                 ;
 
