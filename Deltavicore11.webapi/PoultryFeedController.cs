@@ -31,12 +31,12 @@ namespace Deltavicore11.webapi
 
             var response = await PoultryFeedService.GetProviderAsync(providerId);
 
-
+            
             return response.ToHttpResponse();
         }
 
         [HttpGet]
-        [Route("GetProviders/{pageSize}/{pageNumber}")]
+        [Route("GetProviders/{pageSize?}/{pageNumber?}")] // ? implies optional parm no parm wtll get all
         public async Task<IActionResult> GetProviders(int? pageSize = 10, int? pageNumber = 1)
         {
             //  http://localhost:52371/api/PoultryFeed/GetProviders/3/1

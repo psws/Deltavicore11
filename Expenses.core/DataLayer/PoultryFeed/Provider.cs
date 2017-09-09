@@ -37,7 +37,7 @@ namespace Expenses.core.DataLayer.PoultryFeed
         [Required]
         [Column(TypeName = "nvarchar(100)")]
         //[MaxLength(100)]
-        public string ProviderNamee { get; set; }
+        public string ProviderName { get; set; }
 
         [Column(TypeName = "nvarchar(100)")]
         //[MaxLength(100)]

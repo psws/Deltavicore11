@@ -38,6 +38,8 @@
       //"wwwroot/lib/bootstrap/dist/css/bootstrap.css.map",
       "wwwroot/lib/font-awesome/css/font-awesome.css",
       "wwwroot/lib/angular-ui-tab-scroll/angular-ui-tab-scroll.css",
+      "wwwroot/lib/angular-ui-grid/ui-grid.css",
+
       //min is used by choice, no expected debugging
       "wwwroot/lib/angular-block-ui/dist/angular-block-ui.min.css"
     ],
@@ -138,6 +140,12 @@
       "wwwroot/lib/angular-bootstrap/ui-bootstrap-tpls.min.js",
       "wwwroot/lib/angular-ui-tab-scroll/angular-ui-tab-scroll.js",
       "wwwroot/lib/angular-animate/angular-animate.js",
+      "wwwroot/lib/angular-touch/angular-touch.js",
+      "wwwroot/lib/angular-ui-grid/ui-grid.js",
+      "wwwroot/lib/pdfmake/build/pdfmake.js",
+      "wwwroot/lib/pdfmake/build/vfs_fonts.js",
+      "wwwroot/lib/csv/lib/csv.js",
+
       "wwwroot/lib/angular-block-ui/dist/angular-block-ui.min.js"
     ],
     "minify": {

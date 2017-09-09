@@ -1,36 +1,86 @@
-﻿//(function () {
-//    'use strict';
+﻿(function () {
+    'use strict';
 
-//    angular
-//        .module('deltavi')
-//        .service('AjaxService', AjaxService);
+    console.log("ajax service");
 
-//    AjaxService.$inject = ['$http'];
+    angular.module('deltavi')
+        .service('ajaxService', ajaxService);
 
-//    function AjaxService($http) {
-//        this.getData = getData;
+    ajaxService.$inject = [
+        '$http',
+        '$q',
+        'blockUI'
+    ];
 
-//        function getData() { }
-//    }
-//})();
-console.log("ajax service");
+    function ajaxService($http, $q, blockUI) {
 
-angular.module('deltavi').service('ajaxService', ['$http', 'blockUI', function ($http, blockUI) {
+        "use strict";
+        var vm = this;
+        var service = {
 
-    "use strict";
+            ajaxPost: function (data, route, successFunction, errorFunction) {
 
-    this.ajaxPost = function (data, route, successFunction, errorFunction) {
+                blockUI.start();
+                $http({
+                    method: 'POST',
+                    url: route,
+                    data: data
+                })
+                   .then(function (response, status, headers, config) {
+                        //First function handles success
+                        blockUI.stop();
+                        successFunction(response);
+                    }, function (response, status, headers, config) {
+                        blockUI.stop();
+                        //Second function handles error
+                        errorFunction("Something went wrong", response);
+                    });
 
-        blockUI.start();
+            },
 
-        $http.post(route, data).success(function (response, status, headers, config) {
-            blockUI.stop();
-            successFunction(response, status);
-        }).error(function (response) {
-            blockUI.stop();
-            errorFunction(response);
-        });
+            ajaxGet: function ( route) {
 
+                blockUI.start();
+
+                var deferred = $q.defer();
+                $http({
+                    method: 'GET',
+                    url: route,
+                    //params: 'limit=10, sort_by=created:desc',
+                    //headers: { 'Authorization': 'Token token=xxxxYYYYZzzz'}
+                }).then(function (response) {
+                    blockUI.stop();
+                    deferred.resolve(response);
+                }).catch(function (response) {
+                    blockUI.stop();
+                    deferred.reject("Ajax Request Failed!");
+                });
+                return deferred.promise;
+            }
+
+
+
+
+                //$http({
+                //    method: 'GET',
+                //    url: route,
+                //})
+                //    .then(function (response,status, headers, config) {
+                //        //First function handles success
+                //        blockUI.stop();
+                //        successFunction(response);
+                //    }, function (response, status, headers, config) {
+                //        blockUI.stop();
+                //        //Second function handles error
+                //        errorFunction("Something went wrong", response);
+                //    });
+
+            //}
+
+
+        }
+
+        return service;
     }
 
-}]);
+})();

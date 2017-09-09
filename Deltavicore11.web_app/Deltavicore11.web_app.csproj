@@ -24,12 +24,8 @@
     </Content>
     <Content Include="wwwroot\app\accounting\admin\feed\admin.feed.controller.js" />
     <Content Include="wwwroot\app\accounting\admin\feed\admin.feed.html" />
-    <Content Include="wwwroot\app\accounting\admin\providers\admin.provider.controller.js" />
-    <Content Include="wwwroot\app\accounting\admin\providers\admin.provider.html" />
     <Content Include="wwwroot\app\accounting\admin\providers\admin.providers.controller.js" />
     <Content Include="wwwroot\app\accounting\admin\providers\admin.providers.html" />
-    <Content Include="wwwroot\app\accounting\admin\providers\admin.providesr.controller.js" />
-    <Content Include="wwwroot\app\accounting\admin\vehicles\admin.vehicle.controller.js" />
     <Content Include="wwwroot\app\accounting\admin\vehicles\admin.vehicles.html">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
