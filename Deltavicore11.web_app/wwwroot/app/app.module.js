@@ -9,13 +9,13 @@
     var app = angular.module('deltavi', [
         'ui.router',
         'ui.bootstrap',
-        //'ngAnimate',
+        'ngAnimate',
        //'ngTouch',
       'ui.grid',
-        'ui.grid.selection',
         'ui.grid.exporter',
-       'ui.tab.scroll',
-        //'ngSanitize',
+        'ui.grid.selection',
+      'ui.tab.scroll',
+        'ngSanitize',
         'blockUI' // see note appmodule.txt
     ]);
 

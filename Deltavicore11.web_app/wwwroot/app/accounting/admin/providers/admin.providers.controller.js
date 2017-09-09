@@ -223,39 +223,42 @@
                 dbdata2[0] = dbdata[0];
 
                 $scope.gridOpts = {
+                    enableGridMenu: true,
+                    //enableSelectAll: false,
+                    //exporterCsvFilename: 'deltavi.csv',
+                    //exporterPdfDefaultStyle: { fontSize: 9 },
+                    //exporterPdfTableStyle: { margin: [30, 30, 30, 30] },
+                    //exporterPdfTableHeaderStyle: {
+                    //    fontSize: 10, bold: true, italics: true, color: 'red'
+                    //},
+                    //exporterPdfHeader: { text: "My Header", style: 'headerStyle' },
+                    //exporterPdfFooter: function (currentPage, pageCount) {
+                    //    return {
+                    //        text: currentPage.toString() + ' of ' + pageCount.toString(), style:
+                    //        'footerStyle'
+                    //    };
+                    //},
+                    //exporterPdfCustomFormatter: function (docDefinition) {
+                    //    docDefinition.styles.headerStyle = { fontSize: 22, bold: true };
+                    //    docDefinition.styles.footerStyle = { fontSize: 10, bold: true };
+                    //    return docDefinition;
+                    //},
+                    //exporterPdfOrientation: 'portrait',
+                    //exporterPdfPageSize: 'LETTER',
+                    //exporterPdfMaxGridWidth: 500,
+                    //exporterCsvLinkElement: angular.element(document.querySelectorAll(".custom-csv-link- location")),
+                    //onRegisterApi: function (gridApi) {
+                    //    $scope.gridApi = gridApi;
+                    //},
                     data: dbdata
                     ,
                     columnDefs: [
-                        { name: 'Provider3', field: 'providerName' }
+                        { name: 'Provider3', field: 'providerName' },
+                        { name: 'create date', field: 'creationDateTime' }
+
+                        
                     ]
-                    ,
-                    enableGridMenu: true,
-                    enableSelectAll: true,
-                    exporterCsvFilename: 'deltavi.csv',
-                    exporterPdfDefaultStyle: { fontSize: 9 },
-                    exporterPdfTableStyle: { margin: [30, 30, 30, 30] },
-                    exporterPdfTableHeaderStyle: {
-                        fontSize: 10, bold: true, italics: true, color: 'red'
-                    },
-                    exporterPdfHeader: { text: "My Header", style: 'headerStyle' },
-                    exporterPdfFooter: function (currentPage, pageCount) {
-                        return {
-                            text: currentPage.toString() + ' of ' + pageCount.toString(), style:
-                            'footerStyle'
-                        };
-                    },
-                    exporterPdfCustomFormatter: function (docDefinition) {
-                        docDefinition.styles.headerStyle = { fontSize: 22, bold: true };
-                        docDefinition.styles.footerStyle = { fontSize: 10, bold: true };
-                        return docDefinition;
-                    },
-                    exporterPdfOrientation: 'portrait',
-                    exporterPdfPageSize: 'LETTER',
-                    exporterPdfMaxGridWidth: 500,
-                    exporterCsvLinkElement: angular.element(document.querySelectorAll(".custom-csv-link- location")),
-                    onRegisterApi: function (gridApi) {
-                        $scope.gridApi = gridApi;
-                    }
+
                 };
 
 

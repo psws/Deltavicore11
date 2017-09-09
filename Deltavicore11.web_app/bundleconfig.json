@@ -140,7 +140,7 @@
       "wwwroot/lib/angular-bootstrap/ui-bootstrap-tpls.min.js",
       "wwwroot/lib/angular-ui-tab-scroll/angular-ui-tab-scroll.js",
       "wwwroot/lib/angular-animate/angular-animate.js",
-      "wwwroot/lib/angular-touch/angular-touch.js",
+      //"wwwroot/lib/angular-touch/angular-touch.js",
       "wwwroot/lib/angular-ui-grid/ui-grid.js",
       "wwwroot/lib/pdfmake/build/pdfmake.js",
       "wwwroot/lib/pdfmake/build/vfs_fonts.js",
