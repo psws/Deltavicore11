@@ -11,6 +11,17 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='SqlLite_Debug|AnyCPU'" />
 
   <ItemGroup>
+    <Compile Remove="wwwroot\lib\csv\src\**" />
+    <Compile Remove="wwwroot\lib\csv\test\**" />
+    <Content Remove="wwwroot\lib\csv\src\**" />
+    <Content Remove="wwwroot\lib\csv\test\**" />
+    <EmbeddedResource Remove="wwwroot\lib\csv\src\**" />
+    <EmbeddedResource Remove="wwwroot\lib\csv\test\**" />
+    <None Remove="wwwroot\lib\csv\src\**" />
+    <None Remove="wwwroot\lib\csv\test\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Content Include="wwwroot\app\accounting\admin\admin.controller.js" />
     <Content Include="wwwroot\app\accounting\admin\admin.html" />
     <Content Include="wwwroot\app\accounting\admin\admin.tabs.json" />
@@ -165,6 +176,10 @@
     <Content Include="wwwroot\app\services\resolver.service.js" />
     <Content Include="wwwroot\app\services\tab.service.js" />
     <Content Include="wwwroot\css\deltavi.min.css" />
+    <Content Include="wwwroot\css\ui-grid.eot" />
+    <Content Include="wwwroot\css\ui-grid.svg" />
+    <Content Include="wwwroot\css\ui-grid.ttf" />
+    <Content Include="wwwroot\css\ui-grid.woff" />
     <Content Include="wwwroot\js\routingBundle.js" />
     <Content Include="wwwroot\lib\angular-ui-router\.bower.json" />
     <Content Include="wwwroot\lib\angular-ui-router\bower.json" />

@@ -1,0 +1,12 @@
+﻿ui-grid has a ui-grid.css filr that has a font-face.
+In order to work 4 fonts need to be on the server in the same directory as ui-grid.css
+see: https://stackoverflow.com/questions/26942350/how-to-include-ui-grid-font-files-into-the-project
+app
+- lib
+  - ui-grid.js
+  - ui-grid.css
+  - ui-grid.eot
+  - ui-grid.svg
+  - ui-grid.ttf
+  - ui-grid.woff
+  for font face info see:https://stackoverflow.com/questions/2237540/how-do-i-load-external-fonts-into-an-html-document

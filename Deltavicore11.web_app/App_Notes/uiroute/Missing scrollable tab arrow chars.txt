@@ -1,0 +1,24 @@
+﻿uiroute is a .net4.6 project
+	THIS INFO IS NOT FOR A .NET CORE PROJECT!!!!!!!!!!!!!!!!!!!!
+MS has not done much work with .net standard.
+Most of the bower work has been done for .net core.
+
+After following the directions in Adding pkgs to a .net4 standard project.txt
+
+When adding files to the bower_components sub directories
+	make sure you get all thaat is needed (.js, .css, .map, fonts...)
+	It is best to mimic the bower pkg directory structure in VS2017.
+
+Mistakes I made.
+	The scrollable tab arrow icons were missing.
+	in bootstrap directory I did not put the dist sub dir.
+	I just put .css under bootstrap.
+		The scrollable tab uses arrows from the bootstrap/dist/fonts directory.
+		be sure to add these fonts.
+		This took 2 days to find!!!!!!!
+		using the f12 debugger, I noticed tha a font file was being doenloaded when the arrows appeared.
+			This font file was lookin at bower_components/fonts for the font file.
+			This was caused when the fonts were not found in the bower_components/bootstrap/dist/fonts 
+
+	In the angular-uu-grid directory, ui-grid is expecting to find the 4 uigrid font files at the top level
+		I added these to the project.

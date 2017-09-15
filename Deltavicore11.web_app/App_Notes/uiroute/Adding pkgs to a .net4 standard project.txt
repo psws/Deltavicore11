@@ -1,0 +1,40 @@
+﻿uiroute is a .net4.6 project
+	THIS INFO IS NOT FOR A .NET CORE PROJECT!!!!!!!!!!!!!!!!!!!!
+MS has not done much work with .net standard.
+Most of the bower work has been done for .net core.
+
+DO Not USE vs2017  Project(uiroute.app) -> manage bower packages dialog
+		This dialog alwats gets the latest pkg from Bower.
+You need to use the Package Manager Console.
+	make sure Bower and node are installed on yuor machine
+	https://volaresystems.com/blog/post/2014/12/08/Getting-started-with-Bower-on-an-ASPNET-MVC-project
+	IMPORTANT!!!!!
+	in the Package Manager Console:
+		cd uiroute.app
+	pwd shows the PMC urrent directory.
+	You need to be in the directory so the .bowerrc file is found
+	please generate the .bowerrc  file in the uiroute.app directory
+		.bowerrc
+			{
+			 "directory": "bower_components"
+			}
+	This sets the target directory for bower packages
+
+
+The scrollable tabs requires angular 1.5.11
+1>1.6.x will not resolve on bower.(scrollable tab 1.5.x deopendency)
+
+Force angular to 1.5.11:
+	bower istall angular@1.5.11
+Make sure all other packages the depend on angulasr are instaslled as
+  bower install <package name>@1.5.11
+  most pkgs will resole to the 1.5.11 version without the '@'
+Carefully read the Package Manager conflict window.
+	it will inform you of resolve issues.
+
+AFTER PKGS are installed with Bower.	
+	The css and js files are not added to the project automatically
+	You need to create a bower_components directory under uirout.app
+		create a directory for each Pkg under bower_components
+			Add the css and Js files to these directories
+	Modify the _layout.cshtml file to point to these new pkg directories
