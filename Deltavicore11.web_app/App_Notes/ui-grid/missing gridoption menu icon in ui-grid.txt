@@ -1,0 +1,55 @@
+﻿This bug took along time to sole
+It turns out if yo are getting yo ui-grid data from a DB
+you need to specify gridOpts in controller constructor.
+Yo also need the column defs
+When the dataq retuns from the server you can just set gridOpts.data to the json data.
+vm.gridOpts = {
+                    auroResize: true,
+                    enableGridMenu: true,
+                    enableSelectAll: true,
+                    exporterCsvFilename: vm.csvFilename,
+                    exporterPdfFilename: vm.pdffilename,
+                    exporterPdfDefaultStyle: { fontSize: 9 },
+                    exporterPdfTableStyle: { margin: [30, 30, 30, 30] },
+                    exporterPdfTableHeaderStyle: {
+                        fontSize: 10, bold: true, italics: true, color: 'red', background: 'yellow', fillColor: 'yellow'
+                    },
+                    exporterPdfHeader: { text: vm.reportHeader, style: 'headerStyle' },
+                    exporterPdfFooter: function (currentPage, pageCount) {
+                        return {
+                            text: currentPage.toString() + ' of ' + pageCount.toString(), style:
+                            'footerStyle'
+                        };
+                    },
+                    exporterPdfCustomFormatter: function (docDefinition) {
+                        docDefinition.styles.headerStyle = { fontSize: 22, bold: true };
+                        docDefinition.styles.footerStyle = { fontSize: 10, bold: true };
+                        return docDefinition;
+                    },
+                    exporterPdfOrientation: 'portrait',
+                    exporterPdfPageSize: 'LETTER',
+                    exporterPdfMaxGridWidth: 500,
+                    exporterCsvLinkElement: angular.element(document.querySelectorAll(".custom-csv-link- location")),
+                    onRegisterApi: function (gridApi) {
+                        $scope.gridApi = gridApi;
+                    },
+                    columnDefs: [
+                        { name: 'Provider', field: 'providerName' },
+                        { name: 'create date', field: 'creationDateTime' }
+
+                        
+                    ]
+
+Also be advised the ui-grid data requires a json array.
+My webapi will not return an array if there is only one row in the json data.
+It returns  a single object.
+This code fixes this issue
+	              var dbdata = response.data.model;
+                var dbdata2 = [];
+                             
+                if (!Array.isArray(dbdata)) {
+                    dbdata2[0] = dbdata;
+                    vm.gridOpts.data = dbdata2;
+                } else {
+                    vm.gridOpts.data = dbdata;
+                }

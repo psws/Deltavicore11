@@ -1,0 +1,13 @@
+﻿Also be advised the ui-grid data requires a json array.
+My webapi will not return an array if there is only one row in the json data.
+It returns  a single object.
+This code fixes this issue
+	              var dbdata = response.data.model;
+                var dbdata2 = [];
+                             
+                if (!Array.isArray(dbdata)) {
+                    dbdata2[0] = dbdata;
+                    vm.gridOpts.data = dbdata2;
+                } else {
+                    vm.gridOpts.data = dbdata;
+                }

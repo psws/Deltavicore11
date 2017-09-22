@@ -27,12 +27,6 @@
     <Content Include="wwwroot\app\accounting\admin\admin.tabs.json" />
     <Content Include="wwwroot\app\accounting\admin\farms\admin.farms.controller.js" />
     <Content Include="wwwroot\app\accounting\admin\farms\admin.farms.html" />
-    <Content Include="wwwroot\app\accounting\admin\feed\admin.farm.controller.js">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="wwwroot\app\accounting\admin\feed\admin.farm.html">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
     <Content Include="wwwroot\app\accounting\admin\feed\admin.feed.controller.js" />
     <Content Include="wwwroot\app\accounting\admin\feed\admin.feed.html" />
     <Content Include="wwwroot\app\accounting\admin\providers\admin.providers.controller.js" />
@@ -46,10 +40,6 @@
     <Content Include="wwwroot\app\accounting\expense\expense.controller.js" />
     <Content Include="wwwroot\app\accounting\expense\expense.html" />
     <Content Include="wwwroot\app\accounting\expense\expense.tabs.json" />
-    <Content Include="wwwroot\app\accounting\expense\farmfuel\expense.cashadvance.controller.js">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="wwwroot\app\accounting\expense\farmfuel\expense.cashadvance.html" />
     <Content Include="wwwroot\app\accounting\expense\farmfuel\expense.farmfuel.controller.js" />
     <Content Include="wwwroot\app\accounting\expense\farmfuel\expense.farmfuel.html" />
     <Content Include="wwwroot\app\accounting\expense\feed\expense.feed.controller.js">
@@ -64,34 +54,13 @@
     <Content Include="wwwroot\app\accounting\expense\supplies\expense.supplies.html">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
-    <Content Include="wwwroot\app\accounting\expense\utilities\expense.feed.html">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="wwwroot\app\accounting\expense\utilities\expense.supplies.controller.js">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
     <Content Include="wwwroot\app\accounting\expense\utilities\expense.utilities.controller.js" />
     <Content Include="wwwroot\app\accounting\expense\utilities\expense.utilities.html" />
-    <Content Include="wwwroot\app\accounting\expense\vehicles\admin.vehicle.tabs.json" />
-    <Content Include="wwwroot\app\accounting\expense\vehicles\expense.utilities.html">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="wwwroot\app\accounting\expense\vehicles\expense.vehicle.controller.js">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="wwwroot\app\accounting\expense\vehicles\expense.vehicle.html" />
-    <Content Include="wwwroot\app\accounting\expense\vehicles\expense.vehicle.tabs.json" />
     <Content Include="wwwroot\app\accounting\expense\vehicles\expense.vehicles.controller.js" />
     <Content Include="wwwroot\app\accounting\expense\vehicles\expense.vehicles.html" />
     <Content Include="wwwroot\app\accounting\expense\vehicles\expense.vehicles.tabs.json" />
-    <Content Include="wwwroot\app\accounting\expense\vehicles\fuel\expense.vehicles.controller.js">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
     <Content Include="wwwroot\app\accounting\expense\vehicles\fuel\expense.vehicles.fuel.controller.js" />
     <Content Include="wwwroot\app\accounting\expense\vehicles\fuel\expense.vehicles.fuel.html">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="wwwroot\app\accounting\expense\vehicles\license\expense.vehicles.fuel.controller.js">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
     <Content Include="wwwroot\app\accounting\expense\vehicles\license\expense.vehicles.license.controller.js" />
@@ -128,40 +97,14 @@
     <Content Include="wwwroot\app\home\PersonController.js" />
     <Content Include="wwwroot\app\js\site.js" />
     <Content Include="wwwroot\app\master.Controller.js" />
-    <Content Include="wwwroot\app\production\expense.controller.js" />
-    <Content Include="wwwroot\app\production\expense.html">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="wwwroot\app\production\health\expense.supplies.html">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="wwwroot\app\production\health\health.supplies.controller.js">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="wwwroot\app\production\health\health.controller.js" />
     <Content Include="wwwroot\app\production\health\production.health.controller.js" />
     <Content Include="wwwroot\app\production\health\production.health.html" />
-    <Content Include="wwwroot\app\production\health\salary.controller.js">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="wwwroot\app\production\l1\production.health.controller.js">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
-    <Content Include="wwwroot\app\production\l1\production.health.html">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
     <Content Include="wwwroot\app\production\l1\production.l1.controller.js" />
     <Content Include="wwwroot\app\production\l1\production.l1.html" />
-    <Content Include="wwwroot\app\production\l2\production.health.html">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
     <Content Include="wwwroot\app\production\l2\production.l2.controller.js">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
     </Content>
     <Content Include="wwwroot\app\production\l2\production.l2.html" />
-    <Content Include="wwwroot\app\production\l3\production.l1.controller.js">
-      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
-    </Content>
     <Content Include="wwwroot\app\production\l3\production.l3.controller.js" />
     <Content Include="wwwroot\app\production\l3\production.l3.html">
       <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
