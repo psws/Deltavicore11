@@ -1,0 +1,123 @@
+﻿There is a new version of NET Core September 2017 Update - Released 9/21/2017
+	https://github.com/dotnet/core/blob/master/release-notes/1.1/1.1.4.md
+
+	which leads to:
+	https://github.com/dotnet/core/blob/master/release-notes/download-archives/1.1.4-download.md
+	I installed the 64 bit SDk and the 64 bit runtime
+
+Next I upgraded VS2017 to 15.3.5
+	https://blogs.msdn.microsoft.com/visualstudio/2017/08/14/visual-studio-2017-version-15-3-released/
+		
+	I aslo added .netcore 2.0 there
+
+.netcore version != SDK version
+There is no way to select 1.1.4 version sdk.
+I created a new 1.1 .netcore web application to test.
+It uses Microsoft.AspNetCore (1.1.2)
+
+I next went to PMC and listed the .netcore version available in Nuget
+	Find-Package Microsoft.AspNetCore -allversions
+		old version: Get-Package -ListAvailable -filter Microsoft.AspNetCore -allversions
+
+				Id                                  Versions                                 Description                                                                                       
+				--                                  --------                                 -----------                                                                                       
+				Microsoft.AspNetCore                {2.0.0, 1.1.3, 1.1.2, 1.1.1...}          Microsoft.AspNetCore                                                                              
+				Microsoft.AspNetCore.OData.Radzen   {1.0.9, 1.0.8, 1.0.7, 1.0.6...}          Microsoft.AspNetCore.OData                                                                        
+				Microsoft.AspNetCore.WebSockets.... {0.1.0}                                  ASP.NET 5 web socket middleware for use on top of opaque servers.                                 
+				Microsoft.AspNetCore.WebSockets.... {0.1.0}                                  Managed web socket protocol parser.                                                               
+				Gray.Microsoft.AspNetCore.Signal... {0.2.0}                                  Core messaging components for ASP.NET SignalR.                                                    
+				Microsoft.AspNetCore.Http.Abstra... {2.0.0, 1.1.2, 1.1.1, 1.1.0...}          ASP.NET Core HTTP object model for HTTP requests and responses and also common extension method...
+				Microsoft.AspNetCore.Razor.Runtime  {2.0.0, 1.1.2, 1.1.1, 1.1.0...}          Runtime components for rendering Razor pages and implementing tag helpers....                     
+				Microsoft.AspNetCore.Mvc.Core       {2.0.0, 1.1.4, 1.1.3, 1.1.2...}          ASP.NET Core MVC core components. Contains common action result types, attribute routing, appli...
+				Microsoft.AspNetCore.Routing.Abs... {2.0.0, 1.1.2, 1.1.1, 1.1.0...}          ASP.NET Core abstractions for routing requests to application logic and for generating links....  
+				Microsoft.AspNetCore.Routing        {2.0.0, 1.1.2, 1.1.1, 1.1.0...}          ASP.NET Core middleware for routing requests to application logic and for generating links....    
+				Microsoft.AspNetCore.Authorization  {2.0.0, 1.1.3, 1.1.2, 1.1.1...}          ASP.NET Core authorization classes....                                                            
+				Microsoft.AspNetCore.DataProtect... {2.0.0, 1.1.3, 1.1.2, 1.1.1...}          ASP.NET Core data protection abstractions....                                                     
+				Microsoft.AspNetCore.Mvc.ViewFea... {2.0.0, 1.1.4, 1.1.3, 1.1.2...}          ASP.NET Core MVC view rendering features. Contains common types used in most MVC applications a...
+				Microsoft.AspNetCore.Html.Abstra... {2.0.0, 1.1.2, 1.1.1, 1.1.0...}          ASP.NET Core HTML abstractions used for building HTML content....                                 
+				Microsoft.AspNetCore.Mvc.Localiz... {2.0.0, 1.1.4, 1.1.3, 1.1.2...}          ASP.NET Core MVC features that enable globalization and localization of applications....          
+				Microsoft.AspNetCore.MvcFactory     {1.0.5, 1.0.4.21, 1.0.4.16, 1.0.4.1}     Microsoft.AspNetCore.MvcFactory...                                                                
+				Microsoft.AspNetCore.Cors           {2.0.0, 1.1.2, 1.1.1, 1.1.0...}          CORS middleware and policy for ASP.NET Core to enable cross-origin resource sharing....           
+				Microsoft.AspNetCore.Mvc.Abstrac... {2.0.0, 1.1.4, 1.1.3, 1.1.2...}          ASP.NET Core MVC abstractions and interfaces for action invocation and dispatching, authorizati...
+				Microsoft.AspNetCore.Mvc.Versioning {2.0.0, 1.2.1, 1.2.0, 1.0.3...}          A service API versioning library for Microsoft ASP.NET Core.                                      
+				Microsoft.AspNetCore.All            {2.0.0}                                  Microsoft.AspNetCore.All                                                                          
+				Time Elapsed: 00:00:01.5126492
+
+	I then installed Microsoft.AspNetCor 1.1.3
+		Install-Package Microsoft.AspNetCore -Version 1.1.3
+				Restoring packages for D:\vwd projects mvc angular\Deltavicore11\Deltavicore11.web_app\Deltavicore11.web_app.csproj...
+					GET https://www.nuget.org/api/v2/FindPackagesById()?id='Microsoft.AspNetCore'
+					OK https://www.nuget.org/api/v2/FindPackagesById()?id='Microsoft.AspNetCore' 347ms
+					GET https://www.nuget.org/api/v2/package/Microsoft.AspNetCore/1.1.3
+					OK https://www.nuget.org/api/v2/package/Microsoft.AspNetCore/1.1.3 114ms
+					GET https://www.nuget.org/api/v2/FindPackagesById()?id='Microsoft.AspNetCore.Diagnostics'
+					OK https://www.nuget.org/api/v2/FindPackagesById()?id='Microsoft.AspNetCore.Diagnostics' 117ms
+					GET https://www.nuget.org/api/v2/package/Microsoft.AspNetCore.Diagnostics/1.1.3
+					GET https://www.nuget.org/api/v2/FindPackagesById()?id='Microsoft.AspNetCore.Hosting'
+					OK https://www.nuget.org/api/v2/package/Microsoft.AspNetCore.Diagnostics/1.1.3 79ms
+					GET https://www.nuget.org/api/v2/FindPackagesById()?id='Microsoft.AspNetCore.Server.IISIntegration'
+					OK https://www.nuget.org/api/v2/FindPackagesById()?id='Microsoft.AspNetCore.Server.IISIntegration' 112ms
+					GET https://www.nuget.org/api/v2/package/Microsoft.AspNetCore.Server.IISIntegration/1.1.3
+					OK https://www.nuget.org/api/v2/FindPackagesById()?id='Microsoft.AspNetCore.Hosting' 326ms
+					OK https://www.nuget.org/api/v2/package/Microsoft.AspNetCore.Server.IISIntegration/1.1.3 77ms
+					GET https://www.nuget.org/api/v2/package/Microsoft.AspNetCore.Hosting/1.1.3
+					GET https://www.nuget.org/api/v2/FindPackagesById()?id='Microsoft.AspNetCore.Server.Kestrel'
+					GET https://www.nuget.org/api/v2/FindPackagesById()?id='Microsoft.AspNetCore.Diagnostics.Abstractions'
+					OK https://www.nuget.org/api/v2/package/Microsoft.AspNetCore.Hosting/1.1.3 81ms
+					GET https://www.nuget.org/api/v2/FindPackagesById()?id='Microsoft.AspNetCore.Hosting.Abstractions'
+					OK https://www.nuget.org/api/v2/FindPackagesById()?id='Microsoft.AspNetCore.Server.Kestrel' 141ms
+					GET https://www.nuget.org/api/v2/package/Microsoft.AspNetCore.Server.Kestrel/1.1.3
+					OK https://www.nuget.org/api/v2/package/Microsoft.AspNetCore.Server.Kestrel/1.1.3 81ms
+					OK https://www.nuget.org/api/v2/FindPackagesById()?id='Microsoft.AspNetCore.Diagnostics.Abstractions' 289ms
+					OK https://www.nuget.org/api/v2/FindPackagesById()?id='Microsoft.AspNetCore.Hosting.Abstractions' 176ms
+					GET https://www.nuget.org/api/v2/FindPackagesById()?id='Microsoft.AspNetCore.Hosting.Server.Abstractions'
+					GET https://www.nuget.org/api/v2/package/Microsoft.AspNetCore.Diagnostics.Abstractions/1.1.3
+					OK https://www.nuget.org/api/v2/FindPackagesById()?id='Microsoft.AspNetCore.Hosting.Server.Abstractions' 79ms
+					GET https://www.nuget.org/api/v2/package/Microsoft.AspNetCore.Hosting.Abstractions/1.1.3
+					GET https://www.nuget.org/api/v2/FindPackagesById()?id='Microsoft.AspNetCore.HttpOverrides'
+					OK https://www.nuget.org/api/v2/package/Microsoft.AspNetCore.Diagnostics.Abstractions/1.1.3 87ms
+					OK https://www.nuget.org/api/v2/package/Microsoft.AspNetCore.Hosting.Abstractions/1.1.3 107ms
+					OK https://www.nuget.org/api/v2/FindPackagesById()?id='Microsoft.AspNetCore.HttpOverrides' 128ms
+					GET https://www.nuget.org/api/v2/package/Microsoft.AspNetCore.Hosting.Server.Abstractions/1.1.3
+					GET https://www.nuget.org/api/v2/package/Microsoft.AspNetCore.HttpOverrides/1.1.3
+					OK https://www.nuget.org/api/v2/package/Microsoft.AspNetCore.Hosting.Server.Abstractions/1.1.3 86ms
+					OK https://www.nuget.org/api/v2/package/Microsoft.AspNetCore.HttpOverrides/1.1.3 85ms
+				Installing Microsoft.AspNetCore.Diagnostics.Abstractions 1.1.3.
+				Installing Microsoft.AspNetCore.HttpOverrides 1.1.3.
+				Installing Microsoft.AspNetCore.Hosting.Server.Abstractions 1.1.3.
+				Installing Microsoft.AspNetCore.Hosting.Abstractions 1.1.3.
+				Installing Libuv 1.9.2.
+				Installing Microsoft.AspNetCore.Diagnostics 1.1.3.
+				Installing Microsoft.AspNetCore.Server.IISIntegration 1.1.3.
+				Installing Microsoft.AspNetCore.Hosting 1.1.3.
+				Installing Microsoft.AspNetCore.Server.Kestrel 1.1.3.
+				Installing Microsoft.AspNetCore 1.1.3.
+				Installing NuGet package Microsoft.AspNetCore 1.1.3.
+				Committing restore...
+				Writing lock file to disk. Path: D:\vwd projects mvc angular\Deltavicore11\Deltavicore11.web_app\obj\project.assets.json
+				Restore completed in 3.93 sec for D:\vwd projects mvc angular\Deltavicore11\Deltavicore11.web_app\Deltavicore11.web_app.csproj.
+				Successfully uninstalled 'Libuv 1.9.1' from Deltavicore11.web_app
+				Successfully uninstalled 'Microsoft.AspNetCore 1.1.2' from Deltavicore11.web_app
+				Successfully uninstalled 'Microsoft.AspNetCore.Diagnostics 1.1.2' from Deltavicore11.web_app
+				Successfully uninstalled 'Microsoft.AspNetCore.Diagnostics.Abstractions 1.1.2' from Deltavicore11.web_app
+				Successfully uninstalled 'Microsoft.AspNetCore.Hosting 1.1.2' from Deltavicore11.web_app
+				Successfully uninstalled 'Microsoft.AspNetCore.Hosting.Abstractions 1.1.2' from Deltavicore11.web_app
+				Successfully uninstalled 'Microsoft.AspNetCore.Hosting.Server.Abstractions 1.1.2' from Deltavicore11.web_app
+				Successfully uninstalled 'Microsoft.AspNetCore.HttpOverrides 1.1.2' from Deltavicore11.web_app
+				Successfully uninstalled 'Microsoft.AspNetCore.Server.IISIntegration 1.1.2' from Deltavicore11.web_app
+				Successfully uninstalled 'Microsoft.AspNetCore.Server.Kestrel 1.1.2' from Deltavicore11.web_app
+				Successfully installed 'Libuv 1.9.2' to Deltavicore11.web_app
+				Successfully installed 'Microsoft.AspNetCore 1.1.3' to Deltavicore11.web_app
+				Successfully installed 'Microsoft.AspNetCore.Diagnostics 1.1.3' to Deltavicore11.web_app
+				Successfully installed 'Microsoft.AspNetCore.Diagnostics.Abstractions 1.1.3' to Deltavicore11.web_app
+				Successfully installed 'Microsoft.AspNetCore.Hosting 1.1.3' to Deltavicore11.web_app
+				Successfully installed 'Microsoft.AspNetCore.Hosting.Abstractions 1.1.3' to Deltavicore11.web_app
+				Successfully installed 'Microsoft.AspNetCore.Hosting.Server.Abstractions 1.1.3' to Deltavicore11.web_app
+				Successfully installed 'Microsoft.AspNetCore.HttpOverrides 1.1.3' to Deltavicore11.web_app
+				Successfully installed 'Microsoft.AspNetCore.Server.IISIntegration 1.1.3' to Deltavicore11.web_app
+				Successfully installed 'Microsoft.AspNetCore.Server.Kestrel 1.1.3' to Deltavicore11.web_app
+				Executing nuget actions took 2.11 sec
+				Time Elapsed: 00:00:06.1348799
+
+	The Dependencies/NuGet  now shows Microsoft.AspNetCore (1.1.3)
+		Now running latest but No 1.1.4

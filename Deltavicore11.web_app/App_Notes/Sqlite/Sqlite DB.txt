@@ -34,7 +34,7 @@ The Appsettings service is changed to use the Data::Sqlite from the app_config.j
 -------
 
 The EntityFramework ExpenseDbContext service is changed to use the AddEntityFrameworkSqlite() in the startup.cs file
-#if SQLLITE_DEBUG
+#if SQLLITE
             services.AddEntityFrameworkSqlite().AddDbContext<ExpenseDbContext>();
 #else
             services.AddEntityFrameworkSqlServer().AddDbContext<ExpenseDbContext>();
@@ -53,7 +53,7 @@ In Expenses.data.entityframework project ExpenseDbContext.cs file OnConfiguring(
 SQlite does not support the creation of schema thru migration/annotation.
 The solution was to change from a schema to a fully named table that included the schema
 Expenses.core\DataLayer\PoultryFeed\Provider.cs
-#if SQLLITE_DEBUG
+#if SQLLITE
     [Table("PoultryFeed.Provider")]
 #else
     [Table("Provider", Schema = "PoultryFeed")]

@@ -2,27 +2,45 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
+    <Configurations>Debug;Release;SqlLite_Debug;SqlLite</Configurations>
   </PropertyGroup>
 
   <PropertyGroup>
     <PackageTargetFallback>$(PackageTargetFallback);portable-net45+win8+wp8+wpa81;</PackageTargetFallback>
   </PropertyGroup>
 
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='SqlLite_Debug|AnyCPU'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='SqlLite|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='SqlLite_Debug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;SQLLITE_DEBUG;NETCOREAPP1_1</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE</DefineConstants>
+  </PropertyGroup>
 
   <ItemGroup>
     <Compile Remove="wwwroot\lib\csv\src\**" />
     <Compile Remove="wwwroot\lib\csv\test\**" />
+    <Compile Remove="wwwroot\logs\**" />
     <Content Remove="wwwroot\lib\csv\src\**" />
     <Content Remove="wwwroot\lib\csv\test\**" />
+    <Content Remove="wwwroot\logs\**" />
     <EmbeddedResource Remove="wwwroot\lib\csv\src\**" />
     <EmbeddedResource Remove="wwwroot\lib\csv\test\**" />
+    <EmbeddedResource Remove="wwwroot\logs\**" />
     <None Remove="wwwroot\lib\csv\src\**" />
     <None Remove="wwwroot\lib\csv\test\**" />
+    <None Remove="wwwroot\logs\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Content Include="wwwroot\app\accounting\admin\admin.controller.js" />
+  <ItemGroup><!--<Content Include="wwwroot\app\accounting\admin\admin.controller.js" />
     <Content Include="wwwroot\app\accounting\admin\admin.html" />
     <Content Include="wwwroot\app\accounting\admin\admin.tabs.json" />
     <Content Include="wwwroot\app\accounting\admin\farms\admin.farms.controller.js" />
@@ -153,7 +171,11 @@
     <Content Include="wwwroot\lib\angular-ui-router\release\ui-router-angularjs.min.js.map" />
     <Content Include="wwwroot\lib\angular-ui-router\rollup.config.js" />
     <Content Include="wwwroot\lib\angular-ui-router\tslint.json" />
-    <Content Include="wwwroot\lib\angular-ui-router\yarn.lock" />
+    <Content Include="wwwroot\lib\angular-ui-router\yarn.lock" />-->
+  
+    <None Remove="Properties\PublishProfiles\FolderProfile.pubxml" />
+    <None Remove="Properties\PublishProfiles\FolderProfile1.pubxml" />
+    <None Remove="Properties\PublishProfiles\localhost8089.pubxml" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="BuildBundlerMinifier" Version="2.4.337" />
@@ -181,6 +203,14 @@
     <ProjectReference Include="..\Expenses.business\Expenses.business.csproj" />
     <ProjectReference Include="..\Expenses.data.entityframework\Expenses.data.entityframework.csproj" />
     <ProjectReference Include="..\Identity\Expenses.identity.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="logs\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="SQLiteDB\Expenses.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>
