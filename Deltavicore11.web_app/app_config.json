@@ -3,10 +3,17 @@
     "Sql": {
       "ConnectionString": "Server=PSS60\\SQL2014;Database=Expenses;Trusted_Connection=True;user id=jims9m8r;password=jims9m8r;MultipleActiveResultSets=true"
     },
+    "Sqlpss66": {
+      "ConnectionString": "Server=PSS66\\SQL2014;Database=Expenses;Persist Security Info=False;user id=jims9m8r;password=jims9m8r;Integrated Security=true;MultipleActiveResultSets=true"
+      //"ConnectionString": "Server=PSS66\\SQL2014;Database=Expenses;Trusted_Connection=True;user id=jims9m8r;password=jims9m8r;Integrated Security=true;MultipleActiveResultSets=true"
+    },
+    "SqlReleasepss66": {
+      "ConnectionString": "Server=PSS66\\SQL2014;Database=Expenses;Persist Security Info=False;user id=jims9m8r;password=jims9m8r;Integrated Security=true;MultipleActiveResultSets=true"
+    },
     "Sqlite": {
       //path is ignored
       "ConnectionString": "Data Source=Expenses.db"
-    },
+    }
   },
 
   "AppSettings": {

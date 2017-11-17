@@ -9,6 +9,8 @@ I did not need to change pool identity ApplicationPoolIdentity. LoaclSystem also
 I added newtonsoft.js
 
 The best:
+https://docs.microsoft.com/en-us/aspnet/core/publishing/iis?tabs=aspnetcore1x
+
 	http://stackoverflow.com/questions/38624453/asp-net-core-1-0-on-iis-error-502-5
 
 Other: 

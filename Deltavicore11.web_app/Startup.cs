@@ -84,11 +84,17 @@ namespace Deltavicore11.web_app
 
             // Register the ConfigurationBuilder instance which MyOptions binds against.
             var x = Configuration.GetSection("AppSettings:ApplicationName");
+
 #if SQLLITE_DEBUG
             var connection = Configuration["Data:Sqlite:ConnectionString"];
-#else
+#elif SQLPSS66_DEBUG
+            var connection = Configuration["Data:Sqlpss66:ConnectionString"];
+#elif SQL
             var connection = Configuration["Data:Sql:ConnectionString"];
+#elif Release
+             var connection = Configuration["Data:SqlReleasepss66:ConnectionString"];
 #endif
+
 
 
             //inject OptionsAppSettings objects for _Layout.cshtml vession and baseUrl
@@ -103,8 +109,12 @@ namespace Deltavicore11.web_app
             //options => is not used cuz there is no AppSettings constructor.
 #if SQLLITE_DEBUG
             services.Configure<AppSettings>(Configuration.GetSection("Data:Sqlite"));
-#else
+#elif SQLPSS66_DEBUG
+            services.Configure<AppSettings>(Configuration.GetSection("Data:Sqlpss66"));
+#elif SQL
             services.Configure<AppSettings>(Configuration.GetSection("Data:Sql"));
+#elif Release
+            services.Configure<AppSettings>(Configuration.GetSection("Data:SqlReleasepss66"));
 #endif
 
             //services.Configure<OptionsDB>(options => Configuration.GetSection("ConnectionStrings"));
@@ -149,7 +159,7 @@ namespace Deltavicore11.web_app
             //  @*@Html.Raw(JavaScriptSnippet.FullScript)*@
             var aiOptions = new Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions();
             aiOptions.EnableAdaptiveSampling = false;
-            services.AddApplicationInsightsTelemetry( aiOptions);
+            //services.AddApplicationInsightsTelemetry( aiOptions);
 
 
             // Add application services.

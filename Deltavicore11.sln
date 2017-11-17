@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.16
+VisualStudioVersion = 15.0.27004.2008
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Deltavicore11.web_app", "Deltavicore11.web_app\Deltavicore11.web_app.csproj", "{48236270-0827-4D2B-88E5-BB5467EAFABB}"
 EndProject
@@ -27,6 +27,7 @@ Global
 		Release|Any CPU = Release|Any CPU
 		SqlLite_Debug|Any CPU = SqlLite_Debug|Any CPU
 		SqlLite|Any CPU = SqlLite|Any CPU
+		Sqlpss66_Debug|Any CPU = Sqlpss66_Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{48236270-0827-4D2B-88E5-BB5467EAFABB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
@@ -37,6 +38,8 @@ Global
 		{48236270-0827-4D2B-88E5-BB5467EAFABB}.SqlLite_Debug|Any CPU.Build.0 = SqlLite_Debug|Any CPU
 		{48236270-0827-4D2B-88E5-BB5467EAFABB}.SqlLite|Any CPU.ActiveCfg = SqlLite|Any CPU
 		{48236270-0827-4D2B-88E5-BB5467EAFABB}.SqlLite|Any CPU.Build.0 = SqlLite|Any CPU
+		{48236270-0827-4D2B-88E5-BB5467EAFABB}.Sqlpss66_Debug|Any CPU.ActiveCfg = Sqlpss66_Debug|Any CPU
+		{48236270-0827-4D2B-88E5-BB5467EAFABB}.Sqlpss66_Debug|Any CPU.Build.0 = Sqlpss66_Debug|Any CPU
 		{988D3EE7-5098-49CD-A8E1-331B55F92351}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{988D3EE7-5098-49CD-A8E1-331B55F92351}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{988D3EE7-5098-49CD-A8E1-331B55F92351}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,6 +48,8 @@ Global
 		{988D3EE7-5098-49CD-A8E1-331B55F92351}.SqlLite_Debug|Any CPU.Build.0 = SqlLite_Debug|Any CPU
 		{988D3EE7-5098-49CD-A8E1-331B55F92351}.SqlLite|Any CPU.ActiveCfg = SqlLite|Any CPU
 		{988D3EE7-5098-49CD-A8E1-331B55F92351}.SqlLite|Any CPU.Build.0 = SqlLite|Any CPU
+		{988D3EE7-5098-49CD-A8E1-331B55F92351}.Sqlpss66_Debug|Any CPU.ActiveCfg = Sqlpss66_Debug|Any CPU
+		{988D3EE7-5098-49CD-A8E1-331B55F92351}.Sqlpss66_Debug|Any CPU.Build.0 = Sqlpss66_Debug|Any CPU
 		{8F5F5AD5-E56A-4F58-9F01-6573826DFCC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8F5F5AD5-E56A-4F58-9F01-6573826DFCC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F5F5AD5-E56A-4F58-9F01-6573826DFCC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -53,6 +58,8 @@ Global
 		{8F5F5AD5-E56A-4F58-9F01-6573826DFCC9}.SqlLite_Debug|Any CPU.Build.0 = SqlLite_Debug|Any CPU
 		{8F5F5AD5-E56A-4F58-9F01-6573826DFCC9}.SqlLite|Any CPU.ActiveCfg = SqlLite|Any CPU
 		{8F5F5AD5-E56A-4F58-9F01-6573826DFCC9}.SqlLite|Any CPU.Build.0 = SqlLite|Any CPU
+		{8F5F5AD5-E56A-4F58-9F01-6573826DFCC9}.Sqlpss66_Debug|Any CPU.ActiveCfg = Sqlpss66_Debug|Any CPU
+		{8F5F5AD5-E56A-4F58-9F01-6573826DFCC9}.Sqlpss66_Debug|Any CPU.Build.0 = Sqlpss66_Debug|Any CPU
 		{6E899748-0365-4326-A6B1-C45627C67A83}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{6E899748-0365-4326-A6B1-C45627C67A83}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E899748-0365-4326-A6B1-C45627C67A83}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -61,6 +68,8 @@ Global
 		{6E899748-0365-4326-A6B1-C45627C67A83}.SqlLite_Debug|Any CPU.Build.0 = SqlLite_Debug|Any CPU
 		{6E899748-0365-4326-A6B1-C45627C67A83}.SqlLite|Any CPU.ActiveCfg = SqlLite|Any CPU
 		{6E899748-0365-4326-A6B1-C45627C67A83}.SqlLite|Any CPU.Build.0 = SqlLite|Any CPU
+		{6E899748-0365-4326-A6B1-C45627C67A83}.Sqlpss66_Debug|Any CPU.ActiveCfg = Sqlpss66_Debug|Any CPU
+		{6E899748-0365-4326-A6B1-C45627C67A83}.Sqlpss66_Debug|Any CPU.Build.0 = Sqlpss66_Debug|Any CPU
 		{BE6564BB-4FAD-418F-B8A9-82610F9608A2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{BE6564BB-4FAD-418F-B8A9-82610F9608A2}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BE6564BB-4FAD-418F-B8A9-82610F9608A2}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -69,6 +78,8 @@ Global
 		{BE6564BB-4FAD-418F-B8A9-82610F9608A2}.SqlLite_Debug|Any CPU.Build.0 = SqlLite_Debug|Any CPU
 		{BE6564BB-4FAD-418F-B8A9-82610F9608A2}.SqlLite|Any CPU.ActiveCfg = SqlLite|Any CPU
 		{BE6564BB-4FAD-418F-B8A9-82610F9608A2}.SqlLite|Any CPU.Build.0 = SqlLite|Any CPU
+		{BE6564BB-4FAD-418F-B8A9-82610F9608A2}.Sqlpss66_Debug|Any CPU.ActiveCfg = Sqlpss66_Debug|Any CPU
+		{BE6564BB-4FAD-418F-B8A9-82610F9608A2}.Sqlpss66_Debug|Any CPU.Build.0 = Sqlpss66_Debug|Any CPU
 		{EAC6F0B4-5D07-4512-8A16-62D1D4221B4E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{EAC6F0B4-5D07-4512-8A16-62D1D4221B4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EAC6F0B4-5D07-4512-8A16-62D1D4221B4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -77,6 +88,8 @@ Global
 		{EAC6F0B4-5D07-4512-8A16-62D1D4221B4E}.SqlLite_Debug|Any CPU.Build.0 = SqlLite_Debug|Any CPU
 		{EAC6F0B4-5D07-4512-8A16-62D1D4221B4E}.SqlLite|Any CPU.ActiveCfg = SqlLite|Any CPU
 		{EAC6F0B4-5D07-4512-8A16-62D1D4221B4E}.SqlLite|Any CPU.Build.0 = SqlLite|Any CPU
+		{EAC6F0B4-5D07-4512-8A16-62D1D4221B4E}.Sqlpss66_Debug|Any CPU.ActiveCfg = Sqlpss66_Debug|Any CPU
+		{EAC6F0B4-5D07-4512-8A16-62D1D4221B4E}.Sqlpss66_Debug|Any CPU.Build.0 = Sqlpss66_Debug|Any CPU
 		{3D30BBE1-4411-4809-B76A-479CEEB4D45A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3D30BBE1-4411-4809-B76A-479CEEB4D45A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3D30BBE1-4411-4809-B76A-479CEEB4D45A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -85,6 +98,8 @@ Global
 		{3D30BBE1-4411-4809-B76A-479CEEB4D45A}.SqlLite_Debug|Any CPU.Build.0 = SqlLite_Debug|Any CPU
 		{3D30BBE1-4411-4809-B76A-479CEEB4D45A}.SqlLite|Any CPU.ActiveCfg = SqlLite|Any CPU
 		{3D30BBE1-4411-4809-B76A-479CEEB4D45A}.SqlLite|Any CPU.Build.0 = SqlLite|Any CPU
+		{3D30BBE1-4411-4809-B76A-479CEEB4D45A}.Sqlpss66_Debug|Any CPU.ActiveCfg = Sqlpss66_Debug|Any CPU
+		{3D30BBE1-4411-4809-B76A-479CEEB4D45A}.Sqlpss66_Debug|Any CPU.Build.0 = Sqlpss66_Debug|Any CPU
 		{42EE68E4-F539-47D7-85DE-00C548707F8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{42EE68E4-F539-47D7-85DE-00C548707F8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{42EE68E4-F539-47D7-85DE-00C548707F8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -93,6 +108,8 @@ Global
 		{42EE68E4-F539-47D7-85DE-00C548707F8A}.SqlLite_Debug|Any CPU.Build.0 = SqlLite_Debug|Any CPU
 		{42EE68E4-F539-47D7-85DE-00C548707F8A}.SqlLite|Any CPU.ActiveCfg = SqlLite|Any CPU
 		{42EE68E4-F539-47D7-85DE-00C548707F8A}.SqlLite|Any CPU.Build.0 = SqlLite|Any CPU
+		{42EE68E4-F539-47D7-85DE-00C548707F8A}.Sqlpss66_Debug|Any CPU.ActiveCfg = Sqlpss66_Debug|Any CPU
+		{42EE68E4-F539-47D7-85DE-00C548707F8A}.Sqlpss66_Debug|Any CPU.Build.0 = Sqlpss66_Debug|Any CPU
 		{D53C6E97-EDFC-465C-9185-AAACDC781A62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D53C6E97-EDFC-465C-9185-AAACDC781A62}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D53C6E97-EDFC-465C-9185-AAACDC781A62}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -101,6 +118,8 @@ Global
 		{D53C6E97-EDFC-465C-9185-AAACDC781A62}.SqlLite_Debug|Any CPU.Build.0 = SqlLite_Debug|Any CPU
 		{D53C6E97-EDFC-465C-9185-AAACDC781A62}.SqlLite|Any CPU.ActiveCfg = SqlLite|Any CPU
 		{D53C6E97-EDFC-465C-9185-AAACDC781A62}.SqlLite|Any CPU.Build.0 = SqlLite|Any CPU
+		{D53C6E97-EDFC-465C-9185-AAACDC781A62}.Sqlpss66_Debug|Any CPU.ActiveCfg = Sqlpss66_Debug|Any CPU
+		{D53C6E97-EDFC-465C-9185-AAACDC781A62}.Sqlpss66_Debug|Any CPU.Build.0 = Sqlpss66_Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

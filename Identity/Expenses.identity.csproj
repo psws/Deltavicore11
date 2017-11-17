@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netcoreapp1.1</TargetFramework>
-    <Configurations>Debug;Release;SqlLite_Debug;SqlLite</Configurations>
+    <Configurations>Debug;Release;SqlLite_Debug;SqlLite;DebugPSS66;Sqlpss66_Debug</Configurations>
   </PropertyGroup>
 
   <ItemGroup>
