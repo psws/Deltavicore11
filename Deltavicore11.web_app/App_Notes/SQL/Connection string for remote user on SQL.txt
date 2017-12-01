@@ -1,0 +1,22 @@
+﻿If you are running under Microsoft Visual Studio the user is IIS_Users
+Server=PSS60\\SQL2014;Database=Expenses;Persist Security Info=False;user id=jims9m8r;password=jims9m8r;Integrated Security=true;MultipleActiveResultSets=true
+
+https://weblogs.asp.net/nannettethacker/fix-for-login-failed-for-user-nt-authority-anonymous-logon
+
+If you are running from a Browser: http://localhost:8092/admin/providers Integrated Secrity must be false. If not you will get this error:
+	"DbInitializer":error "Login failed for user 'NT AUTHORITY\ANONYMOUS LOGON
+INTEGRATED SECURITY:
+When false, User ID and Password are specified in the connection. When true, the current Windows account credentials are used for authentication.
+Recognized values are true, false, yes, no, and sspi (strongly recommended), which is equivalent to true.
+
+PERSIST SECRITY:
+Persist Security = true means that the Password used for SQL authentication is not removed from the ConnectionString property of the connection.
+When Integrated Security = true is used then the Persist Security is completely irelevant since it only applies to SQL authentication, not to windows/Integrated/SSPI.
+ I am sure setting Persist Security Info to True makes sense in certain scenarios, but the overall trend and recommendation for production environments is to set it to False. 
+ I should note that False is the default setting, so you can leave out the explicit setting from your connection string
+
+ SSPI:
+ SSPI stands for Security Support Provider Interface. The SSPI allows an application to use any of the available security packages on a system without changing the interface to use security services. The SSPI does not establish logon credentials
+ because that is generally a privileged operation handled by the operating system.
+ Integrated Security=true; doesn't work in all SQL providers, it throws an exception when used with the OleDb provider. So basically Integrated Security=SSPI; 
+ is preferred since works with both SQLClient & OleDB provid
