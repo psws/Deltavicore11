@@ -19,6 +19,8 @@ namespace Expenses.data.entityframework
             ConnectionString = appSettings.Value.ConnectionString;
             EntityMapper = entityMapper;
             Logger = logger;
+            Logger?.LogInformation("{0} has been invoked", nameof(ExpenseDbContext));
+            Logger?.LogInformation("{0} ConnectionString", ConnectionString);
         }
 
         //public DbSet<Provider> Provider { get; set; }
