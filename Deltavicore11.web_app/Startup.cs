@@ -91,8 +91,8 @@ namespace Deltavicore11.web_app
             var connection = Configuration["Data:Sqlpss66:ConnectionString"];
 #elif SQL
             var connection = Configuration["Data:Sql:ConnectionString"];
-#elif Release
-             var connection = Configuration["Data:SqlReleasepss66:ConnectionString"];
+#elif RELEASE
+            var connection = Configuration["Data:SqlReleasepss66:ConnectionString"];
 #endif
 
 
@@ -113,7 +113,7 @@ namespace Deltavicore11.web_app
             services.Configure<AppSettings>(Configuration.GetSection("Data:Sqlpss66"));
 #elif SQL
             services.Configure<AppSettings>(Configuration.GetSection("Data:Sql"));
-#elif Release
+#elif RELEASE
             services.Configure<AppSettings>(Configuration.GetSection("Data:SqlReleasepss66"));
 #endif
 
@@ -217,7 +217,6 @@ namespace Deltavicore11.web_app
 
             //var context = app.ApplicationServices.GetService<ExpenseDbContext>();
             Microsoft.Extensions.Logging.ILogger ILogger = app.ApplicationServices.GetService<ILoggerFactory>().CreateLogger("Init");
-
             DbInitializer.Initialize(ExpenseDbContext, ILogger);
         }
     }
