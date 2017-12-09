@@ -146,9 +146,14 @@ namespace Deltavicore11.web_app
             services.AddScoped<IEntityMapper, ExpenseEntityMapper>();
             services.AddScoped<IUserInfo, UserInfo>();
 
+         //Dependency injection
             services.AddScoped<IPoultryFeedService, PoultryFeedService>();
             services.AddScoped<IPoultryFeedRepository, PoultryFeedRepository>();
             services.AddScoped<ILogger<PoultryFeedService>, Logger<PoultryFeedService>>();
+
+            services.AddScoped<IFarmService, FarmService>();
+            services.AddScoped<IFarmRepository,FarmRepository>();
+            services.AddScoped<ILogger<FarmService>, Logger<FarmService>>();
 
             //https://stackoverflow.com/questions/40156377/disable-application-insights-sampling-with-the-asp-net-core-libraries
             //enable sampling

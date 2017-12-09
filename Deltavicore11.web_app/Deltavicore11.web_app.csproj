@@ -28,15 +28,19 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="logs\**" />
     <Compile Remove="wwwroot\lib\csv\src\**" />
     <Compile Remove="wwwroot\lib\csv\test\**" />
     <Compile Remove="wwwroot\logs\**" />
+    <Content Remove="logs\**" />
     <Content Remove="wwwroot\lib\csv\src\**" />
     <Content Remove="wwwroot\lib\csv\test\**" />
     <Content Remove="wwwroot\logs\**" />
+    <EmbeddedResource Remove="logs\**" />
     <EmbeddedResource Remove="wwwroot\lib\csv\src\**" />
     <EmbeddedResource Remove="wwwroot\lib\csv\test\**" />
     <EmbeddedResource Remove="wwwroot\logs\**" />
+    <None Remove="logs\**" />
     <None Remove="wwwroot\lib\csv\src\**" />
     <None Remove="wwwroot\lib\csv\test\**" />
     <None Remove="wwwroot\logs\**" />
@@ -204,9 +208,6 @@
     <ProjectReference Include="..\Expenses.business\Expenses.business.csproj" />
     <ProjectReference Include="..\Expenses.data.entityframework\Expenses.data.entityframework.csproj" />
     <ProjectReference Include="..\Identity\Expenses.identity.csproj" />
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="logs\" />
   </ItemGroup>
   <ItemGroup>
     <None Update="SQLiteDB\Expenses.db">

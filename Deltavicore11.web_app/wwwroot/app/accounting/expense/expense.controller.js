@@ -23,7 +23,7 @@
 
         //http://plnkr.co/edit/wpBJSu6Z9wlVWqzUxGiE?p=preview
         //https://stackoverflow.com/questions/36011804/uib-tabs-set-second-tabs-is-active
-        vm.Selectedtab = "1";  //sets initial tab
+        vm.Selectedtab = "2";  //sets initial tab
 
         vm.tabs = [];
         vm.tabs = tabService.GetAllTabs('/app/accounting/expense/expense.tabs.json').then(function (data) {

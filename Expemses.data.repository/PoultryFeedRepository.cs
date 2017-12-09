@@ -29,7 +29,7 @@ namespace Expenses.entityframework.repository
                 .FirstOrDefaultAsync(item => item.ProviderId == providerId);
         }
 
-        public async Task<IEnumerable<Provider>> GetProvidersAsync(int pageSize = 10, int pageNumber = 1)
+        public async Task<IEnumerable<Provider>> GetProvidersAsync(int pageSize , int pageNumber )
         {
             IEnumerable<Provider> IEnumerableList = null;
             if (pageNumber == 0)

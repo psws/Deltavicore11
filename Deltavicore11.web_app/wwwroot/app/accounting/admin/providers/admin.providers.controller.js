@@ -47,7 +47,7 @@
                     exporterPdfMaxGridWidth: 500,
                     exporterCsvLinkElement: angular.element(document.querySelectorAll(".custom-csv-link- location")),
                     onRegisterApi: function (gridApi) {
-                        $scope.gridApi = gridApi;
+                        vm.gridApi = gridApi;
                     },
                     columnDefs: [
                         { name: 'Provider', field: 'providerName' },

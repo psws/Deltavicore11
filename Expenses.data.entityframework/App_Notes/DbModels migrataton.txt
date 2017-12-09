@@ -42,7 +42,7 @@ The DbInitializer.cs:Initializer method has the folloeing code
                context.Database.EnsureCreated();//if db is not exist ,it will create database .but ,do nothing .
 
                 logger?.LogInformation("{0} has been invoked", nameof(DbInitializer));
-                // Look for any students.
+                // Look for any providers.
                 if (context.Set<Provider>().Any())
                 {
                     return;   // DB has been seeded

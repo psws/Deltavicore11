@@ -20,8 +20,8 @@ namespace Expenses.business
             : base(logger, userInfo)
         {
             PoultryFeedRepository = poultryFeedRepository;
-        }
 
+        }
         public async Task<ISingleModelResponse<Provider>> GetProviderAsync(int vendorId)
         {
             {

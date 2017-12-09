@@ -22,7 +22,7 @@
         var vm = this;
         vm.title = "Deltavi Admin";
         vm.tabs = [];
-        vm.Selectedtab = "1"; //sets initial tab
+        vm.Selectedtab = "3"; //sets initial tab
 
         vm.tabs = tabService.GetAllTabs('/app/accounting/admin/admin.tabs.json').then(function (data) {
              vm.tabs = data;
@@ -53,17 +53,20 @@
             $state.go(route);
         };
 
+        //vm.tabSelected = function (route, index) {
+        //    vm.Selectedtab = index;
+        //    $state.go(route);
+        //};
 
+        //vm.tab1 = {
+        //    heading: 'Provider Maintenance',
+        //    templateUrl: '/app/home/personcomponent.html'
+        //};
 
-        vm.tab1 = {
-            heading: 'Provider Maintenance',
-            templateUrl: '/app/home/personcomponent.html'
-        };
-
-        vm.tab2 = {
-            heading: 'Provider Maintenance2',
-            templateUrl: '/app/poultryfeed/personcomponent.html'
-        };
+        //vm.tab2 = {
+        //    heading: 'Provider Maintenance2',
+        //    templateUrl: '/app/poultryfeed/personcomponent.html'
+        //};
 
         //for (var i = 0; i < 15; i++) {
         //    vm.tabs.push({

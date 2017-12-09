@@ -8,6 +8,7 @@
     "jquery-validation-unobtrusive": "3.2.6",
     "requirejs": "2.3.4",
     "respond": "1.4.2",
-    "jasmine-core": "v2.7.0"
+    "jasmine-core": "v2.7.0",
+    "font-awesome": "font-awsome#v4.7.0"
   }
 }
